@@ -69,8 +69,6 @@ public:
     Animatable(Context* context);
     /// Destruct.
     virtual ~Animatable();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
     virtual bool LoadXML(const XMLElement& source, bool setInstanceDefault = false);
@@ -141,3 +139,5 @@ protected:
 };
 
 }
+
+REGISTER_INTERFACE_TRAITS(Urho3D::Animatable);

@@ -69,10 +69,8 @@ DropDownList::~DropDownList()
 {
 }
 
-void DropDownList::RegisterObject(Context* context)
+REGISTER_OBJECT(DropDownList, UI_CATEGORY)
 {
-    context->RegisterFactory<DropDownList>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(Menu);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Focus Mode", FM_FOCUSABLE_DEFOCUSABLE);
     ACCESSOR_ATTRIBUTE("Selection", GetSelection, SetSelectionAttr, unsigned, 0, AM_FILE);

@@ -53,8 +53,9 @@ CollisionShape2D::~CollisionShape2D()
     ReleaseFixture();
 }
 
-void CollisionShape2D::RegisterObject(Context* context)
+REGISTER_OBJECT_NO_FACTORY(CollisionShape2D)
 {
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Trigger", IsTrigger, SetTrigger, bool, false, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Category Bits", GetCategoryBits, SetCategoryBits, int, 0, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Mask Bits", GetMaskBits, SetMaskBits, int, 0, AM_DEFAULT);

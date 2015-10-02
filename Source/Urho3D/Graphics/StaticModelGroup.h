@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~StaticModelGroup();
     /// Register object factory. StaticModel must be registered first.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
     void ApplyAttributes();

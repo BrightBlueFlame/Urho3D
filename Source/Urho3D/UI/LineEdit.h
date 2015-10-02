@@ -41,7 +41,7 @@ public:
     /// Destruct.
     virtual ~LineEdit();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

@@ -45,10 +45,8 @@ ConstraintMouse2D::~ConstraintMouse2D()
 {
 }
 
-void ConstraintMouse2D::RegisterObject(Context* context)
+REGISTER_OBJECT(ConstraintMouse2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<ConstraintMouse2D>(URHO2D_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Target", GetTarget, SetTarget, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Max Force", GetMaxForce, SetMaxForce, float, 0.0f, AM_DEFAULT);

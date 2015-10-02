@@ -52,10 +52,8 @@ Button::~Button()
 {
 }
 
-void Button::RegisterObject(Context* context)
+REGISTER_OBJECT(Button, UI_CATEGORY)
 {
-    context->RegisterFactory<Button>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Focus Mode", FM_FOCUSABLE);

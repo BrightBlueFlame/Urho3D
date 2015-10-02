@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~SoundListener();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 };
 
 }

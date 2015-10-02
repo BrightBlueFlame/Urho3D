@@ -45,11 +45,9 @@ Skybox::~Skybox()
 {
 }
 
-void Skybox::RegisterObject(Context* context)
+REGISTER_OBJECT(Skybox, GEOMETRY_CATEGORY)
 {
-    context->RegisterFactory<Skybox>(GEOMETRY_CATEGORY);
-
-    COPY_BASE_ATTRIBUTES(StaticModel);
+    Definition.Base<StaticModel>(true);
 }
 
 void Skybox::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)

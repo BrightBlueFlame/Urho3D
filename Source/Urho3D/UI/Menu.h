@@ -40,7 +40,7 @@ public:
     /// Destruct.
     virtual ~Menu();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Load from XML data with style. Return true if successful.
     virtual bool LoadXML(const XMLElement& source, XMLFile* styleFile, bool setInstanceDefault = false);

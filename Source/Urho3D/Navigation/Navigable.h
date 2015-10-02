@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~Navigable();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Set whether geometry is automatically collected from child nodes. Default true.
     void SetRecursive(bool enable);

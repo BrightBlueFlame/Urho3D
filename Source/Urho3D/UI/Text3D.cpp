@@ -65,10 +65,8 @@ Text3D::~Text3D()
 {
 }
 
-void Text3D::RegisterObject(Context* context)
+REGISTER_OBJECT(Text3D, GEOMETRY_CATEGORY)
 {
-    context->RegisterFactory<Text3D>(GEOMETRY_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Font", GetFontAttr, SetFontAttr, ResourceRef, ResourceRef(Font::GetTypeStatic()), AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Material", GetMaterialAttr, SetMaterialAttr, ResourceRef, ResourceRef(Material::GetTypeStatic()),

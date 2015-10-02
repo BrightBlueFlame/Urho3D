@@ -75,9 +75,9 @@ XMLFile::~XMLFile()
     document_ = 0;
 }
 
-void XMLFile::RegisterObject(Context* context)
+REGISTER_OBJECT(XMLFile)
 {
-    context->RegisterFactory<XMLFile>();
+    Definition.Base<Resource>();
 }
 
 bool XMLFile::BeginLoad(Deserializer& source)

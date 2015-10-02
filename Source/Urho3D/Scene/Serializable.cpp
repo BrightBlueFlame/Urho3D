@@ -53,6 +53,11 @@ static unsigned RemapAttributeIndex(const Vector<AttributeInfo>* attributes, con
 
     return netAttrIndex; // Could not remap
 }
+    
+REGISTER_OBJECT(Serializable)
+{
+    Definition.Base<Object>();
+}
 
 Serializable::Serializable(Context* context) :
     Object(context),

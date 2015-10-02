@@ -115,9 +115,9 @@ Animation::~Animation()
 {
 }
 
-void Animation::RegisterObject(Context* context)
+REGISTER_OBJECT(Animation)
 {
-    context->RegisterFactory<Animation>();
+    Definition.Base<Resource>();
 }
 
 bool Animation::BeginLoad(Deserializer& source)

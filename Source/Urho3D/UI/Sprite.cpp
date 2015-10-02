@@ -52,9 +52,9 @@ Sprite::~Sprite()
 {
 }
 
-void Sprite::RegisterObject(Context* context)
+REGISTER_OBJECT(Sprite, UI_CATEGORY)
 {
-    context->RegisterFactory<Sprite>(UI_CATEGORY);
+    Definition.Base<UIElement>();
 
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_FILE);
     ACCESSOR_ATTRIBUTE("Position", GetPosition, SetPosition, Vector2, Vector2::ZERO, AM_FILE);

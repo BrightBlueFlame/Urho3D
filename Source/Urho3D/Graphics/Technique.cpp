@@ -185,9 +185,9 @@ Technique::~Technique()
 {
 }
 
-void Technique::RegisterObject(Context* context)
+REGISTER_OBJECT(Technique)
 {
-    context->RegisterFactory<Technique>();
+    Definition.Base<Resource>();
 }
 
 bool Technique::BeginLoad(Deserializer& source)

@@ -44,7 +44,7 @@ public:
     virtual ~Obstacle();
 
     /// Register Obstacle with engine context.
-    static void RegisterObject(Context*);
+    //static void RegisterObject(Context*);
 
     /// Update the owning mesh when enabled status has changed.
     virtual void OnSetEnabled();

@@ -110,7 +110,7 @@ public:
     /// Destruct.
     ~Material();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

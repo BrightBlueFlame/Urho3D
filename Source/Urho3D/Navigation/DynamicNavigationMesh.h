@@ -52,7 +52,7 @@ public:
     virtual ~DynamicNavigationMesh();
 
     /// Register with engine context.
-    static void RegisterObject(Context*);
+    //static void RegisterObject(Context*);
 
     /// Build/rebuild the entire navigation mesh.
     virtual bool Build();

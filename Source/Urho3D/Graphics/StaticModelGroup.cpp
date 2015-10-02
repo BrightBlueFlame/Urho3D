@@ -51,10 +51,8 @@ StaticModelGroup::~StaticModelGroup()
 {
 }
 
-void StaticModelGroup::RegisterObject(Context* context)
+REGISTER_OBJECT(StaticModelGroup, GEOMETRY_CATEGORY)
 {
-    context->RegisterFactory<StaticModelGroup>(GEOMETRY_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(StaticModel);
     ACCESSOR_ATTRIBUTE("Instance Nodes", GetNodeIDsAttr, SetNodeIDsAttr, VariantVector, Variant::emptyVariantVector,
         AM_DEFAULT | AM_NODEIDVECTOR);

@@ -75,10 +75,8 @@ ScrollBar::~ScrollBar()
 {
 }
 
-void ScrollBar::RegisterObject(Context* context)
+REGISTER_OBJECT(ScrollBar, UI_CATEGORY)
 {
-    context->RegisterFactory<ScrollBar>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);
     ENUM_ACCESSOR_ATTRIBUTE("Orientation", GetOrientation, SetOrientation, Orientation, orientations, O_HORIZONTAL, AM_FILE);

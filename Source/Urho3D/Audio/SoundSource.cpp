@@ -125,9 +125,10 @@ SoundSource::~SoundSource()
         audio_->RemoveSoundSource(this);
 }
 
-void SoundSource::RegisterObject(Context* context)
+//void SoundSource::RegisterObject(Context* context)
+REGISTER_OBJECT(SoundSource, AUDIO_CATEGORY)
 {
-    context->RegisterFactory<SoundSource>(AUDIO_CATEGORY);
+    Definition.Base<Component>();
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Sound", GetSoundAttr, SetSoundAttr, ResourceRef, ResourceRef(Sound::GetTypeStatic()), AM_DEFAULT);

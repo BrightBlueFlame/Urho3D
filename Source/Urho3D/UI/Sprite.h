@@ -38,8 +38,6 @@ public:
     Sprite(Context* context);
     /// Destruct.
     virtual ~Sprite();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Return whether is visible and inside a scissor rectangle and should be rendered.
     virtual bool IsWithinScissor(const IntRect& currentScissor);

@@ -43,8 +43,6 @@ public:
     View3D(Context* context);
     /// Destruct.
     ~View3D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// React to resize.
     virtual void OnResize();

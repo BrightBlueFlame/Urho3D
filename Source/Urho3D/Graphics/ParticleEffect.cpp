@@ -86,9 +86,9 @@ ParticleEffect::~ParticleEffect()
 {
 }
 
-void ParticleEffect::RegisterObject(Context* context)
+REGISTER_OBJECT(ParticleEffect)
 {
-    context->RegisterFactory<ParticleEffect>();
+    Definition.Base<Resource>();
 }
 
 bool ParticleEffect::BeginLoad(Deserializer& source)

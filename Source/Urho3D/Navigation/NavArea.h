@@ -37,8 +37,6 @@ public:
     NavArea(Context*);
     /// Destruct.
     virtual ~NavArea();
-    /// Register object factory and attributes.
-    static void RegisterObject(Context*);
 
     /// Render debug geometry for the bounds.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

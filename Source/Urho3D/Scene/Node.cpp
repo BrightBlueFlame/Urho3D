@@ -72,10 +72,10 @@ Node::~Node()
         scene_->NodeRemoved(this);
 }
 
-void Node::RegisterObject(Context* context)
+//void Node::RegisterObject(Context* context)
+REGISTER_OBJECT(Node)
 {
-    context->RegisterFactory<Node>();
-
+    Definition.Implements<Animatable>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Position", GetPosition, SetPosition, Vector3, Vector3::ZERO, AM_FILE);

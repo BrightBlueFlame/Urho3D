@@ -185,9 +185,10 @@ Material::~Material()
 {
 }
 
-void Material::RegisterObject(Context* context)
+//void Material::RegisterObject(Context* context)
+REGISTER_OBJECT(Material)
 {
-    context->RegisterFactory<Material>();
+    Definition.Base<Resource>();
 }
 
 bool Material::BeginLoad(Deserializer& source)

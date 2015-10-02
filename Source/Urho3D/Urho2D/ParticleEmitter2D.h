@@ -82,8 +82,6 @@ public:
     ParticleEmitter2D(Context* context);
     /// Destruct.
     ~ParticleEmitter2D();
-    /// Register object factory. drawable2d must be registered first.
-    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

@@ -37,8 +37,6 @@ public:
     ConstraintPrismatic2D(Context* context);
     /// Destruct.
     virtual ~ConstraintPrismatic2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

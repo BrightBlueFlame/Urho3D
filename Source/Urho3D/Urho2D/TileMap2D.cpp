@@ -48,9 +48,9 @@ TileMap2D::~TileMap2D()
 {
 }
 
-void TileMap2D::RegisterObject(Context* context)
+REGISTER_OBJECT(TileMap2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<TileMap2D>(URHO2D_CATEGORY);
+    Definition.Base<Component>();
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Tmx File", GetTmxFileAttr, SetTmxFileAttr, ResourceRef, ResourceRef(TmxFile2D::GetTypeStatic()),

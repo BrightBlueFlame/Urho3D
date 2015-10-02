@@ -87,7 +87,7 @@ public:
     /// Destruct.
     virtual ~Scene();
     /// Register object factory. Node must be registered first.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Load from binary data. Removes all existing child nodes and components first. Return true if successful.
     virtual bool Load(Deserializer& source, bool setInstanceDefault = false);

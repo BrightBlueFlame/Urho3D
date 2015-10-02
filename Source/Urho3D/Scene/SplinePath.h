@@ -47,7 +47,7 @@ public:
     /// Destructor.
     virtual ~SplinePath() { };
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Apply Attributes to the SplinePath.
     virtual void ApplyAttributes();

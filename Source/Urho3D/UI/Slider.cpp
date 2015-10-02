@@ -61,10 +61,8 @@ Slider::~Slider()
 {
 }
 
-void Slider::RegisterObject(Context* context)
+REGISTER_OBJECT(Slider, UI_CATEGORY)
 {
-    context->RegisterFactory<Slider>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);
     ENUM_ACCESSOR_ATTRIBUTE("Orientation", GetOrientation, SetOrientation, Orientation, orientations, O_HORIZONTAL, AM_FILE);

@@ -55,10 +55,9 @@ ParticleEmitter::~ParticleEmitter()
 {
 }
 
-void ParticleEmitter::RegisterObject(Context* context)
+//void ParticleEmitter::RegisterObject(Context* context)
+REGISTER_OBJECT(ParticleEmitter, GEOMETRY_CATEGORY)
 {
-    context->RegisterFactory<ParticleEmitter>(GEOMETRY_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Effect", GetEffectAttr, SetEffectAttr, ResourceRef, ResourceRef(ParticleEffect::GetTypeStatic()),
         AM_DEFAULT);

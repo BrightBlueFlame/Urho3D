@@ -76,10 +76,10 @@ ScriptInstance::~ScriptInstance()
     ReleaseObject();
 }
 
-void ScriptInstance::RegisterObject(Context* context)
+//void ScriptInstance::RegisterObject(Context* context)
+REGISTER_OBJECT(ScriptInstance, LOGIC_CATEGORY)
 {
-    context->RegisterFactory<ScriptInstance>(LOGIC_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Delayed Method Calls", GetDelayedCallsAttr, SetDelayedCallsAttr, PODVector<unsigned char>,
         Variant::emptyBuffer, AM_FILE | AM_NOEDIT);

@@ -59,9 +59,9 @@ Font::~Font()
     fontData_.Reset();
 }
 
-void Font::RegisterObject(Context* context)
+REGISTER_OBJECT(Font)
 {
-    context->RegisterFactory<Font>();
+    Definition.Base<Resource>();
 }
 
 bool Font::BeginLoad(Deserializer& source)

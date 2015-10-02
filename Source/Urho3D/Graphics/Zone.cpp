@@ -68,9 +68,9 @@ Zone::~Zone()
 {
 }
 
-void Zone::RegisterObject(Context* context)
+REGISTER_OBJECT(Zone, SCENE_CATEGORY)
 {
-    context->RegisterFactory<Zone>(SCENE_CATEGORY);
+    Definition.Base<Drawable>();
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ATTRIBUTE("Bounding Box Min", Vector3, boundingBox_.min_, DEFAULT_BOUNDING_BOX_MIN, AM_DEFAULT);

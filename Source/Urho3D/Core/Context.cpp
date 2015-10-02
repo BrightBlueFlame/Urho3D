@@ -25,6 +25,8 @@
 #include "../Core/Context.h"
 #include "../Core/Thread.h"
 
+#include "../Core/ClassConstructor.h"
+
 #include "../DebugNew.h"
 
 namespace Urho3D
@@ -59,6 +61,8 @@ Context::Context() :
     // Always reset the random seed on Android, as the Urho3D library might not be unloaded between runs
     SetRandomSeed(1);
 #endif
+
+	//Property::RegisterObject(this);
 
     // Set the main thread ID (assuming the Context is created in it)
     Thread::SetMainThread();

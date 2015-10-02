@@ -71,10 +71,8 @@ LineEdit::~LineEdit()
 {
 }
 
-void LineEdit::RegisterObject(Context* context)
+REGISTER_OBJECT(LineEdit, UI_CATEGORY)
 {
-    context->RegisterFactory<LineEdit>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Clip Children", true);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);

@@ -39,10 +39,9 @@ SoundListener::~SoundListener()
 {
 }
 
-void SoundListener::RegisterObject(Context* context)
+REGISTER_OBJECT(SoundListener, AUDIO_CATEGORY)
 {
-    context->RegisterFactory<SoundListener>(AUDIO_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
 }
 

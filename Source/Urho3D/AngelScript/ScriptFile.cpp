@@ -107,9 +107,9 @@ ScriptFile::~ScriptFile()
     ReleaseModule();
 }
 
-void ScriptFile::RegisterObject(Context* context)
+REGISTER_OBJECT(ScriptFile)
 {
-    context->RegisterFactory<ScriptFile>();
+    Definition.Base<Resource>();
 }
 
 bool ScriptFile::BeginLoad(Deserializer& source)

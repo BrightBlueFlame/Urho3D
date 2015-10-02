@@ -37,8 +37,6 @@ public:
     CollisionBox2D(Context* context);
     /// Destruct.
     virtual ~CollisionBox2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set size.
     void SetSize(const Vector2& size);

@@ -98,9 +98,9 @@ RigidBody::~RigidBody()
     shiftedCompoundShape_ = 0;
 }
 
-void RigidBody::RegisterObject(Context* context)
+REGISTER_OBJECT(RigidBody, PHYSICS_CATEGORY)
 {
-    context->RegisterFactory<RigidBody>(PHYSICS_CATEGORY);
+    Definition.Base<Component>();
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Physics Rotation", GetRotation, SetRotation, Quaternion, Quaternion::IDENTITY, AM_FILE | AM_NOEDIT);

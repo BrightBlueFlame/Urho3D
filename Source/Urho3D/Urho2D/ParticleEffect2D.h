@@ -48,8 +48,6 @@ public:
     ParticleEffect2D(Context* context);
     /// Destruct.
     ~ParticleEffect2D();
-    /// Register object factory. Drawable2D must be registered first.
-    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~Skybox();
     /// Register object factory. StaticModel must be registered first.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Process octree raycast. May be called from a worker thread.
     virtual void ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results);

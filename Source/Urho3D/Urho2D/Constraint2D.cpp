@@ -57,8 +57,9 @@ Constraint2D::~Constraint2D()
     ReleaseJoint();
 }
 
-void Constraint2D::RegisterObject(Context* context)
+REGISTER_OBJECT(Constraint2D)
 {
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Collide Connected", GetCollideConnected, SetCollideConnected, bool, false, AM_DEFAULT);
 }
 

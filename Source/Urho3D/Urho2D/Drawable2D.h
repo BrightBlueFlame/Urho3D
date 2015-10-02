@@ -70,8 +70,6 @@ public:
     Drawable2D(Context* context);
     /// Destruct.
     ~Drawable2D();
-    /// Register object factory. Drawable must be registered first.
-    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();
@@ -116,3 +114,4 @@ protected:
 };
 
 }
+REGISTER_INTERFACE_TRAITS(Urho3D::Drawable2D);

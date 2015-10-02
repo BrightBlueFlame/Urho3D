@@ -120,7 +120,7 @@ public:
     /// Destruct.
     virtual ~UIElement();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();
@@ -503,6 +503,7 @@ public:
 
     /// Return all user variables.
     const VariantMap& GetVars() const { return vars_; }
+    void SetVars(const VariantMap& vars) { vars_ = vars; }
 
     /// Return the drag button combo if this element is being dragged.
     int GetDragButtonCombo() const { return dragButtonCombo_; }
@@ -550,6 +551,18 @@ public:
 
     /// Return color attribute. Uses just the top-left color.
     const Color& GetColorAttr() const { return color_[0]; }
+    
+    const Color& GetTopLeftColor() const { return color_[0]; }
+    void SetTopLeftColor(const Color& color) { color_[0] = color; }
+    
+    const Color& GetTopRightColor() const { return color_[1]; }
+    void SetTopRightColor(const Color& color) { color_[1] = color; }
+    
+    const Color& GetBottomLeftColor() const { return color_[2]; }
+    void SetBottomLeftColor(const Color& color) { color_[2] = color; }
+    
+    const Color& GetBottomRightColor() const { return color_[3]; }
+    void SetBottomRightColor(const Color& color) { color_[3] = color; }
 
     /// Return traversal mode for rendering.
     TraversalMode GetTraversalMode() const { return traversalMode_; }
@@ -714,3 +727,4 @@ template <class T> T* UIElement::CreateChild(const String& name, unsigned index)
 }
 
 }
+REGISTER_BASEOBJECT_TRAITS(Urho3D::UIElement);

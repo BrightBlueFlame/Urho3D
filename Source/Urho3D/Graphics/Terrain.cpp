@@ -113,10 +113,9 @@ Terrain::~Terrain()
 {
 }
 
-void Terrain::RegisterObject(Context* context)
+REGISTER_OBJECT(Terrain, GEOMETRY_CATEGORY)
 {
-    context->RegisterFactory<Terrain>(GEOMETRY_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Height Map", GetHeightMapAttr, SetHeightMapAttr, ResourceRef, ResourceRef(Image::GetTypeStatic()),
         AM_DEFAULT);

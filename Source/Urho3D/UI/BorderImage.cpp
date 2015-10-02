@@ -50,10 +50,8 @@ BorderImage::~BorderImage()
 {
 }
 
-void BorderImage::RegisterObject(Context* context)
+REGISTER_OBJECT(BorderImage, UI_CATEGORY)
 {
-    context->RegisterFactory<BorderImage>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(UIElement);
     MIXED_ACCESSOR_ATTRIBUTE("Texture", GetTextureAttr, SetTextureAttr, ResourceRef, ResourceRef(Texture2D::GetTypeStatic()),
         AM_FILE);

@@ -49,7 +49,7 @@ public:
     /// Destruct.
     ~StaticModel();
     /// Register object factory. Drawable must be registered first.
-    static void RegisterObject(Context* context);
+    // static void RegisterObject(Context* context);
 
     /// Process octree raycast. May be called from a worker thread.
     virtual void ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results);
@@ -98,6 +98,9 @@ public:
     ResourceRef GetModelAttr() const;
     /// Return materials attribute.
     const ResourceRefList& GetMaterialsAttr() const;
+    
+    bool GetIsOccluder() const { return occluder_; }
+    void SetIsOccluder(bool occluder) { occluder_ = occluder; }
 
 protected:
     /// Recalculate the world-space bounding box.

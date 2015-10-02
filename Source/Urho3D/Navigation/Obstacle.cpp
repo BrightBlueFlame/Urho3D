@@ -51,9 +51,8 @@ Obstacle::~Obstacle()
         ownerMesh_->RemoveObstacle(this);
 }
 
-void Obstacle::RegisterObject(Context* context)
+REGISTER_OBJECT(Obstacle, NAVIGATION_CATEGORY)
 {
-    context->RegisterFactory<Obstacle>(NAVIGATION_CATEGORY);
     COPY_BASE_ATTRIBUTES(Component);
     ACCESSOR_ATTRIBUTE("Radius", GetRadius, SetRadius, float, 5.0f, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Height", GetHeight, SetHeight, float, 5.0f, AM_DEFAULT);

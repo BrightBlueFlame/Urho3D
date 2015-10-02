@@ -65,7 +65,7 @@ public:
     /// Destruct. Any child nodes are detached.
     virtual ~Node();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    // static void RegisterObject(Context* context);
 
     /// Load from binary data. Return true if successful.
     virtual bool Load(Deserializer& source, bool setInstanceDefault = false);
@@ -702,3 +702,5 @@ template <class T> void Node::GetDerivedComponents(PODVector<T*>& dest, bool rec
 }
 
 }
+
+REGISTER_BASEOBJECT_TRAITS(Urho3D::Node);

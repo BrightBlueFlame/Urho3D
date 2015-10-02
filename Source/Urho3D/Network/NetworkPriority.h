@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~NetworkPriority();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Set base priority. Default 100 (send updates at full frequency.)
     void SetBasePriority(float priority);

@@ -95,8 +95,9 @@ Drawable::~Drawable()
     RemoveFromOctree();
 }
 
-void Drawable::RegisterObject(Context* context)
+REGISTER_OBJECT_NO_FACTORY(Drawable)
 {
+    Definition.Base<Component>();
     ATTRIBUTE("Max Lights", int, maxLights_, 0, AM_DEFAULT);
     ATTRIBUTE("View Mask", int, viewMask_, DEFAULT_VIEWMASK, AM_DEFAULT);
     ATTRIBUTE("Light Mask", int, lightMask_, DEFAULT_LIGHTMASK, AM_DEFAULT);

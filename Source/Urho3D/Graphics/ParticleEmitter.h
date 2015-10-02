@@ -61,7 +61,7 @@ public:
     /// Destruct.
     virtual ~ParticleEmitter();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

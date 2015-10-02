@@ -112,10 +112,9 @@ SoundSource3D::SoundSource3D(Context* context) :
     attenuation_ = 0.0f;
 }
 
-void SoundSource3D::RegisterObject(Context* context)
+//void SoundSource3D::RegisterObject(Context* context)
+REGISTER_OBJECT(SoundSource3D, AUDIO_CATEGORY)
 {
-    context->RegisterFactory<SoundSource3D>(AUDIO_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(SoundSource);
     // Remove Attenuation and Panning as attribute as they are constantly being updated
     REMOVE_ATTRIBUTE("Attenuation");

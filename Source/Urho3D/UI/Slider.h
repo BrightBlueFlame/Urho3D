@@ -37,8 +37,6 @@ public:
     Slider(Context* context);
     /// Destruct.
     virtual ~Slider();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Perform UI element update.
     virtual void Update(float timeStep);

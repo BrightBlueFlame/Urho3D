@@ -45,9 +45,9 @@ SmoothedTransform::~SmoothedTransform()
 {
 }
 
-void SmoothedTransform::RegisterObject(Context* context)
+REGISTER_OBJECT(SmoothedTransform)
 {
-    context->RegisterFactory<SmoothedTransform>();
+    Definition.Base<Component>();
 }
 
 void SmoothedTransform::Update(float constant, float squaredSnapThreshold)

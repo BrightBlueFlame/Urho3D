@@ -134,10 +134,10 @@ FileSelector::~FileSelector()
 {
     window_->Remove();
 }
-
-void FileSelector::RegisterObject(Context* context)
+    
+REGISTER_OBJECT(FileSelector)
 {
-    context->RegisterFactory<FileSelector>();
+    Definition.Base<Object>();
 }
 
 void FileSelector::SetDefaultStyle(XMLFile* style)

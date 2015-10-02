@@ -81,7 +81,7 @@ public:
     /// Destruct.
     virtual ~CrowdAgent();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    // static void RegisterObject(Context* context);
     /// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
     virtual void ApplyAttributes();
 

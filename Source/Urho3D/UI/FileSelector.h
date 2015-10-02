@@ -58,7 +58,7 @@ public:
     /// Destruct.
     virtual ~FileSelector();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Set fileselector UI style.
     void SetDefaultStyle(XMLFile* style);

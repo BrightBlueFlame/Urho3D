@@ -61,8 +61,6 @@ public:
     AnimatedSprite2D(Context* context);
     /// Destruct.
     virtual ~AnimatedSprite2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

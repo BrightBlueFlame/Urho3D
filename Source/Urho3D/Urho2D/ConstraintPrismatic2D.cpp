@@ -45,10 +45,8 @@ ConstraintPrismatic2D::~ConstraintPrismatic2D()
 {
 }
 
-void ConstraintPrismatic2D::RegisterObject(Context* context)
+REGISTER_OBJECT(ConstraintPrismatic2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<ConstraintPrismatic2D>(URHO2D_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Anchor", GetAnchor, SetAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Axis", GetAxis, SetAxis, Vector2, Vector2::RIGHT, AM_DEFAULT);

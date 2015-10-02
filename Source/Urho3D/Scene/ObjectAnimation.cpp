@@ -51,9 +51,10 @@ ObjectAnimation::~ObjectAnimation()
 {
 }
 
-void ObjectAnimation::RegisterObject(Context* context)
+//void ObjectAnimation::RegisterObject(Context* context)
+REGISTER_OBJECT(ObjectAnimation)
 {
-    context->RegisterFactory<ObjectAnimation>();
+    Definition.Base<Resource>();
 }
 
 bool ObjectAnimation::BeginLoad(Deserializer& source)

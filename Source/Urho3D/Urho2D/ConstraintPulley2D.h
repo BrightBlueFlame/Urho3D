@@ -37,8 +37,6 @@ public:
     ConstraintPulley2D(Context* context);
     /// Destruct.
     virtual ~ConstraintPulley2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set other body ground anchor point.
     void SetOwnerBodyGroundAnchor(const Vector2& groundAnchor);

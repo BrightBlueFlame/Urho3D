@@ -42,6 +42,11 @@ Object::~Object()
     UnsubscribeFromAllEvents();
     context_->RemoveEventSender(this);
 }
+    
+REGISTER_OBJECT(Object)
+{
+    (void)Definition; // Unused.
+}
 
 void Object::OnEvent(Object* sender, StringHash eventType, VariantMap& eventData)
 {

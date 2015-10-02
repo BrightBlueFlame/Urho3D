@@ -91,10 +91,8 @@ ScrollView::~ScrollView()
 {
 }
 
-void ScrollView::RegisterObject(Context* context)
+REGISTER_OBJECT(ScrollView, UI_CATEGORY)
 {
-    context->RegisterFactory<ScrollView>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Clip Children", true);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);

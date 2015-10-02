@@ -24,16 +24,38 @@
 
 #include "../Container/LinkedList.h"
 #include "../Core/Variant.h"
+//#include "../Core/ClassDef.h"
+
+namespace U3D_Traits {
+    template <class T>
+    struct is_base
+    {
+        static const bool value = false;
+    };
+    
+    template <class T>
+    struct is_interface
+    {
+        static const bool value = false;
+    };
+}
 
 namespace Urho3D
 {
 
 class Context;
 class EventHandler;
+    
+template <class T> class ClassConstructor;
+class ClassDef;
 
 #define OBJECT(typeName) \
+        static Urho3D::SharedPtr<Urho3D::ClassDef> s_classDef; \
     public: \
         typedef typeName ClassName; \
+        static void RegisterObject(Urho3D::Context* context); \
+        static void DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition); \
+        static Urho3D::ClassDef* GetClassDef() { return s_classDef.Get(); } \
         virtual Urho3D::StringHash GetType() const { return GetTypeStatic(); } \
         virtual Urho3D::StringHash GetBaseType() const { return GetBaseTypeStatic(); } \
         virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
@@ -43,10 +65,54 @@ class EventHandler;
 #define BASEOBJECT(typeName) \
     public: \
         static Urho3D::StringHash GetBaseTypeStatic() { static const Urho3D::StringHash baseTypeStatic(#typeName); return baseTypeStatic; } \
+    
+/// THIS MUST BE CALLED IN THE GLOBAL NAMESPACE!!!
+#define REGISTER_BASEOBJECT_TRAITS(typeName) \
+    namespace U3D_Traits { \
+        template <> \
+        struct is_base<typeName> \
+        { \
+            static const bool value = true; \
+        }; \
+    }
+
+#define REGISTER_INTERFACE_TRAITS(typeName) \
+    namespace U3D_Traits { \
+        template <> \
+        struct is_interface<typeName> \
+        { \
+            static const bool value = true; \
+        }; \
+    }
+    
+#define REGISTER_OBJECT( typeName, ... ) \
+    Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
+    void typeName::RegisterObject(Urho3D::Context* context) \
+    { \
+        s_classDef = ::Urho3D::SharedPtr<::Urho3D::ClassDef>(new ::Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
+        context->RegisterFactory< typeName >(__VA_ARGS__); \
+        Urho3D::ClassConstructor< typeName > ccc(context, s_classDef); \
+        typeName::DefineMyAttributes(ccc); \
+        s_classDef->Close(); \
+    } \
+    void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
+    
+#define REGISTER_OBJECT_NO_FACTORY(typeName) \
+Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
+void typeName::RegisterObject(Urho3D::Context* context) \
+    { \
+        s_classDef = ::Urho3D::SharedPtr<::Urho3D::ClassDef>(new ::Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
+        Urho3D::ClassConstructor< typeName > ccc(context, s_classDef); \
+        typeName::DefineMyAttributes(ccc); \
+        s_classDef->Close(); \
+    } \
+    void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
+
 
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted
 {
+    OBJECT(Object);
     BASEOBJECT(Object);
 
     friend class Context;
@@ -57,12 +123,6 @@ public:
     /// Destruct. Clean up self from event sender & receiver structures.
     virtual ~Object();
 
-    /// Return type hash.
-    virtual Urho3D::StringHash GetType() const = 0;
-    /// Return base class type hash.
-    virtual Urho3D::StringHash GetBaseType() const = 0;
-    /// Return type name.
-    virtual const Urho3D::String& GetTypeName() const = 0;
     /// Handle event.
     virtual void OnEvent(Object* sender, StringHash eventType, VariantMap& eventData);
 
@@ -293,3 +353,6 @@ private:
 #define HANDLER_USERDATA(className, function, userData) (new Urho3D::EventHandlerImpl<className>(this, &className::function, userData))
 
 }
+
+REGISTER_BASEOBJECT_TRAITS(Urho3D::Object);
+REGISTER_INTERFACE_TRAITS(Urho3D::Object);

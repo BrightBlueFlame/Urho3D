@@ -60,9 +60,10 @@ ValueAnimation::~ValueAnimation()
 {
 }
 
-void ValueAnimation::RegisterObject(Context* context)
+//void ValueAnimation::RegisterObject(Context* context)
+REGISTER_OBJECT(ValueAnimation)
 {
-    context->RegisterFactory<ValueAnimation>();
+    Definition.Base<Resource>();
 }
 
 bool ValueAnimation::BeginLoad(Deserializer& source)

@@ -148,10 +148,10 @@ UIElement::~UIElement()
     }
 }
 
-void UIElement::RegisterObject(Context* context)
+// void UIElement::RegisterObject(Context* context)
+REGISTER_OBJECT(UIElement, UI_CATEGORY)
 {
-    context->RegisterFactory<UIElement>(UI_CATEGORY);
-
+    Definition.Base<Animatable>();
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_FILE);
     ACCESSOR_ATTRIBUTE("Position", GetPosition, SetPosition, IntVector2, IntVector2::ZERO, AM_FILE);
     ACCESSOR_ATTRIBUTE("Size", GetSize, SetSize, IntVector2, IntVector2::ZERO, AM_FILE);

@@ -178,10 +178,9 @@ PhysicsWorld::~PhysicsWorld()
     collisionConfiguration_ = 0;
 }
 
-void PhysicsWorld::RegisterObject(Context* context)
+REGISTER_OBJECT(PhysicsWorld, SUBSYSTEM_CATEGORY)
 {
-    context->RegisterFactory<PhysicsWorld>(SUBSYSTEM_CATEGORY);
-
+    Definition.Base<Component>();
     MIXED_ACCESSOR_ATTRIBUTE("Gravity", GetGravity, SetGravity, Vector3, DEFAULT_GRAVITY, AM_DEFAULT);
     ATTRIBUTE("Physics FPS", int, fps_, DEFAULT_FPS, AM_DEFAULT);
     ATTRIBUTE("Max Substeps", int, maxSubSteps_, 0, AM_DEFAULT);

@@ -37,8 +37,6 @@ public:
     CollisionCircle2D(Context* context);
     /// Destruct.
     virtual ~CollisionCircle2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set radius.
     void SetRadius(float radius);

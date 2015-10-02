@@ -92,10 +92,9 @@ Scene::~Scene()
         i->second_->ResetScene();
 }
 
-void Scene::RegisterObject(Context* context)
+REGISTER_OBJECT(Scene)
 {
-    context->RegisterFactory<Scene>();
-
+    Definition.Base<Node>();
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Time Scale", GetTimeScale, SetTimeScale, float, 1.0f, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Smoothing Constant", GetSmoothingConstant, SetSmoothingConstant, float, DEFAULT_SMOOTHING_CONSTANT,

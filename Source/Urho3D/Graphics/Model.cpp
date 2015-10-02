@@ -65,9 +65,12 @@ Model::~Model()
 {
 }
 
-void Model::RegisterObject(Context* context)
+//void Model::RegisterObject(Context* context)
+REGISTER_OBJECT(Model)
 {
-    context->RegisterFactory<Model>();
+    Definition
+    .Base<Resource>()
+    ;
 }
 
 bool Model::BeginLoad(Deserializer& source)

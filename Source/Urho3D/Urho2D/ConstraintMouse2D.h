@@ -37,8 +37,6 @@ public:
     ConstraintMouse2D(Context* context);
     /// Destruct.
     virtual ~ConstraintMouse2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set target.
     void SetTarget(const Vector2& target);

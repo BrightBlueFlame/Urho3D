@@ -47,10 +47,8 @@ CollisionCircle2D::~CollisionCircle2D()
 {
 }
 
-void CollisionCircle2D::RegisterObject(Context* context)
+REGISTER_OBJECT(CollisionCircle2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<CollisionCircle2D>(URHO2D_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Radius", GetRadius, SetRadius, float, DEFAULT_CLRCLE_RADIUS, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Center", GetCenter, SetCenter, Vector2, Vector2::ZERO, AM_DEFAULT);

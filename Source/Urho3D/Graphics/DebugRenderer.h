@@ -102,7 +102,7 @@ public:
     /// Destruct.
     virtual ~DebugRenderer();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    // static void RegisterObject(Context* context);
 
     /// Set the camera viewpoint. Call before rendering, or before adding geometry if you want to use culling.
     void SetView(Camera* camera);

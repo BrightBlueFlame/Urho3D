@@ -105,9 +105,9 @@ MessageBox::~MessageBox()
         window_->Remove();
 }
 
-void MessageBox::RegisterObject(Context* context)
+REGISTER_OBJECT(MessageBox)
 {
-    context->RegisterFactory<MessageBox>();
+    Definition.Base<Object>();
 }
 
 void MessageBox::SetTitle(const String& text)

@@ -44,10 +44,8 @@ CollisionChain2D::~CollisionChain2D()
 {
 }
 
-void CollisionChain2D::RegisterObject(Context* context)
+REGISTER_OBJECT(CollisionChain2D)
 {
-    context->RegisterFactory<CollisionChain2D>();
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Loop", GetLoop, SetLoop, bool, false, AM_DEFAULT);
     COPY_BASE_ATTRIBUTES(CollisionShape2D);

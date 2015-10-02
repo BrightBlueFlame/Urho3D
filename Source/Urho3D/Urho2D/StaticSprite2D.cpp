@@ -55,10 +55,8 @@ StaticSprite2D::~StaticSprite2D()
 {
 }
 
-void StaticSprite2D::RegisterObject(Context* context)
+REGISTER_OBJECT(StaticSprite2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<StaticSprite2D>(URHO2D_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     COPY_BASE_ATTRIBUTES(Drawable2D);
     MIXED_ACCESSOR_ATTRIBUTE("Sprite", GetSpriteAttr, SetSpriteAttr, ResourceRef, ResourceRef(Sprite2D::GetTypeStatic()),

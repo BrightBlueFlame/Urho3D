@@ -37,8 +37,6 @@ public:
     ConstraintGear2D(Context* context);
     /// Destruct.
     virtual ~ConstraintGear2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set owner constraint.
     void SetOwnerConstraint(Constraint2D* constraint);

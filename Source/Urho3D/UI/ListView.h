@@ -48,8 +48,6 @@ public:
     ListView(Context* context);
     /// Destruct.
     virtual ~ListView();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// React to a key press.
     virtual void OnKey(int key, int buttons, int qualifiers);

@@ -81,8 +81,6 @@ public:
     Text(Context* context);
     /// Destruct.
     virtual ~Text();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

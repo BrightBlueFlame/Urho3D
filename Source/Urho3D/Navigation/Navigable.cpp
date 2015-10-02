@@ -42,10 +42,9 @@ Navigable::~Navigable()
 {
 }
 
-void Navigable::RegisterObject(Context* context)
+REGISTER_OBJECT(Navigable, NAVIGATION_CATEGORY)
 {
-    context->RegisterFactory<Navigable>(NAVIGATION_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ATTRIBUTE("Recursive", bool, recursive_, true, AM_DEFAULT);
 }

@@ -291,3 +291,5 @@ template <class T> void ResourceCache::GetResources(PODVector<T*>& result) const
 void URHO3D_API RegisterResourceLibrary(Context* context);
 
 }
+
+REGISTER_INTERFACE_TRAITS(Urho3D::ResourceCache);

@@ -35,6 +35,11 @@ Resource::Resource(Context* context) :
     asyncLoadState_(ASYNC_DONE)
 {
 }
+    
+REGISTER_OBJECT(Resource)
+{
+    Definition.Base<Object>();
+}
 
 bool Resource::Load(Deserializer& source)
 {

@@ -53,10 +53,10 @@ OffMeshConnection::~OffMeshConnection()
 {
 }
 
-void OffMeshConnection::RegisterObject(Context* context)
+//void OffMeshConnection::RegisterObject(Context* context)
+REGISTER_OBJECT(OffMeshConnection, NAVIGATION_CATEGORY)
 {
-    context->RegisterFactory<OffMeshConnection>(NAVIGATION_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ATTRIBUTE("Endpoint NodeID", int, endPointID_, 0, AM_DEFAULT | AM_NODEID);
     ATTRIBUTE("Radius", float, radius_, DEFAULT_RADIUS, AM_DEFAULT);

@@ -60,10 +60,9 @@ AnimationController::~AnimationController()
 {
 }
 
-void AnimationController::RegisterObject(Context* context)
+REGISTER_OBJECT(AnimationController, LOGIC_CATEGORY)
 {
-    context->RegisterFactory<AnimationController>(LOGIC_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Animations", GetAnimationsAttr, SetAnimationsAttr, VariantVector, Variant::emptyVariantVector,
         AM_FILE | AM_NOEDIT);

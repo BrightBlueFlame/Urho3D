@@ -41,8 +41,6 @@ public:
     TileMap2D(Context* context);
     /// Destruct.
     ~TileMap2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Visualize the component as debug geometry.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

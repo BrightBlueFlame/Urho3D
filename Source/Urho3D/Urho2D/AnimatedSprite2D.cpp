@@ -70,10 +70,8 @@ AnimatedSprite2D::~AnimatedSprite2D()
     Dispose();
 }
 
-void AnimatedSprite2D::RegisterObject(Context* context)
+REGISTER_OBJECT(AnimatedSprite2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<AnimatedSprite2D>(URHO2D_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(StaticSprite2D);
     REMOVE_ATTRIBUTE("Sprite");
     ACCESSOR_ATTRIBUTE("Speed", GetSpeed, SetSpeed, float, 1.0f, AM_DEFAULT);

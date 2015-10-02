@@ -42,8 +42,6 @@ public:
     Text3D(Context* context);
     /// Destruct.
     ~Text3D();
-    /// Register object factory. Drawable must be registered first.
-    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

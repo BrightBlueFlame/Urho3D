@@ -254,9 +254,13 @@ Image::~Image()
 {
 }
 
-void Image::RegisterObject(Context* context)
+//void Image::RegisterObject(Context* context)
+REGISTER_OBJECT(Image)
 {
-    context->RegisterFactory<Image>();
+    Definition
+    .Base<Resource>()
+    ;
+    //context->RegisterFactory<Image>();
 }
 
 bool Image::BeginLoad(Deserializer& source)

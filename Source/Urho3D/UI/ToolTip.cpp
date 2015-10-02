@@ -43,10 +43,8 @@ ToolTip::~ToolTip()
 {
 }
 
-void ToolTip::RegisterObject(Context* context)
+REGISTER_OBJECT(ToolTip, UI_CATEGORY)
 {
-    context->RegisterFactory<ToolTip>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(UIElement);
     ACCESSOR_ATTRIBUTE("Delay", GetDelay, SetDelay, float, 0.0f, AM_FILE);
 }

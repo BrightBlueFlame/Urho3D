@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~Button();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Perform UI element update.
     virtual void Update(float timeStep);

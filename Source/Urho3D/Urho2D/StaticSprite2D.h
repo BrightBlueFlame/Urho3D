@@ -39,8 +39,6 @@ public:
     StaticSprite2D(Context* context);
     /// Destruct.
     ~StaticSprite2D();
-    /// Register object factory. Drawable2D must be registered first.
-    static void RegisterObject(Context* context);
 
     /// Set sprite.
     void SetSprite(Sprite2D* sprite);

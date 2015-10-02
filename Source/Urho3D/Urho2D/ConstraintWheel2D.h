@@ -37,8 +37,6 @@ public:
     ConstraintWheel2D(Context* context);
     /// Destruct.
     virtual ~ConstraintWheel2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

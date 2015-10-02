@@ -108,9 +108,11 @@ Light::~Light()
 {
 }
 
-void Light::RegisterObject(Context* context)
+// void Light::RegisterObject(Context* context)
+REGISTER_OBJECT(Light, SCENE_CATEGORY)
 {
-    context->RegisterFactory<Light>(SCENE_CATEGORY);
+    Definition.Base<Drawable>();
+    Context* context = Definition.GetContext();
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ENUM_ACCESSOR_ATTRIBUTE("Light Type", GetLightType, SetLightType, LightType, typeNames, DEFAULT_LIGHTTYPE, AM_DEFAULT);

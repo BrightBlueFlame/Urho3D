@@ -47,10 +47,9 @@ SplinePath::SplinePath(Context* context) :
     UpdateNodeIds();
 }
 
-void SplinePath::RegisterObject(Context* context)
+REGISTER_OBJECT(SplinePath, LOGIC_CATEGORY)
 {
-    context->RegisterFactory<SplinePath>(LOGIC_CATEGORY);
-
+    Definition.Base<Component>();
     ENUM_ACCESSOR_ATTRIBUTE("Interpolation Mode", GetInterpolationMode, SetInterpolationMode, InterpolationMode,
         interpolationModeNames, BEZIER_CURVE, AM_FILE);
     ATTRIBUTE("Speed", float, speed_, 1.f, AM_FILE);

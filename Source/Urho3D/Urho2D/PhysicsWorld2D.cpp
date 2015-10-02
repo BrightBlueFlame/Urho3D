@@ -79,10 +79,9 @@ PhysicsWorld2D::~PhysicsWorld2D()
     world_ = 0;
 }
 
-void PhysicsWorld2D::RegisterObject(Context* context)
+REGISTER_OBJECT(PhysicsWorld2D,SUBSYSTEM_CATEGORY)
 {
-    context->RegisterFactory<PhysicsWorld2D>(SUBSYSTEM_CATEGORY);
-
+    Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Draw Shape", GetDrawShape, SetDrawShape, bool, false, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Draw Joint", GetDrawJoint, SetDrawJoint, bool, false, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Draw Aabb", GetDrawAabb, SetDrawAabb, bool, false, AM_DEFAULT);

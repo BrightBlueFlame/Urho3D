@@ -68,9 +68,9 @@ RigidBody2D::~RigidBody2D()
     }
 }
 
-void RigidBody2D::RegisterObject(Context* context)
+REGISTER_OBJECT(RigidBody2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<RigidBody2D>(URHO2D_CATEGORY);
+    Definition.Base<Component>();
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ENUM_ACCESSOR_ATTRIBUTE("Body Type", GetBodyType, SetBodyType, BodyType2D, bodyTypeNames, DEFAULT_BODYTYPE, AM_DEFAULT);

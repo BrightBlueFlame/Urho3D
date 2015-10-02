@@ -77,10 +77,8 @@ Text::~Text()
 {
 }
 
-void Text::RegisterObject(Context* context)
+REGISTER_OBJECT(Text, UI_CATEGORY)
 {
-    context->RegisterFactory<Text>(UI_CATEGORY);
-
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Use Derived Opacity", false);
     MIXED_ACCESSOR_ATTRIBUTE("Font", GetFontAttr, SetFontAttr, ResourceRef, ResourceRef(Font::GetTypeStatic()), AM_FILE);
@@ -96,7 +94,7 @@ void Text::RegisterObject(Context* context)
     ACCESSOR_ATTRIBUTE("Effect Color", GetEffectColor, SetEffectColor, Color, Color::BLACK, AM_FILE);
 
     // Change the default value for UseDerivedOpacity
-    context->GetAttribute<Text>("Use Derived Opacity")->defaultValue_ = false;
+    Definition.GetContext()->GetAttribute<Text>("Use Derived Opacity")->defaultValue_ = false;
 }
 
 void Text::ApplyAttributes()

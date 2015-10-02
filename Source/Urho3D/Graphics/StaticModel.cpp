@@ -54,10 +54,8 @@ StaticModel::~StaticModel()
 {
 }
 
-void StaticModel::RegisterObject(Context* context)
+REGISTER_OBJECT(StaticModel, GEOMETRY_CATEGORY)
 {
-    context->RegisterFactory<StaticModel>(GEOMETRY_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Model", GetModelAttr, SetModelAttr, ResourceRef, ResourceRef(Model::GetTypeStatic()), AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Material", GetMaterialsAttr, SetMaterialsAttr, ResourceRefList, ResourceRefList(Material::GetTypeStatic()),

@@ -41,8 +41,6 @@ public:
     CollisionShape2D(Context* context);
     /// Destruct.
     virtual ~CollisionShape2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();
@@ -117,3 +115,5 @@ protected:
 };
 
 }
+
+REGISTER_INTERFACE_TRAITS(Urho3D::CollisionShape2D);

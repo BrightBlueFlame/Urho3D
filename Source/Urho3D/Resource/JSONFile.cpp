@@ -50,9 +50,9 @@ JSONFile::~JSONFile()
 {
 }
 
-void JSONFile::RegisterObject(Context* context)
+REGISTER_OBJECT(JSONFile)
 {
-    context->RegisterFactory<JSONFile>();
+    Definition.Base<Resource>();
 }
 
 // Convert rapidjson value to JSON value.

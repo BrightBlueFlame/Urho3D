@@ -51,8 +51,6 @@ public:
     RigidBody2D(Context* context);
     /// Destruct.
     virtual ~RigidBody2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

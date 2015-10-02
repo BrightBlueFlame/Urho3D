@@ -295,9 +295,9 @@ PListFile::~PListFile()
 {
 }
 
-void PListFile::RegisterObject(Context* context)
+REGISTER_OBJECT(PListFile)
 {
-    context->RegisterFactory<PListFile>();
+    Definition.Base<Resource>();
 }
 
 bool PListFile::BeginLoad(Deserializer& source)

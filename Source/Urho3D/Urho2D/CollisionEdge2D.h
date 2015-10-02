@@ -37,8 +37,6 @@ public:
     CollisionEdge2D(Context* context);
     /// Destruct.
     virtual ~CollisionEdge2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set vertex 1.
     void SetVertex1(const Vector2& vertex);

@@ -50,10 +50,10 @@ NetworkPriority::~NetworkPriority()
 {
 }
 
-void NetworkPriority::RegisterObject(Context* context)
+//void NetworkPriority::RegisterObject(Context* context)
+REGISTER_OBJECT(NetworkPriority, NETWORK_CATEGORY)
 {
-    context->RegisterFactory<NetworkPriority>(NETWORK_CATEGORY);
-
+    Definition.Base<Component>();
     ATTRIBUTE("Base Priority", float, basePriority_, DEFAULT_BASE_PRIORITY, AM_DEFAULT);
     ATTRIBUTE("Distance Factor", float, distanceFactor_, DEFAULT_DISTANCE_FACTOR, AM_DEFAULT);
     ATTRIBUTE("Minimum Priority", float, minPriority_, DEFAULT_MIN_PRIORITY, AM_DEFAULT);

@@ -37,8 +37,6 @@ public:
     ConstraintRope2D(Context* context);
     /// Destruct.
     virtual ~ConstraintRope2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set owner body anchor.
     void SetOwnerBodyAnchor(const Vector2& anchor);

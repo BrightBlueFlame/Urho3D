@@ -46,10 +46,8 @@ ConstraintDistance2D::~ConstraintDistance2D()
 {
 }
 
-void ConstraintDistance2D::RegisterObject(Context* context)
+REGISTER_OBJECT(ConstraintDistance2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<ConstraintDistance2D>(URHO2D_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Owner Body Anchor", GetOwnerBodyAnchor, SetOwnerBodyAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Other Body Anchor", GetOtherBodyAnchor, SetOtherBodyAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);

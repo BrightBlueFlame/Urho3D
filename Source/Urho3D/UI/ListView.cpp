@@ -87,9 +87,6 @@ public:
         SubscribeToEvent(E_UIMOUSECLICK, HANDLER(HierarchyContainer, HandleUIMouseClick));
     }
 
-    /// Register object factory.
-    static void RegisterObject(Context* context);
-
     /// Handle layout updated by adjusting the position of the overlays.
     void HandleLayoutUpdated(StringHash eventType, VariantMap& eventData)
     {
@@ -159,7 +156,7 @@ private:
     UIElement* overlayContainer_;
 };
 
-void HierarchyContainer::RegisterObject(Context* context)
+REGISTER_OBJECT_NO_FACTORY(HierarchyContainer)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
 }
@@ -190,11 +187,9 @@ ListView::~ListView()
 {
 }
 
-void ListView::RegisterObject(Context* context)
+REGISTER_OBJECT(ListView, UI_CATEGORY)
 {
-    context->RegisterFactory<ListView>(UI_CATEGORY);
-
-    HierarchyContainer::RegisterObject(context);
+    HierarchyContainer::RegisterObject(Definition.GetContext());
 
     COPY_BASE_ATTRIBUTES(ScrollView);
     ENUM_ACCESSOR_ATTRIBUTE("Highlight Mode", GetHighlightMode, SetHighlightMode, HighlightMode, highlightModes, HM_FOCUS, AM_FILE);

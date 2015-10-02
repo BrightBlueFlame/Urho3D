@@ -37,8 +37,6 @@ public:
     CollisionPolygon2D(Context* context);
     /// Destruct.
     virtual ~CollisionPolygon2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set vertex count.
     void SetVertexCount(unsigned count);

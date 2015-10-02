@@ -64,6 +64,17 @@ void AttributeAnimationInfo::ApplyValue(const Variant& newValue)
         animatable->ApplyAttributes();
     }
 }
+    
+REGISTER_OBJECT_NO_FACTORY(Animatable)
+{
+    Definition
+        .Base<Serializable>()
+        .Attribute<ResourceRef>("Object Animation", &Animatable::GetObjectAnimationAttr,
+                                                    &Animatable::SetObjectAnimationAttr,
+                                                    ResourceRef(ObjectAnimation::GetTypeStatic()),
+                                                    AM_DEFAULT)
+    ;
+}
 
 Animatable::Animatable(Context* context) :
     Serializable(context),
@@ -74,12 +85,12 @@ Animatable::Animatable(Context* context) :
 Animatable::~Animatable()
 {
 }
-
+/*
 void Animatable::RegisterObject(Context* context)
 {
     MIXED_ACCESSOR_ATTRIBUTE("Object Animation", GetObjectAnimationAttr, SetObjectAnimationAttr, ResourceRef,
         ResourceRef(ObjectAnimation::GetTypeStatic()), AM_DEFAULT);
-}
+}*/
 
 bool Animatable::LoadXML(const XMLElement& source, bool setInstanceDefault)
 {

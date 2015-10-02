@@ -45,7 +45,7 @@ public:
     /// Destruct.
     ~SmoothedTransform();
     /// Register object factory.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Update smoothing.
     void Update(float constant, float squaredSnapThreshold);

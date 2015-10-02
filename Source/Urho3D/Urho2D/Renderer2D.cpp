@@ -86,9 +86,12 @@ Renderer2D::~Renderer2D()
 {
 }
 
-void Renderer2D::RegisterObject(Context* context)
+REGISTER_OBJECT(Renderer2D)
 {
-    context->RegisterFactory<Renderer2D>();
+    Definition
+    .Base<Drawable>()
+    .Implements<Drawable>()
+    ;
 }
 
 static inline bool CompareRayQueryResults(RayQueryResult& lr, RayQueryResult& rr)

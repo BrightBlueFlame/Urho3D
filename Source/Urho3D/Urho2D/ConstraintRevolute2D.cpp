@@ -44,10 +44,8 @@ ConstraintRevolute2D::~ConstraintRevolute2D()
 {
 }
 
-void ConstraintRevolute2D::RegisterObject(Context* context)
+REGISTER_OBJECT(ConstraintRevolute2D, URHO2D_CATEGORY)
 {
-    context->RegisterFactory<ConstraintRevolute2D>(URHO2D_CATEGORY);
-
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Anchor", GetAnchor, SetAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Enable Limit", GetEnableLimit, SetEnableLimit, bool, false, AM_DEFAULT);

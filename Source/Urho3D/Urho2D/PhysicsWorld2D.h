@@ -67,8 +67,6 @@ public:
     PhysicsWorld2D(Context* context);
     /// Destruct.
     virtual ~PhysicsWorld2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Visualize the component as debug geometry.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

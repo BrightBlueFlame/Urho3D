@@ -119,9 +119,9 @@ AnimationSet2D::~AnimationSet2D()
     Dispose();
 }
 
-void AnimationSet2D::RegisterObject(Context* context)
+REGISTER_OBJECT(AnimationSet2D)
 {
-    context->RegisterFactory<AnimationSet2D>();
+    Definition.Base<Resource>();
 }
 
 bool AnimationSet2D::BeginLoad(Deserializer& source)

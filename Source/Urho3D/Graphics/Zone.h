@@ -40,7 +40,7 @@ public:
     /// Destruct.
     virtual ~Zone();
     /// Register object factory. Drawable must be registered first.
-    static void RegisterObject(Context* context);
+    //static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

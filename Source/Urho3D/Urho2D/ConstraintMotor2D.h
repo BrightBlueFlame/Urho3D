@@ -37,8 +37,6 @@ public:
     ConstraintMotor2D(Context* context);
     /// Destruct.
     virtual ~ConstraintMotor2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set linear offset.
     void SetLinearOffset(const Vector2& linearOffset);

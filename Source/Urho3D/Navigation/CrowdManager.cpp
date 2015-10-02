@@ -73,9 +73,9 @@ CrowdManager::~CrowdManager()
     crowd_ = 0;
 }
 
-void CrowdManager::RegisterObject(Context* context)
+REGISTER_OBJECT(CrowdManager, NAVIGATION_CATEGORY)
 {
-    context->RegisterFactory<CrowdManager>(NAVIGATION_CATEGORY);
+    Definition.Base<Component>();
 
     ATTRIBUTE("Max Agents", unsigned, maxAgents_, DEFAULT_MAX_AGENTS, AM_DEFAULT);
     ATTRIBUTE("Max Agent Radius", float, maxAgentRadius_, DEFAULT_MAX_AGENT_RADIUS, AM_DEFAULT);

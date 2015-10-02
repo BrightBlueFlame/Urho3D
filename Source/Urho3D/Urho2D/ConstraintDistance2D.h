@@ -37,8 +37,6 @@ public:
     ConstraintDistance2D(Context* context);
     /// Destruct.
     virtual ~ConstraintDistance2D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Set owner body anchor.
     void SetOwnerBodyAnchor(const Vector2& anchor);
