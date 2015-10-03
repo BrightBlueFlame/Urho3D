@@ -135,7 +135,7 @@ template <class T>
 template <class U> 
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(U), U defaultValue, unsigned mode)
 {
-	context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U>>(getter, setter), defaultValue, mode));
+	context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
 	lastAttribute_ = context_->GetAttribute<T>(name);
 	return *this;
 }
@@ -144,7 +144,7 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
 {
-    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, MixedAttributeTrait<U>>(getter, setter), defaultValue, mode));
+    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, MixedAttributeTrait<U> >(getter, setter), defaultValue, mode));
     lastAttribute_ = context_->GetAttribute<T>(name);
     return *this;
 }
@@ -153,7 +153,7 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, const U& (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
 {
-    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U>>(getter, setter), defaultValue, mode));
+    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
     lastAttribute_ = context_->GetAttribute<T>(name);
     return *this;
 }

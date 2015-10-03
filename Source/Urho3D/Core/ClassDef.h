@@ -66,10 +66,10 @@ private:
     StringHash classId_;
     
     /// Properties for the whole class.
-    Vector<SharedPtr<Property>> classProperties_;
+    Vector<SharedPtr<Property> > classProperties_;
     
     /// The properties for each attribute.
-    HashMap<AttributeInfo*, Vector<SharedPtr<Property>> > properties_;
+    HashMap<AttributeInfo*, Vector<SharedPtr<Property> > > properties_;
     
     /// Interfaces that this class implements.
     Vector<CDWeakPtr> interfaces_;

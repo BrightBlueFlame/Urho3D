@@ -89,7 +89,7 @@ class ClassDef;
     Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
     void typeName::RegisterObject(Urho3D::Context* context) \
     { \
-        s_classDef = ::Urho3D::SharedPtr<::Urho3D::ClassDef>(new ::Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
+        s_classDef = ::Urho3D::SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
         context->RegisterFactory< typeName >(__VA_ARGS__); \
         Urho3D::ClassConstructor< typeName > ccc(context, s_classDef); \
         typeName::DefineMyAttributes(ccc); \
@@ -101,7 +101,7 @@ class ClassDef;
 Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
 void typeName::RegisterObject(Urho3D::Context* context) \
     { \
-        s_classDef = ::Urho3D::SharedPtr<::Urho3D::ClassDef>(new ::Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
+        s_classDef = ::Urho3D::SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
         Urho3D::ClassConstructor< typeName > ccc(context, s_classDef); \
         typeName::DefineMyAttributes(ccc); \
         s_classDef->Close(); \
