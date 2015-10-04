@@ -33,7 +33,7 @@ ClassDef::ClassDef(Context* context, StringHash classId):
 {
 }
 
-void ClassDef::AddInterface(WeakPtr<ClassDef> interface)
+void ClassDef::AddInterface(StringHash interface)
 {
 	if(!closed_)
 	{

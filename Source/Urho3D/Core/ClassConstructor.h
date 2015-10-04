@@ -113,8 +113,7 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Implements()
 {
-    assert(U3D_Traits::is_interface<U>::value == true && "Class marked as implmenting an interface that is not an interface...");
-	classDef_->AddInterface(WeakPtr<ClassDef>(U::GetClassDef()));
+	classDef_->AddInterface(U::GetInterfaceTypeStatic());
 	return *this;
 }
 

@@ -50,7 +50,7 @@ public:
     
     StringHash GetId() const { return classId_; }
     
-    void AddInterface(CDWeakPtr interface);
+    void AddInterface(StringHash interface);
     void AddBase(CDWeakPtr classInfo);
     void AddProperty(SharedPtr<Property> prop);
     void AddProperty(AttributeInfo* attrib, SharedPtr<Property> prop);
@@ -72,7 +72,7 @@ private:
     HashMap<AttributeInfo*, Vector<SharedPtr<Property> > > properties_;
     
     /// Interfaces that this class implements.
-    Vector<CDWeakPtr> interfaces_;
+    Vector<StringHash> interfaces_;
     
     /// Base classes of this class.
     Vector<CDWeakPtr> bases_;
