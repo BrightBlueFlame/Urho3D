@@ -77,7 +77,7 @@ ScriptInstance::~ScriptInstance()
 }
 
 //void ScriptInstance::RegisterObject(Context* context)
-REGISTER_OBJECT(ScriptInstance, LOGIC_CATEGORY)
+URHO_REGISTER_OBJECT(ScriptInstance, LOGIC_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

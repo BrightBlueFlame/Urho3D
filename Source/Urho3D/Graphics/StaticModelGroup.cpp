@@ -51,7 +51,7 @@ StaticModelGroup::~StaticModelGroup()
 {
 }
 
-REGISTER_OBJECT(StaticModelGroup, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(StaticModelGroup, GEOMETRY_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(StaticModel);
     ACCESSOR_ATTRIBUTE("Instance Nodes", GetNodeIDsAttr, SetNodeIDsAttr, VariantVector, Variant::emptyVariantVector,

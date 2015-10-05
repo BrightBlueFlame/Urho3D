@@ -46,7 +46,7 @@ ConstraintRope2D::~ConstraintRope2D()
 {
 }
 
-REGISTER_OBJECT(ConstraintRope2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(ConstraintRope2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Owner Body Anchor", GetOwnerBodyAnchor, SetOwnerBodyAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);

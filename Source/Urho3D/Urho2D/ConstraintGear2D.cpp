@@ -43,7 +43,7 @@ ConstraintGear2D::~ConstraintGear2D()
 {
 }
 
-REGISTER_OBJECT(ConstraintGear2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(ConstraintGear2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Ratio", GetRatio, SetRatio, float, 0.0f, AM_DEFAULT);

@@ -45,7 +45,7 @@ CollisionPolygon2D::~CollisionPolygon2D()
 {
 }
 
-REGISTER_OBJECT(CollisionPolygon2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(CollisionPolygon2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     COPY_BASE_ATTRIBUTES(CollisionShape2D);

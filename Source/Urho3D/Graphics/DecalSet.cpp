@@ -179,7 +179,7 @@ DecalSet::~DecalSet()
 {
 }
 
-REGISTER_OBJECT(DecalSet, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(DecalSet, GEOMETRY_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Material", GetMaterialAttr, SetMaterialAttr, ResourceRef, ResourceRef(Material::GetTypeStatic()),

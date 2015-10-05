@@ -44,7 +44,7 @@ CollisionChain2D::~CollisionChain2D()
 {
 }
 
-REGISTER_OBJECT(CollisionChain2D)
+URHO_REGISTER_OBJECT(CollisionChain2D)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Loop", GetLoop, SetLoop, bool, false, AM_DEFAULT);

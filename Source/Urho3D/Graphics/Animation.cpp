@@ -115,7 +115,7 @@ Animation::~Animation()
 {
 }
 
-REGISTER_OBJECT(Animation)
+URHO_REGISTER_OBJECT(Animation)
 {
     Definition.Base<Resource>();
 }

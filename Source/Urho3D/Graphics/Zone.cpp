@@ -68,7 +68,7 @@ Zone::~Zone()
 {
 }
 
-REGISTER_OBJECT(Zone, SCENE_CATEGORY)
+URHO_REGISTER_OBJECT(Zone, SCENE_CATEGORY)
 {
     Definition.Base<Drawable>();
 

@@ -50,7 +50,7 @@ CollisionBox2D::~CollisionBox2D()
 {
 }
 
-REGISTER_OBJECT(CollisionBox2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(CollisionBox2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Size", GetSize, SetSize, Vector2, DEFAULT_BOX_SIZE, AM_DEFAULT);

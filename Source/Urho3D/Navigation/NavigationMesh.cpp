@@ -138,7 +138,7 @@ NavigationMesh::~NavigationMesh()
     pathData_ = 0;
 }
 
-REGISTER_OBJECT(NavigationMesh, NAVIGATION_CATEGORY)
+URHO_REGISTER_OBJECT(NavigationMesh, NAVIGATION_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Tile Size", GetTileSize, SetTileSize, int, DEFAULT_TILE_SIZE, AM_DEFAULT);

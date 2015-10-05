@@ -45,7 +45,7 @@ ConstraintMotor2D::~ConstraintMotor2D()
 {
 }
 
-REGISTER_OBJECT(ConstraintMotor2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(ConstraintMotor2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Linear Offset", GetLinearOffset, SetLinearOffset, Vector2, Vector2::ZERO, AM_DEFAULT);

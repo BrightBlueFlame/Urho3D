@@ -98,7 +98,7 @@ RigidBody::~RigidBody()
     shiftedCompoundShape_ = 0;
 }
 
-REGISTER_OBJECT(RigidBody, PHYSICS_CATEGORY)
+URHO_REGISTER_OBJECT(RigidBody, PHYSICS_CATEGORY)
 {
     Definition.Base<Component>();
 

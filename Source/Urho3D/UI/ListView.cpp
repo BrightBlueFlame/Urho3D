@@ -73,7 +73,7 @@ void SetItemHierarchyParent(UIElement* item, bool enable)
 /// Hierarchy container (used by ListView internally when in hierarchy mode).
 class HierarchyContainer : public UIElement
 {
-    OBJECT(HierarchyContainer);
+    URHO_OBJECT(HierarchyContainer);
 
 public:
     /// Construct.
@@ -187,7 +187,7 @@ ListView::~ListView()
 {
 }
 
-REGISTER_OBJECT(ListView, UI_CATEGORY)
+URHO_REGISTER_OBJECT(ListView, UI_CATEGORY)
 {
     HierarchyContainer::RegisterObject(Definition.GetContext());
 

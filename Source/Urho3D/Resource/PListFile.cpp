@@ -295,7 +295,7 @@ PListFile::~PListFile()
 {
 }
 
-REGISTER_OBJECT(PListFile)
+URHO_REGISTER_OBJECT(PListFile)
 {
     Definition.Base<Resource>();
 }

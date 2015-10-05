@@ -50,7 +50,7 @@ Component::~Component()
 {
 }
     
-REGISTER_OBJECT(Component)
+URHO_REGISTER_OBJECT(Component)
 {
     Definition
     .Base<Animatable>()

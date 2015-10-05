@@ -86,7 +86,7 @@ Renderer2D::~Renderer2D()
 {
 }
 
-REGISTER_OBJECT(Renderer2D)
+URHO_REGISTER_OBJECT(Renderer2D)
 {
     Definition
     .Base<Drawable>()

@@ -185,7 +185,7 @@ Technique::~Technique()
 {
 }
 
-REGISTER_OBJECT(Technique)
+URHO_REGISTER_OBJECT(Technique)
 {
     Definition.Base<Resource>();
 }

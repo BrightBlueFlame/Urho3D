@@ -52,7 +52,7 @@ ObjectAnimation::~ObjectAnimation()
 }
 
 //void ObjectAnimation::RegisterObject(Context* context)
-REGISTER_OBJECT(ObjectAnimation)
+URHO_REGISTER_OBJECT(ObjectAnimation)
 {
     Definition.Base<Resource>();
 }

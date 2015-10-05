@@ -76,7 +76,7 @@ TextureCube::~TextureCube()
     Release();
 }
 
-REGISTER_OBJECT(TextureCube)
+URHO_REGISTER_OBJECT(TextureCube)
 {
     Definition.Base<Texture>();
 }

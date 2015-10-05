@@ -50,7 +50,7 @@ CollisionEdge2D::~CollisionEdge2D()
 {
 }
 
-REGISTER_OBJECT(CollisionEdge2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(CollisionEdge2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Vertex 1", GetVertex1, SetVertex1, Vector2, DEFAULT_VERTEX1, AM_DEFAULT);

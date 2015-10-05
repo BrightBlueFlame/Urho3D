@@ -73,7 +73,7 @@ Node::~Node()
 }
 
 //void Node::RegisterObject(Context* context)
-REGISTER_OBJECT(Node)
+URHO_REGISTER_OBJECT(Node)
 {
     Definition.Implements<Animatable>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

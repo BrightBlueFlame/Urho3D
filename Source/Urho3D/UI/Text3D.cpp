@@ -65,7 +65,7 @@ Text3D::~Text3D()
 {
 }
 
-REGISTER_OBJECT(Text3D, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(Text3D, GEOMETRY_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Font", GetFontAttr, SetFontAttr, ResourceRef, ResourceRef(Font::GetTypeStatic()), AM_DEFAULT);

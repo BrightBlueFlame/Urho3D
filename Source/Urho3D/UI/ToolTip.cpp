@@ -43,7 +43,7 @@ ToolTip::~ToolTip()
 {
 }
 
-REGISTER_OBJECT(ToolTip, UI_CATEGORY)
+URHO_REGISTER_OBJECT(ToolTip, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
     ACCESSOR_ATTRIBUTE("Delay", GetDelay, SetDelay, float, 0.0f, AM_FILE);

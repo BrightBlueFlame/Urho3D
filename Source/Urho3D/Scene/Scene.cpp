@@ -92,7 +92,7 @@ Scene::~Scene()
         i->second_->ResetScene();
 }
 
-REGISTER_OBJECT(Scene)
+URHO_REGISTER_OBJECT(Scene)
 {
     Definition.Base<Node>();
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_DEFAULT);

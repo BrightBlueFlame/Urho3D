@@ -119,7 +119,7 @@ AnimationSet2D::~AnimationSet2D()
     Dispose();
 }
 
-REGISTER_OBJECT(AnimationSet2D)
+URHO_REGISTER_OBJECT(AnimationSet2D)
 {
     Definition.Base<Resource>();
 }

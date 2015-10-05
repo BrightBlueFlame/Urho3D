@@ -34,7 +34,7 @@ class TmxFile2D;
 /// Tile map component.
 class URHO3D_API TileMap2D : public Component
 {
-    OBJECT(TileMap2D);
+    URHO_OBJECT(TileMap2D);
 
 public:
     /// Construct.

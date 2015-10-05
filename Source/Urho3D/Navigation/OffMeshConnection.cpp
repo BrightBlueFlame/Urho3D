@@ -54,7 +54,7 @@ OffMeshConnection::~OffMeshConnection()
 }
 
 //void OffMeshConnection::RegisterObject(Context* context)
-REGISTER_OBJECT(OffMeshConnection, NAVIGATION_CATEGORY)
+URHO_REGISTER_OBJECT(OffMeshConnection, NAVIGATION_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

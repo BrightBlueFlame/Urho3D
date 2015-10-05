@@ -52,7 +52,7 @@ Sprite::~Sprite()
 {
 }
 
-REGISTER_OBJECT(Sprite, UI_CATEGORY)
+URHO_REGISTER_OBJECT(Sprite, UI_CATEGORY)
 {
     Definition.Base<UIElement>();
 

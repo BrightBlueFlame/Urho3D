@@ -54,7 +54,7 @@ StaticModel::~StaticModel()
 {
 }
 
-REGISTER_OBJECT(StaticModel, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(StaticModel, GEOMETRY_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Model", GetModelAttr, SetModelAttr, ResourceRef, ResourceRef(Model::GetTypeStatic()), AM_DEFAULT);

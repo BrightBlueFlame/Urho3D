@@ -105,7 +105,7 @@ MessageBox::~MessageBox()
         window_->Remove();
 }
 
-REGISTER_OBJECT(MessageBox)
+URHO_REGISTER_OBJECT(MessageBox)
 {
     Definition.Base<Object>();
 }

@@ -178,7 +178,7 @@ PhysicsWorld::~PhysicsWorld()
     collisionConfiguration_ = 0;
 }
 
-REGISTER_OBJECT(PhysicsWorld, SUBSYSTEM_CATEGORY)
+URHO_REGISTER_OBJECT(PhysicsWorld, SUBSYSTEM_CATEGORY)
 {
     Definition.Base<Component>();
     MIXED_ACCESSOR_ATTRIBUTE("Gravity", GetGravity, SetGravity, Vector3, DEFAULT_GRAVITY, AM_DEFAULT);

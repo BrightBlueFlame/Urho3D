@@ -68,7 +68,7 @@ RigidBody2D::~RigidBody2D()
     }
 }
 
-REGISTER_OBJECT(RigidBody2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(RigidBody2D, URHO2D_CATEGORY)
 {
     Definition.Base<Component>();
 

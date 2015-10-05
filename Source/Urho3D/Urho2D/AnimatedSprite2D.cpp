@@ -70,7 +70,7 @@ AnimatedSprite2D::~AnimatedSprite2D()
     Dispose();
 }
 
-REGISTER_OBJECT(AnimatedSprite2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(AnimatedSprite2D, URHO2D_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(StaticSprite2D);
     REMOVE_ATTRIBUTE("Sprite");

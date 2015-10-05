@@ -45,7 +45,7 @@ Skybox::~Skybox()
 {
 }
 
-REGISTER_OBJECT(Skybox, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(Skybox, GEOMETRY_CATEGORY)
 {
     Definition.Base<StaticModel>(true);
 }

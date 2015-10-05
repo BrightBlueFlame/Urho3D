@@ -99,7 +99,7 @@ CrowdAgent::~CrowdAgent()
     RemoveAgentFromCrowd();
 }
 
-REGISTER_OBJECT(CrowdAgent, NAVIGATION_CATEGORY)
+URHO_REGISTER_OBJECT(CrowdAgent, NAVIGATION_CATEGORY)
 {
     Definition.Base<Component>();
     ATTRIBUTE("Target Position", Vector3, targetPosition_, Vector3::ZERO, AM_DEFAULT);

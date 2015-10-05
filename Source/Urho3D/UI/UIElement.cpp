@@ -149,7 +149,7 @@ UIElement::~UIElement()
 }
 
 // void UIElement::RegisterObject(Context* context)
-REGISTER_OBJECT(UIElement, UI_CATEGORY)
+URHO_REGISTER_OBJECT(UIElement, UI_CATEGORY)
 {
     Definition.Base<Animatable>();
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_FILE);

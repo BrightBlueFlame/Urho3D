@@ -67,7 +67,7 @@ TerrainPatch::~TerrainPatch()
 {
 }
 
-REGISTER_OBJECT(TerrainPatch)
+URHO_REGISTER_OBJECT(TerrainPatch)
 {
     Definition.Base<Drawable>();
 }

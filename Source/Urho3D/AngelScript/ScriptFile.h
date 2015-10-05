@@ -45,7 +45,7 @@ class Variant;
 /// %Script file resource.
 class URHO3D_API ScriptFile : public Resource, public ScriptEventListener
 {
-    OBJECT(ScriptFile);
+    URHO_OBJECT(ScriptFile);
 
 public:
     /// Construct.
@@ -150,7 +150,7 @@ private:
 /// Helper class for forwarding events to script objects that are not part of a scene.
 class URHO3D_API ScriptEventInvoker : public Object
 {
-    OBJECT(ScriptEventInvoker);
+    URHO_OBJECT(ScriptEventInvoker);
 
 public:
     /// Constructor, will create the asILockableSharedBool if a ScriptObject is passed in.

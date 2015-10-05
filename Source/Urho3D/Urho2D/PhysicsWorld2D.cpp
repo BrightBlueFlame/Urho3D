@@ -79,7 +79,7 @@ PhysicsWorld2D::~PhysicsWorld2D()
     world_ = 0;
 }
 
-REGISTER_OBJECT(PhysicsWorld2D,SUBSYSTEM_CATEGORY)
+URHO_REGISTER_OBJECT(PhysicsWorld2D,SUBSYSTEM_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Draw Shape", GetDrawShape, SetDrawShape, bool, false, AM_DEFAULT);

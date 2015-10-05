@@ -61,7 +61,7 @@ ValueAnimation::~ValueAnimation()
 }
 
 //void ValueAnimation::RegisterObject(Context* context)
-REGISTER_OBJECT(ValueAnimation)
+URHO_REGISTER_OBJECT(ValueAnimation)
 {
     Definition.Base<Resource>();
 }

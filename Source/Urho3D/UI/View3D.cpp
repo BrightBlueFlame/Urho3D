@@ -54,7 +54,7 @@ View3D::~View3D()
     ResetScene();
 }
 
-REGISTER_OBJECT(View3D, UI_CATEGORY)
+URHO_REGISTER_OBJECT(View3D, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(Window);
     // The texture format is API specific, so do not register it as a serializable attribute

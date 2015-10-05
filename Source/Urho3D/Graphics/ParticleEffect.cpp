@@ -86,7 +86,7 @@ ParticleEffect::~ParticleEffect()
 {
 }
 
-REGISTER_OBJECT(ParticleEffect)
+URHO_REGISTER_OBJECT(ParticleEffect)
 {
     Definition.Base<Resource>();
 }

@@ -88,7 +88,7 @@ Property::Property(Context* context)
 {
 }
 
-REGISTER_OBJECT(Property)
+URHO_REGISTER_OBJECT(Property)
 {
 	Definition
         .Base<Object>()

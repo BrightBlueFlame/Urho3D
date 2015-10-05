@@ -42,7 +42,7 @@ Navigable::~Navigable()
 {
 }
 
-REGISTER_OBJECT(Navigable, NAVIGATION_CATEGORY)
+URHO_REGISTER_OBJECT(Navigable, NAVIGATION_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

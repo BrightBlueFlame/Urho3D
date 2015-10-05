@@ -30,7 +30,7 @@ namespace Urho3D
 /// %Slider bar %UI element.
 class URHO3D_API Slider : public BorderImage
 {
-    OBJECT(Slider);
+    URHO_OBJECT(Slider);
 
 public:
     /// Construct.

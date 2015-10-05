@@ -47,7 +47,7 @@ CollisionCircle2D::~CollisionCircle2D()
 {
 }
 
-REGISTER_OBJECT(CollisionCircle2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(CollisionCircle2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Radius", GetRadius, SetRadius, float, DEFAULT_CLRCLE_RADIUS, AM_DEFAULT);

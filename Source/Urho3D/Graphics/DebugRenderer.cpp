@@ -59,7 +59,7 @@ DebugRenderer::~DebugRenderer()
 {
 }
 
-REGISTER_OBJECT(DebugRenderer, SUBSYSTEM_CATEGORY)
+URHO_REGISTER_OBJECT(DebugRenderer, SUBSYSTEM_CATEGORY)
 {
     Definition
     .Base<Component>()

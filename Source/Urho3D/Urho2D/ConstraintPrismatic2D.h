@@ -30,7 +30,7 @@ namespace Urho3D
 /// 2D prismatic constraint component.
 class URHO3D_API ConstraintPrismatic2D : public Constraint2D
 {
-    OBJECT(ConstraintPrismatic2D);
+    URHO_OBJECT(ConstraintPrismatic2D);
 
 public:
     /// Construct.

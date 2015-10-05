@@ -75,7 +75,7 @@ XMLFile::~XMLFile()
     document_ = 0;
 }
 
-REGISTER_OBJECT(XMLFile)
+URHO_REGISTER_OBJECT(XMLFile)
 {
     Definition.Base<Resource>();
 }

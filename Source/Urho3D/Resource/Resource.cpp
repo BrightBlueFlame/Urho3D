@@ -36,7 +36,7 @@ Resource::Resource(Context* context) :
 {
 }
     
-REGISTER_OBJECT(Resource)
+URHO_REGISTER_OBJECT(Resource)
 {
     Definition.Base<Object>();
 }

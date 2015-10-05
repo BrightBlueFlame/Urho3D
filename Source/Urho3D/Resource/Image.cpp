@@ -255,7 +255,7 @@ Image::~Image()
 }
 
 //void Image::RegisterObject(Context* context)
-REGISTER_OBJECT(Image)
+URHO_REGISTER_OBJECT(Image)
 {
     Definition
     .Base<Resource>()

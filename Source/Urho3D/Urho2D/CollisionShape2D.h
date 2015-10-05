@@ -34,8 +34,8 @@ class RigidBody2D;
 /// 2D collision shape component.
 class URHO3D_API CollisionShape2D : public Component
 {
-    U3D_INTERFACE(CollisionShape2D);
-    OBJECT(CollisionShape2D);
+    URHO_INTERFACE(CollisionShape2D);
+    URHO_OBJECT(CollisionShape2D);
 
 public:
     /// Construct.

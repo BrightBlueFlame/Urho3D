@@ -55,7 +55,7 @@ StaticSprite2D::~StaticSprite2D()
 {
 }
 
-REGISTER_OBJECT(StaticSprite2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(StaticSprite2D, URHO2D_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     COPY_BASE_ATTRIBUTES(Drawable2D);

@@ -59,7 +59,7 @@ Font::~Font()
     fontData_.Reset();
 }
 
-REGISTER_OBJECT(Font)
+URHO_REGISTER_OBJECT(Font)
 {
     Definition.Base<Resource>();
 }

@@ -62,7 +62,7 @@ struct FontGlyph
 /// %Font face description.
 class URHO3D_API FontFace : public RefCounted
 {
-    U3D_INTERFACE(FontFace);
+    URHO_INTERFACE(FontFace);
     friend class Font;
 
 public:

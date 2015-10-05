@@ -48,7 +48,7 @@ TileMap2D::~TileMap2D()
 {
 }
 
-REGISTER_OBJECT(TileMap2D, URHO2D_CATEGORY)
+URHO_REGISTER_OBJECT(TileMap2D, URHO2D_CATEGORY)
 {
     Definition.Base<Component>();
 

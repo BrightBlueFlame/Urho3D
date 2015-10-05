@@ -61,7 +61,7 @@ Window::~Window()
 {
 }
 
-REGISTER_OBJECT(Window, UI_CATEGORY)
+URHO_REGISTER_OBJECT(Window, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Bring To Front", true);

@@ -50,7 +50,7 @@ JSONFile::~JSONFile()
 {
 }
 
-REGISTER_OBJECT(JSONFile)
+URHO_REGISTER_OBJECT(JSONFile)
 {
     Definition.Base<Resource>();
 }

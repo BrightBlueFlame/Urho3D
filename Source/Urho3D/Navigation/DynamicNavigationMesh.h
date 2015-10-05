@@ -40,7 +40,7 @@ class Obstacle;
 
 class URHO3D_API DynamicNavigationMesh : public NavigationMesh
 {
-    OBJECT(DynamicNavigationMesh)
+    URHO_OBJECT(DynamicNavigationMesh)
 
     friend class Obstacle;
     friend struct MeshProcess;

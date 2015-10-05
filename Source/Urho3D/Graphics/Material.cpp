@@ -186,7 +186,7 @@ Material::~Material()
 }
 
 //void Material::RegisterObject(Context* context)
-REGISTER_OBJECT(Material)
+URHO_REGISTER_OBJECT(Material)
 {
     Definition.Base<Resource>();
 }

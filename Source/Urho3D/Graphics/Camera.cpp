@@ -81,7 +81,7 @@ Camera::~Camera()
 {
 }
 
-REGISTER_OBJECT(Camera, SCENE_CATEGORY)
+URHO_REGISTER_OBJECT(Camera, SCENE_CATEGORY)
 {
     Definition.Base<Component>();
 

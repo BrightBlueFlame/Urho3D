@@ -49,7 +49,7 @@ Texture3D::~Texture3D()
     Release();
 }
 
-REGISTER_OBJECT(Texture3D)
+URHO_REGISTER_OBJECT(Texture3D)
 {
     Definition.Base<Texture>();
 }

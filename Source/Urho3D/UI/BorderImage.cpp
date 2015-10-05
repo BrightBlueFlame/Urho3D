@@ -50,7 +50,7 @@ BorderImage::~BorderImage()
 {
 }
 
-REGISTER_OBJECT(BorderImage, UI_CATEGORY)
+URHO_REGISTER_OBJECT(BorderImage, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
     MIXED_ACCESSOR_ATTRIBUTE("Texture", GetTextureAttr, SetTextureAttr, ResourceRef, ResourceRef(Texture2D::GetTypeStatic()),

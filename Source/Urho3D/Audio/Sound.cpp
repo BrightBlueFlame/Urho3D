@@ -76,7 +76,7 @@ Sound::~Sound()
 {
 }
 
-REGISTER_OBJECT(Sound)
+URHO_REGISTER_OBJECT(Sound)
 {
     Definition.Base<Resource>();
 }

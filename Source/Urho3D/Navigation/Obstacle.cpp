@@ -51,7 +51,7 @@ Obstacle::~Obstacle()
         ownerMesh_->RemoveObstacle(this);
 }
 
-REGISTER_OBJECT(Obstacle, NAVIGATION_CATEGORY)
+URHO_REGISTER_OBJECT(Obstacle, NAVIGATION_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(Component);
     ACCESSOR_ATTRIBUTE("Radius", GetRadius, SetRadius, float, 5.0f, AM_DEFAULT);

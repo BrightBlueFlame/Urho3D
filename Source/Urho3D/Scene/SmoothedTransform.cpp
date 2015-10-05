@@ -45,7 +45,7 @@ SmoothedTransform::~SmoothedTransform()
 {
 }
 
-REGISTER_OBJECT(SmoothedTransform)
+URHO_REGISTER_OBJECT(SmoothedTransform)
 {
     Definition.Base<Component>();
 }

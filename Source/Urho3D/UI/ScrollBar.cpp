@@ -75,7 +75,7 @@ ScrollBar::~ScrollBar()
 {
 }
 
-REGISTER_OBJECT(ScrollBar, UI_CATEGORY)
+URHO_REGISTER_OBJECT(ScrollBar, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);

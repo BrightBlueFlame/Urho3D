@@ -113,7 +113,7 @@ Terrain::~Terrain()
 {
 }
 
-REGISTER_OBJECT(Terrain, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(Terrain, GEOMETRY_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

@@ -57,7 +57,7 @@ Constraint2D::~Constraint2D()
     ReleaseJoint();
 }
 
-REGISTER_OBJECT(Constraint2D)
+URHO_REGISTER_OBJECT(Constraint2D)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Collide Connected", GetCollideConnected, SetCollideConnected, bool, false, AM_DEFAULT);

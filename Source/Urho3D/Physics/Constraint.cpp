@@ -80,7 +80,7 @@ Constraint::~Constraint()
         physicsWorld_->RemoveConstraint(this);
 }
 
-REGISTER_OBJECT(Constraint, PHYSICS_CATEGORY)
+URHO_REGISTER_OBJECT(Constraint, PHYSICS_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

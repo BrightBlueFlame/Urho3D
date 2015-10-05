@@ -60,7 +60,7 @@ CustomGeometry::~CustomGeometry()
 {
 }
 
-REGISTER_OBJECT(CustomGeometry, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(CustomGeometry, GEOMETRY_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ATTRIBUTE("Dynamic Vertex Buffer", bool, dynamic_, false, AM_DEFAULT);

@@ -353,7 +353,7 @@ Octree::~Octree()
 }
 
 //void Octree::RegisterObject(Context* context)
-REGISTER_OBJECT(Octree, SUBSYSTEM_CATEGORY)
+URHO_REGISTER_OBJECT(Octree, SUBSYSTEM_CATEGORY)
 {
     Definition.Base<Component>();
     Vector3 defaultBoundsMin = -Vector3::ONE * DEFAULT_OCTREE_SIZE;

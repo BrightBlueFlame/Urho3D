@@ -30,7 +30,7 @@ namespace Urho3D
 /// 2D distance constraint component.
 class URHO3D_API ConstraintDistance2D : public Constraint2D
 {
-    OBJECT(ConstraintDistance2D);
+    URHO_OBJECT(ConstraintDistance2D);
 
 public:
     /// Construct.

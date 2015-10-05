@@ -432,7 +432,7 @@ CollisionShape::~CollisionShape()
         physicsWorld_->RemoveCollisionShape(this);
 }
 
-REGISTER_OBJECT(CollisionShape,PHYSICS_CATEGORY)
+URHO_REGISTER_OBJECT(CollisionShape,PHYSICS_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

@@ -51,7 +51,7 @@ NetworkPriority::~NetworkPriority()
 }
 
 //void NetworkPriority::RegisterObject(Context* context)
-REGISTER_OBJECT(NetworkPriority, NETWORK_CATEGORY)
+URHO_REGISTER_OBJECT(NetworkPriority, NETWORK_CATEGORY)
 {
     Definition.Base<Component>();
     ATTRIBUTE("Base Priority", float, basePriority_, DEFAULT_BASE_PRIORITY, AM_DEFAULT);

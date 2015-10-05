@@ -56,7 +56,7 @@ ParticleEmitter::~ParticleEmitter()
 }
 
 //void ParticleEmitter::RegisterObject(Context* context)
-REGISTER_OBJECT(ParticleEmitter, GEOMETRY_CATEGORY)
+URHO_REGISTER_OBJECT(ParticleEmitter, GEOMETRY_CATEGORY)
 {
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Effect", GetEffectAttr, SetEffectAttr, ResourceRef, ResourceRef(ParticleEffect::GetTypeStatic()),

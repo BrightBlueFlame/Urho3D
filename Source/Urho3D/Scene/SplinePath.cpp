@@ -47,7 +47,7 @@ SplinePath::SplinePath(Context* context) :
     UpdateNodeIds();
 }
 
-REGISTER_OBJECT(SplinePath, LOGIC_CATEGORY)
+URHO_REGISTER_OBJECT(SplinePath, LOGIC_CATEGORY)
 {
     Definition.Base<Component>();
     ENUM_ACCESSOR_ATTRIBUTE("Interpolation Mode", GetInterpolationMode, SetInterpolationMode, InterpolationMode,

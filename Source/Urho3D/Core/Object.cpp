@@ -43,7 +43,7 @@ Object::~Object()
     context_->RemoveEventSender(this);
 }
     
-REGISTER_OBJECT(Object)
+URHO_REGISTER_OBJECT(Object)
 {
     (void)Definition; // Unused.
 }

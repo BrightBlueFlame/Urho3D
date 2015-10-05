@@ -36,7 +36,7 @@ class TerrainPatch;
 /// Heightmap terrain component.
 class URHO3D_API Terrain : public Component
 {
-    OBJECT(Terrain);
+    URHO_OBJECT(Terrain);
 
 public:
     /// Construct.

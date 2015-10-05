@@ -60,7 +60,7 @@ AnimationController::~AnimationController()
 {
 }
 
-REGISTER_OBJECT(AnimationController, LOGIC_CATEGORY)
+URHO_REGISTER_OBJECT(AnimationController, LOGIC_CATEGORY)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);

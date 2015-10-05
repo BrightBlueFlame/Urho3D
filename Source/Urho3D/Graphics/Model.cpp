@@ -66,7 +66,7 @@ Model::~Model()
 }
 
 //void Model::RegisterObject(Context* context)
-REGISTER_OBJECT(Model)
+URHO_REGISTER_OBJECT(Model)
 {
     Definition
     .Base<Resource>()

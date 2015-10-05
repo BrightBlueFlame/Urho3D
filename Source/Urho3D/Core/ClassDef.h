@@ -83,7 +83,7 @@ private:
     
 class Property : public Object
 {
-    OBJECT(Property);
+    URHO_OBJECT(Property);
         
 public:
     Property(Context* context);

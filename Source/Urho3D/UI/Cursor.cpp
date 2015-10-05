@@ -98,7 +98,7 @@ Cursor::~Cursor()
 }
 
 //void Cursor::RegisterObject(Context* context)
-REGISTER_OBJECT(Cursor, UI_CATEGORY)
+URHO_REGISTER_OBJECT(Cursor, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Priority", M_MAX_INT);

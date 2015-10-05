@@ -73,7 +73,7 @@ CrowdManager::~CrowdManager()
     crowd_ = 0;
 }
 
-REGISTER_OBJECT(CrowdManager, NAVIGATION_CATEGORY)
+URHO_REGISTER_OBJECT(CrowdManager, NAVIGATION_CATEGORY)
 {
     Definition.Base<Component>();
 

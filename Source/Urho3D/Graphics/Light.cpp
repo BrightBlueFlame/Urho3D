@@ -109,7 +109,7 @@ Light::~Light()
 }
 
 // void Light::RegisterObject(Context* context)
-REGISTER_OBJECT(Light, SCENE_CATEGORY)
+URHO_REGISTER_OBJECT(Light, SCENE_CATEGORY)
 {
     Definition.Base<Drawable>();
     Context* context = Definition.GetContext();

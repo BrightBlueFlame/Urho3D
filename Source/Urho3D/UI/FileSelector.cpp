@@ -135,7 +135,7 @@ FileSelector::~FileSelector()
     window_->Remove();
 }
     
-REGISTER_OBJECT(FileSelector)
+URHO_REGISTER_OBJECT(FileSelector)
 {
     Definition.Base<Object>();
 }

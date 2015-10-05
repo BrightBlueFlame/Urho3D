@@ -71,7 +71,7 @@ LineEdit::~LineEdit()
 {
 }
 
-REGISTER_OBJECT(LineEdit, UI_CATEGORY)
+URHO_REGISTER_OBJECT(LineEdit, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Clip Children", true);

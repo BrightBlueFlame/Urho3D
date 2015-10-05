@@ -91,7 +91,7 @@ ScrollView::~ScrollView()
 {
 }
 
-REGISTER_OBJECT(ScrollView, UI_CATEGORY)
+URHO_REGISTER_OBJECT(ScrollView, UI_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Clip Children", true);

@@ -126,7 +126,7 @@ SoundSource::~SoundSource()
 }
 
 //void SoundSource::RegisterObject(Context* context)
-REGISTER_OBJECT(SoundSource, AUDIO_CATEGORY)
+URHO_REGISTER_OBJECT(SoundSource, AUDIO_CATEGORY)
 {
     Definition.Base<Component>();
 

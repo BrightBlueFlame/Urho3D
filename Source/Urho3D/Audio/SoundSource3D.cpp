@@ -113,7 +113,7 @@ SoundSource3D::SoundSource3D(Context* context) :
 }
 
 //void SoundSource3D::RegisterObject(Context* context)
-REGISTER_OBJECT(SoundSource3D, AUDIO_CATEGORY)
+URHO_REGISTER_OBJECT(SoundSource3D, AUDIO_CATEGORY)
 {
     COPY_BASE_ATTRIBUTES(SoundSource);
     // Remove Attenuation and Panning as attribute as they are constantly being updated

@@ -49,12 +49,12 @@ class EventHandler;
 template <class T> class ClassConstructor;
 class ClassDef;
     
-#define U3D_INTERFACE(typeName) \
+#define URHO_INTERFACE(typeName) \
     public: \
         static Urho3D::StringHash GetInterfaceTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
         static const Urho3D::String& GetInterfaceTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
 
-#define OBJECT(typeName) \
+#define URHO_OBJECT(typeName) \
         static Urho3D::SharedPtr<Urho3D::ClassDef> s_classDef; \
     public: \
         typedef typeName ClassName; \
@@ -67,7 +67,7 @@ class ClassDef;
         static Urho3D::StringHash GetTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
         static const Urho3D::String& GetTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
 
-#define BASEOBJECT(typeName) \
+#define URHO_BASEOBJECT(typeName) \
     public: \
         static Urho3D::StringHash GetBaseTypeStatic() { static const Urho3D::StringHash baseTypeStatic(#typeName); return baseTypeStatic; } \
     
@@ -90,7 +90,7 @@ class ClassDef;
         }; \
     }
     
-#define REGISTER_OBJECT( typeName, ... ) \
+#define URHO_REGISTER_OBJECT( typeName, ... ) \
     Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
     void typeName::RegisterObject(Urho3D::Context* context) \
     { \
@@ -117,8 +117,8 @@ void typeName::RegisterObject(Urho3D::Context* context) \
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted
 {
-    OBJECT(Object);
-    BASEOBJECT(Object);
+    URHO_OBJECT(Object);
+    URHO_BASEOBJECT(Object);
 
     friend class Context;
 

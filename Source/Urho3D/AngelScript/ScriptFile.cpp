@@ -107,7 +107,7 @@ ScriptFile::~ScriptFile()
     ReleaseModule();
 }
 
-REGISTER_OBJECT(ScriptFile)
+URHO_REGISTER_OBJECT(ScriptFile)
 {
     Definition.Base<Resource>();
 }
