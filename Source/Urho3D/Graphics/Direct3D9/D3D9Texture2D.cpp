@@ -49,9 +49,9 @@ Texture2D::~Texture2D()
     Release();
 }
 
-void Texture2D::RegisterObject(Context* context)
+REGISTER_OBJECT(Texture2D)
 {
-    context->RegisterFactory<Texture2D>();
+	Definition.Base<Texture>();
 }
 
 bool Texture2D::BeginLoad(Deserializer& source)

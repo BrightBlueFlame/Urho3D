@@ -62,7 +62,7 @@ private:
 /// Base class for animatable object, an animatable object can be set animation on it's attributes, or can be set an object animation to it.
 class URHO3D_API Animatable : public Serializable
 {
-    INTERFACE(Animatable);
+    U3D_INTERFACE(Animatable);
     OBJECT(Animatable);
 
 public:

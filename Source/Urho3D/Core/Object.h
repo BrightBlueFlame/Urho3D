@@ -49,7 +49,7 @@ class EventHandler;
 template <class T> class ClassConstructor;
 class ClassDef;
     
-#define INTERFACE(typeName) \
+#define U3D_INTERFACE(typeName) \
     public: \
         static Urho3D::StringHash GetInterfaceTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
         static const Urho3D::String& GetInterfaceTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \

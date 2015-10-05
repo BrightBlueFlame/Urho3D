@@ -41,8 +41,6 @@ public:
     Texture3D(Context* context);
     /// Destruct.
     virtual ~Texture3D();
-    /// Register object factory.
-    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);
