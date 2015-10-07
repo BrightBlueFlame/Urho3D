@@ -56,7 +56,7 @@ Drawable2D::~Drawable2D()
         renderer_->RemoveDrawable(this);
 }
 
-REGISTER_OBJECT_NO_FACTORY(Drawable2D)
+URHO_REGISTER_OBJECT_NO_FACTORY(Drawable2D)
 {
     Definition
     .Base<Drawable>()

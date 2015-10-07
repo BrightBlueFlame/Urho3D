@@ -50,7 +50,7 @@ Texture2D::~Texture2D()
     Release();
 }
 
-REGISTER_OBJECT(Texture2D)
+URHO_REGISTER_OBJECT(Texture2D)
 {
     Definition.Base<Texture>();
 }

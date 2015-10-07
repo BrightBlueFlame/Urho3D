@@ -24,52 +24,44 @@
 #define U3D_CLASSDEF_H
 #pragma once
 
-
-#include "../Core/Context.h"
-#include "../Core/Object.h"
 #include "../Core/Attribute.h"
-
-#include "../Scene/Serializable.h"
-
-#include "../Container/Ptr.h"
-#include "../Container/HashMap.h"
-#include "../Container/RefCounted.h"
 
 namespace Urho3D
 {
-
-class Property;
-class Context;
     
 class ClassDef : public RefCounted
 {
     typedef WeakPtr<ClassDef> CDWeakPtr;
     
 public:
-    ClassDef(Context* context, StringHash classId);
+    ClassDef(const String& name, StringHash classId);
     
+    const String& GetName() const { return className_; }
     StringHash GetId() const { return classId_; }
+    
+    const Vector<CDWeakPtr>& GetBaseClasses() const { return bases_; }
     
     void AddInterface(StringHash interface);
     void AddBase(CDWeakPtr classInfo);
-    void AddProperty(SharedPtr<Property> prop);
-    void AddProperty(AttributeInfo* attrib, SharedPtr<Property> prop);
+    //void AddProperty(SharedPtr<Property> prop);
+    //void AddProperty(AttributeInfo* attrib, SharedPtr<Property> prop);
     
     void Close();
     
     unsigned GetBaseCount() const { return bases_.Size(); }
     
 private:
-    Context* context_;
+    /// The name as a human-readable string.
+    String className_;
     
     /// The class id.
     StringHash classId_;
     
     /// Properties for the whole class.
-    Vector<SharedPtr<Property> > classProperties_;
+    //Vector<SharedPtr<Property> > classProperties_;
     
     /// The properties for each attribute.
-    HashMap<AttributeInfo*, Vector<SharedPtr<Property> > > properties_;
+    //HashMap<AttributeInfo*, Vector<SharedPtr<Property> > > properties_;
     
     /// Interfaces that this class implements.
     Vector<StringHash> interfaces_;
@@ -81,13 +73,13 @@ private:
     bool closed_;
 };
     
-class Property : public Object
+/*class Property : public Object
 {
     URHO_OBJECT(Property);
         
 public:
     Property(Context* context);
-};
+};*/
 
 }
 #endif

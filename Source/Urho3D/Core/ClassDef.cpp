@@ -23,11 +23,13 @@
 #include "../Precompiled.h"
 #include "../Core/ClassDef.h"
 
+#include "../IO/Log.h"
+
 namespace Urho3D
 {
 
-ClassDef::ClassDef(Context* context, StringHash classId):
-    context_(context),
+ClassDef::ClassDef(const String& name, StringHash classId):
+    className_(name),
     classId_(classId),
     closed_(false)
 {
@@ -39,22 +41,33 @@ void ClassDef::AddInterface(StringHash interface)
 	{
 		if(interfaces_.Find(interface) == interfaces_.End())
 		{
+            LOGDEBUGF("{%s} Adding interface %s", className_.CString(), interface.ToString().CString());
 			interfaces_.Push(interface);
 		}
 	}
+    else
+    {
+        LOGWARNINGF("Attempting to add interface to %s after it's been closed.", className_.CString());
+    }
 }
 
 void ClassDef::AddBase(WeakPtr<ClassDef> classInfo)
 {
 	if(!closed_)
 	{
+        LOGDEBUGF("{%s} Adding base class %s", className_.CString(), classInfo->GetName().CString());
 		if(bases_.Find(classInfo) == bases_.End())
 		{
 			bases_.Push(classInfo);
 		}
 	}
+    else
+    {
+        LOGWARNINGF("Attempting to add base class to %s after it's been closed.", className_.CString());
+    }
 }
 
+    /*
 void ClassDef::AddProperty(SharedPtr<Property> prop)
 {
 	if(!closed_)
@@ -76,13 +89,13 @@ void ClassDef::AddProperty(AttributeInfo* attrib, SharedPtr<Property> prop)
 		}
 	}
 }
-
+*/
 void ClassDef::Close()
 {
 	closed_ = true;
     
 }
-
+/*
 Property::Property(Context* context)
 : Object(context)
 {
@@ -94,5 +107,5 @@ URHO_REGISTER_OBJECT(Property)
         .Base<Object>()
     ;
 }
-
+*/
 }

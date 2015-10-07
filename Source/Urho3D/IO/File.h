@@ -60,7 +60,7 @@ class PackageFile;
 /// %File opened either through the filesystem or from within a package file.
 class URHO3D_API File : public Object, public Deserializer, public Serializer
 {
-    URHO_OBJECT(File);
+    URHO_OBJECT_NOREGISTER(File);
 
 public:
     /// Construct.

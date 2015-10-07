@@ -53,7 +53,7 @@ CollisionShape2D::~CollisionShape2D()
     ReleaseFixture();
 }
 
-REGISTER_OBJECT_NO_FACTORY(CollisionShape2D)
+URHO_REGISTER_OBJECT_NO_FACTORY(CollisionShape2D)
 {
     Definition.Base<Component>();
     ACCESSOR_ATTRIBUTE("Trigger", IsTrigger, SetTrigger, bool, false, AM_DEFAULT);

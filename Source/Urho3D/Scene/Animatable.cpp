@@ -65,7 +65,7 @@ void AttributeAnimationInfo::ApplyValue(const Variant& newValue)
     }
 }
     
-REGISTER_OBJECT_NO_FACTORY(Animatable)
+URHO_REGISTER_OBJECT_NO_FACTORY(Animatable)
 {
     Definition
         .Base<Serializable>()

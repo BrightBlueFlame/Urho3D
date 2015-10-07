@@ -95,7 +95,7 @@ Drawable::~Drawable()
     RemoveFromOctree();
 }
 
-REGISTER_OBJECT_NO_FACTORY(Drawable)
+URHO_REGISTER_OBJECT_NO_FACTORY(Drawable)
 {
     Definition.Base<Component>();
     ATTRIBUTE("Max Lights", int, maxLights_, 0, AM_DEFAULT);

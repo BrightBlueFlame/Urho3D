@@ -60,6 +60,11 @@ const char* APK = "/apk/";
 static const unsigned READ_BUFFER_SIZE = 32768;
 #endif
 static const unsigned SKIP_BUFFER_SIZE = 1024;
+    
+URHO_REGISTER_OBJECT_MINIMAL(File)
+    {
+        Definition.Base<Object>();
+    }
 
 File::File(Context* context) :
     Object(context),

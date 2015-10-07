@@ -81,7 +81,7 @@ public:
 class URHO3D_API ResourceCache : public Object
 {
     URHO_INTERFACE(ResourceCache);
-    URHO_OBJECT(ResourceCache);
+    URHO_OBJECT_NOREGISTER(ResourceCache);
 
 public:
     /// Construct.

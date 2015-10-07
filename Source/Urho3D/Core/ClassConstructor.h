@@ -121,11 +121,11 @@ template <class T>
 template <class U> 
 ClassConstructor<T>& ClassConstructor<T>::Base(bool copy)
 {
-    if(copy)
+    if(copy && context_)
     {
         context_->CopyBaseAttributes<U,T>();
     }
-    classDef_->AddBase(WeakPtr<ClassDef>(U::GetClassDef()));
+    classDef_->AddBase(WeakPtr<ClassDef>(U::GetClassDefStatic()));
     
 	return *this;
 }
@@ -134,8 +134,11 @@ template <class T>
 template <class U> 
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(U), U defaultValue, unsigned mode)
 {
-	context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
-	lastAttribute_ = context_->GetAttribute<T>(name);
+    if(context_)
+    {
+        context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
+        lastAttribute_ = context_->GetAttribute<T>(name);
+    }
 	return *this;
 }
     
@@ -143,8 +146,11 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
 {
-    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, MixedAttributeTrait<U> >(getter, setter), defaultValue, mode));
-    lastAttribute_ = context_->GetAttribute<T>(name);
+    if(context_)
+    {
+        context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, MixedAttributeTrait<U> >(getter, setter), defaultValue, mode));
+        lastAttribute_ = context_->GetAttribute<T>(name);
+    }
     return *this;
 }
 
@@ -152,8 +158,11 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, const U& (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
 {
-    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
-    lastAttribute_ = context_->GetAttribute<T>(name);
+    if(context_)
+    {
+        context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
+        lastAttribute_ = context_->GetAttribute<T>(name);
+    }
     return *this;
 }
 
@@ -163,11 +172,11 @@ ClassConstructor<T>& ClassConstructor<T>::Prop()
 {
 	if(lastAttribute_)
 	{
-		classDef_->AddProperty(lastAttribute_, new U());
+		// classDef_->AddProperty(lastAttribute_, new U());
 	}
 	else
 	{
-		classDef_->AddProperty(new U());
+		// classDef_->AddProperty(new U());
 	}
 	return *this;
 }
@@ -178,11 +187,11 @@ ClassConstructor<T>& ClassConstructor<T>::Prop(const VariantMap& constructorData
 {
 	if(lastAttribute_)
 	{
-		classDef_->AddProperty(lastAttribute_, new U(constructorData));
+		// classDef_->AddProperty(lastAttribute_, new U(constructorData));
 	}
 	else
 	{
-		classDef_->AddProperty(new U(constructorData));
+		// classDef_->AddProperty(new U(constructorData));
 	}
 	return *this;
 }

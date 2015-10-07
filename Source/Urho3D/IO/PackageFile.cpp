@@ -28,6 +28,11 @@
 
 namespace Urho3D
 {
+    
+URHO_REGISTER_OBJECT_MINIMAL(PackageFile)
+{
+    Definition.Base<Object>();
+}
 
 PackageFile::PackageFile(Context* context) :
     Object(context),

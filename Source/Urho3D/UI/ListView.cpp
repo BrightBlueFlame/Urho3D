@@ -156,7 +156,7 @@ private:
     UIElement* overlayContainer_;
 };
 
-REGISTER_OBJECT_NO_FACTORY(HierarchyContainer)
+URHO_REGISTER_OBJECT_NO_FACTORY(HierarchyContainer)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
 }

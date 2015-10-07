@@ -48,6 +48,11 @@ namespace Urho3D
 #ifndef __APPLE__
 static const unsigned BUFFERSIZE = 4096;
 #endif
+    
+URHO_REGISTER_OBJECT_MINIMAL(FileWatcher)
+{
+    Definition.Base<Object>();
+}
 
 FileWatcher::FileWatcher(Context* context) :
     Object(context),

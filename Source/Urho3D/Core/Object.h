@@ -24,7 +24,7 @@
 
 #include "../Container/LinkedList.h"
 #include "../Core/Variant.h"
-//#include "../Core/ClassDef.h"
+#include "../Core/ClassDef.h"
 
 namespace U3D_Traits {
     template <class T>
@@ -47,20 +47,37 @@ class Context;
 class EventHandler;
     
 template <class T> class ClassConstructor;
-class ClassDef;
     
 #define URHO_INTERFACE(typeName) \
     public: \
         static Urho3D::StringHash GetInterfaceTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
         static const Urho3D::String& GetInterfaceTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
-
+    
+// TODO: This leaves many objects with RegisterObject and DefineMyAttributes undefined. Root out these instances and replace them with
+//       URHO_OBJECT_NOREGISTER
 #define URHO_OBJECT(typeName) \
-        static Urho3D::SharedPtr<Urho3D::ClassDef> s_classDef; \
+    private: \
+        static SharedPtr<Urho3D::ClassDef> s_classDef; \
     public: \
         typedef typeName ClassName; \
         static void RegisterObject(Urho3D::Context* context); \
         static void DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition); \
-        static Urho3D::ClassDef* GetClassDef() { return s_classDef.Get(); } \
+        static Urho3D::ClassDef* GetClassDefStatic(); \
+        virtual Urho3D::ClassDef* GetClassDef() const { return GetClassDefStatic(); } \
+        virtual Urho3D::StringHash GetType() const { return GetTypeStatic(); } \
+        virtual Urho3D::StringHash GetBaseType() const { return GetBaseTypeStatic(); } \
+        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
+        static Urho3D::StringHash GetTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
+        static const Urho3D::String& GetTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
+
+#define URHO_OBJECT_NOREGISTER(typeName) \
+    private: \
+        static SharedPtr<Urho3D::ClassDef> s_classDef; \
+    public: \
+        typedef typeName ClassName; \
+        static Urho3D::ClassDef* GetClassDefStatic(); \
+        static void DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition); \
+        virtual Urho3D::ClassDef* GetClassDef() const { return GetClassDefStatic(); } \
         virtual Urho3D::StringHash GetType() const { return GetTypeStatic(); } \
         virtual Urho3D::StringHash GetBaseType() const { return GetBaseTypeStatic(); } \
         virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
@@ -91,25 +108,56 @@ class ClassDef;
     }
     
 #define URHO_REGISTER_OBJECT( typeName, ... ) \
-    Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
+    SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
+    Urho3D::ClassDef* typeName::GetClassDefStatic() \
+    { \
+        if(!s_classDef) \
+        { \
+            s_classDef = SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(typeName::GetTypeNameStatic(), typeName::GetTypeStatic())); \
+        } \
+        return s_classDef.Get(); \
+    } \
     void typeName::RegisterObject(Urho3D::Context* context) \
     { \
-        s_classDef = ::Urho3D::SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
+        Urho3D::ClassDef* classDef = typeName::GetClassDefStatic(); \
         context->RegisterFactory< typeName >(__VA_ARGS__); \
-        Urho3D::ClassConstructor< typeName > ccc(context, s_classDef); \
+        Urho3D::ClassConstructor< typeName > ccc(context, WeakPtr< ::Urho3D::ClassDef>(classDef)); \
         typeName::DefineMyAttributes(ccc); \
-        s_classDef->Close(); \
+        classDef->Close(); \
     } \
     void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
     
-#define REGISTER_OBJECT_NO_FACTORY(typeName) \
-Urho3D::SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
-void typeName::RegisterObject(Urho3D::Context* context) \
+#define URHO_REGISTER_OBJECT_NO_FACTORY(typeName) \
+    SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
+    Urho3D::ClassDef* typeName::GetClassDefStatic() \
     { \
-        s_classDef = ::Urho3D::SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(context, typeName::GetTypeStatic())); \
-        Urho3D::ClassConstructor< typeName > ccc(context, s_classDef); \
+        if(!s_classDef) \
+        { \
+            s_classDef = SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(typeName::GetTypeNameStatic(), typeName::GetTypeStatic())); \
+        } \
+        return s_classDef.Get(); \
+    } \
+    void typeName::RegisterObject(Urho3D::Context* context) \
+    { \
+        Urho3D::ClassDef* classDef = typeName::GetClassDefStatic(); \
+        Urho3D::ClassConstructor< typeName > ccc(context, WeakPtr<Urho3D::ClassDef>(classDef)); \
         typeName::DefineMyAttributes(ccc); \
-        s_classDef->Close(); \
+        classDef->Close(); \
+    } \
+    void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
+    
+#define URHO_REGISTER_OBJECT_MINIMAL(typeName) \
+    SharedPtr<Urho3D::ClassDef> typeName::s_classDef; \
+    Urho3D::ClassDef* typeName::GetClassDefStatic() \
+    { \
+        if(!s_classDef) \
+        { \
+            s_classDef = SharedPtr<Urho3D::ClassDef>(new Urho3D::ClassDef(typeName::GetTypeNameStatic(), typeName::GetTypeStatic())); \
+            Urho3D::ClassConstructor< typeName > ccc(0, WeakPtr<Urho3D::ClassDef>(s_classDef.Get())); \
+            typeName::DefineMyAttributes(ccc); \
+            s_classDef->Close(); \
+        } \
+        return s_classDef.Get(); \
     } \
     void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
 
@@ -117,7 +165,7 @@ void typeName::RegisterObject(Urho3D::Context* context) \
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted
 {
-    URHO_OBJECT(Object);
+    URHO_OBJECT_NOREGISTER(Object);
     URHO_BASEOBJECT(Object);
 
     friend class Context;
@@ -127,7 +175,7 @@ public:
     Object(Context* context);
     /// Destruct. Clean up self from event sender & receiver structures.
     virtual ~Object();
-
+    
     /// Handle event.
     virtual void OnEvent(Object* sender, StringHash eventType, VariantMap& eventData);
 
