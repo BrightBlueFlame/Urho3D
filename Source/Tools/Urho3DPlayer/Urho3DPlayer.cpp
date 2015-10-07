@@ -34,11 +34,19 @@
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Resource/ResourceEvents.h>
 
+#include <Urho3D/Core/ClassConstructor.h>
+#include <Urho3D/Core/ClassDef.h>
+
 #include "Urho3DPlayer.h"
 
 #include <Urho3D/DebugNew.h>
 
 DEFINE_APPLICATION_MAIN(Urho3DPlayer);
+
+URHO_REGISTER_OBJECT_MINIMAL(Urho3DPlayer)
+{
+    Definition.Base<Application>();
+}
 
 Urho3DPlayer::Urho3DPlayer(Context* context) :
     Application(context)
