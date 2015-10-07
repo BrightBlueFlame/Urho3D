@@ -150,7 +150,7 @@ enum DeferredLightPSVariation
 /// High-level rendering subsystem. Manages drawing of 3D views.
 class URHO3D_API Renderer : public Object
 {
-    URHO_OBJECT(Renderer);
+    URHO_OBJECT_AUTO1(Renderer, Object);
 
 public:
     /// Construct.

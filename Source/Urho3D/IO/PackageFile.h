@@ -41,7 +41,7 @@ struct PackageEntry
 /// Stores files of a directory tree sequentially for convenient access.
 class URHO3D_API PackageFile : public Object
 {
-    URHO_OBJECT_NOREGISTER(PackageFile);
+    URHO_OBJECT_AUTO1(PackageFile, Object);
 
 public:
     /// Construct.

@@ -34,10 +34,6 @@ namespace Urho3D
 
 static const int LINE_MAX_LENGTH = 256;
 static const int NAME_MAX_LENGTH = 30;
-URHO_REGISTER_OBJECT_MINIMAL(Profiler)
-    {
-        Definition.Base<Object>();
-    }
     
 Profiler::Profiler(Context* context) :
     Object(context),

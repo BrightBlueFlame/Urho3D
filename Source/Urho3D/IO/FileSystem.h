@@ -41,7 +41,7 @@ static const unsigned SCAN_HIDDEN = 0x4;
 /// Subsystem for file and directory operations and access control.
 class URHO3D_API FileSystem : public Object
 {
-    URHO_OBJECT_NOREGISTER(FileSystem);
+    URHO_OBJECT_AUTO1(FileSystem, Object);
 
 public:
     /// Construct.

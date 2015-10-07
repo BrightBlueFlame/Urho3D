@@ -59,11 +59,6 @@ PackageUpload::PackageUpload() :
     totalFragments_(0)
 {
 }
-    
-URHO_REGISTER_OBJECT_MINIMAL(Connection)
-    {
-        Definition.Base<Object>();
-    }
 
 Connection::Connection(Context* context, bool isClient, kNet::SharedPtr<kNet::MessageConnection> connection) :
     Object(context),

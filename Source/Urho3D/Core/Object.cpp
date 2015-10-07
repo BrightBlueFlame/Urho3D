@@ -42,11 +42,6 @@ Object::~Object()
     UnsubscribeFromAllEvents();
     context_->RemoveEventSender(this);
 }
-    
-URHO_REGISTER_OBJECT_MINIMAL(Object)
-{
-    (void)Definition; // Unused.
-}
 
 void Object::OnEvent(Object* sender, StringHash eventType, VariantMap& eventData)
 {

@@ -268,13 +268,6 @@ private:
     /// Command line split in arguments.
     const Vector<String>& arguments_;
 };
-    
-URHO_REGISTER_OBJECT_MINIMAL(FileSystem)
-{
-    Definition
-    .Base<Object>()
-    ;
-}
 
 FileSystem::FileSystem(Context* context) :
     Object(context),

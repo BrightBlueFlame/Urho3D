@@ -50,10 +50,7 @@ void CrowdAgentUpdateCallback(dtCrowdAgent* ag, float dt)
 {
     static_cast<CrowdAgent*>(ag->params.userData)->OnCrowdUpdate(ag, dt);
 }
-URHO_REGISTER_OBJECT_MINIMAL(CrowdManager)
-    {
-        Definition.Base<Component>();
-    }
+
 CrowdManager::CrowdManager(Context* context) :
     Component(context),
     crowd_(0),

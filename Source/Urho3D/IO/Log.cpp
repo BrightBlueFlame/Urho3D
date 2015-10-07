@@ -56,10 +56,6 @@ const char* logLevelPrefixes[] =
 
 static Log* logInstance = 0;
 static bool threadErrorDisplayed = false;
-URHO_REGISTER_OBJECT_MINIMAL(Log)
-    {
-        Definition.Base<Object>();
-    }
     
 Log::Log(Context* context) :
     Object(context),

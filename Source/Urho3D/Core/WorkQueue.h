@@ -74,7 +74,7 @@ private:
 /// Work queue subsystem for multithreading.
 class URHO3D_API WorkQueue : public Object
 {
-    URHO_OBJECT(WorkQueue);
+    URHO_OBJECT_AUTO1(WorkQueue, Object);
 
     friend class WorkerThread;
 

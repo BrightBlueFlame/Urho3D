@@ -42,11 +42,7 @@ namespace Urho3D
 
 bool HiresTimer::supported(false);
 long long HiresTimer::frequency(1000);
-URHO_REGISTER_OBJECT_MINIMAL(Time)
-    {
-        Definition.Base<Object>();
-    }
-    
+
 Time::Time(Context* context) :
     Object(context),
     frameNumber_(0),

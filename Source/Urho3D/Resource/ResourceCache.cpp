@@ -64,11 +64,6 @@ static const char* checkDirs[] =
 };
 
 static const SharedPtr<Resource> noResource;
-
-URHO_REGISTER_OBJECT_MINIMAL(ResourceCache)
-{
-    Definition.Base<Object>();
-}
     
 ResourceCache::ResourceCache(Context* context) :
     Object(context),

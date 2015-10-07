@@ -77,7 +77,7 @@ private:
 /// %Time and frame counter subsystem.
 class URHO3D_API Time : public Object
 {
-    URHO_OBJECT_NOREGISTER(Time);
+    URHO_OBJECT_AUTO1(Time, Object);
 
 public:
     /// Construct.

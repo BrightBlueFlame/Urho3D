@@ -43,11 +43,6 @@
 
 DEFINE_APPLICATION_MAIN(Urho3DPlayer);
 
-URHO_REGISTER_OBJECT_MINIMAL(Urho3DPlayer)
-{
-    Definition.Base<Application>();
-}
-
 Urho3DPlayer::Urho3DPlayer(Context* context) :
     Application(context)
 {

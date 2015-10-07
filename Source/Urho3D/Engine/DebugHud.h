@@ -42,7 +42,7 @@ static const unsigned DEBUGHUD_SHOW_ALL = 0x7;
 /// Displays rendering stats and profiling information.
 class URHO3D_API DebugHud : public Object
 {
-    URHO_OBJECT_NOREGISTER(DebugHud);
+    URHO_OBJECT_AUTO1(DebugHud, Object);
 
 public:
     /// Construct.

@@ -47,9 +47,9 @@ SpriteSheet2D::~SpriteSheet2D()
 {
 }
 
-void SpriteSheet2D::RegisterObject(Context* context)
+URHO_REGISTER_OBJECT(SpriteSheet2D)
 {
-    context->RegisterFactory<SpriteSheet2D>();
+    Definition.Base<Resource>();
 }
 
 bool SpriteSheet2D::BeginLoad(Deserializer& source)

@@ -42,7 +42,7 @@ class XMLFile;
 /// %UI subsystem. Manages the graphical user interface.
 class URHO3D_API UI : public Object
 {
-    URHO_OBJECT(UI);
+    URHO_OBJECT_AUTO1(UI, Object);
 
 public:
     /// Construct.

@@ -84,6 +84,47 @@ template <class T> class ClassConstructor;
         static Urho3D::StringHash GetTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
         static const Urho3D::String& GetTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
 
+#define URHO_OBJECT_AUTO0(typeName) \
+    public: \
+        typedef typeName ClassName; \
+        static Urho3D::ClassDef* GetClassDefStatic() \
+		{ \
+			static Urho3D::ClassDef* classDefStatic = 0; \
+			if(classDefStatic == 0) \
+			{ \
+				classDefStatic = new Urho3D::ClassDef(typeName::GetTypeNameStatic(), typeName::GetTypeStatic()); \
+				classDefStatic->Close(); \
+			} \
+			return classDefStatic; \
+		} \
+        virtual Urho3D::ClassDef* GetClassDef() const { return GetClassDefStatic(); } \
+        virtual Urho3D::StringHash GetType() const { return GetTypeStatic(); } \
+        virtual Urho3D::StringHash GetBaseType() const { return GetBaseTypeStatic(); } \
+        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
+        static Urho3D::StringHash GetTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
+        static const Urho3D::String& GetTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
+
+#define URHO_OBJECT_AUTO1(typeName, baseType0) \
+    public: \
+        typedef typeName ClassName; \
+        static Urho3D::ClassDef* GetClassDefStatic() \
+		{ \
+			static Urho3D::ClassDef* classDefStatic = 0; \
+			if(classDefStatic == 0) \
+			{ \
+				classDefStatic = new Urho3D::ClassDef(typeName::GetTypeNameStatic(), typeName::GetTypeStatic()); \
+				classDefStatic->AddBase(WeakPtr<Urho3D::ClassDef>(baseType0::GetClassDefStatic())); \
+				classDefStatic->Close(); \
+			} \
+			return classDefStatic; \
+		} \
+        virtual Urho3D::ClassDef* GetClassDef() const { return GetClassDefStatic(); } \
+        virtual Urho3D::StringHash GetType() const { return GetTypeStatic(); } \
+        virtual Urho3D::StringHash GetBaseType() const { return GetBaseTypeStatic(); } \
+        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
+        static Urho3D::StringHash GetTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
+        static const Urho3D::String& GetTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
+
 #define URHO_BASEOBJECT(typeName) \
     public: \
         static Urho3D::StringHash GetBaseTypeStatic() { static const Urho3D::StringHash baseTypeStatic(#typeName); return baseTypeStatic; } \
@@ -165,7 +206,7 @@ template <class T> class ClassConstructor;
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted
 {
-    URHO_OBJECT_NOREGISTER(Object);
+    URHO_OBJECT_AUTO0(Object);
     URHO_BASEOBJECT(Object);
 
     friend class Context;

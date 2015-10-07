@@ -35,11 +35,6 @@ Resource::Resource(Context* context) :
     asyncLoadState_(ASYNC_DONE)
 {
 }
-    
-URHO_REGISTER_OBJECT(Resource)
-{
-    Definition.Base<Object>();
-}
 
 bool Resource::Load(Deserializer& source)
 {

@@ -150,7 +150,7 @@ private:
 /// Helper class for forwarding events to script objects that are not part of a scene.
 class URHO3D_API ScriptEventInvoker : public Object
 {
-    URHO_OBJECT(ScriptEventInvoker);
+    URHO_OBJECT_AUTO1(ScriptEventInvoker, Object);
 
 public:
     /// Constructor, will create the asILockableSharedBool if a ScriptObject is passed in.
