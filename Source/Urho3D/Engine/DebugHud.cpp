@@ -53,6 +53,11 @@ static const char* shadowQualityTexts[] =
     "24bit High"
 };
 
+URHO_REGISTER_OBJECT_MINIMAL(DebugHud)
+{
+    Definition.Base<Object>();
+}
+    
 DebugHud::DebugHud(Context* context) :
     Object(context),
     profilerMaxDepth_(M_MAX_UNSIGNED),

@@ -135,8 +135,6 @@ public:
     CollisionShape(Context* context);
     /// Destruct. Free the geometry data and clean up unused data from the geometry data cache.
     virtual ~CollisionShape();
-    /// Register object factory.
-    //static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

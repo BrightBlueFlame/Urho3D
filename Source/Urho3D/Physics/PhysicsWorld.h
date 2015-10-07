@@ -109,8 +109,6 @@ public:
     PhysicsWorld(Context* scontext);
     /// Destruct.
     virtual ~PhysicsWorld();
-    /// Register object factory.
-    //static void RegisterObject(Context* context);
 
     /// Check if an AABB is visible for debug drawing.
     virtual bool isVisible(const btVector3& aabbMin, const btVector3& aabbMax);

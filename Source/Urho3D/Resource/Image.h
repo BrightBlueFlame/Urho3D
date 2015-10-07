@@ -96,8 +96,6 @@ public:
     Image(Context* context);
     /// Destruct.
     virtual ~Image();
-    /// Register object factory.
-    //static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

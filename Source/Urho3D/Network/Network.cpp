@@ -46,6 +46,11 @@ namespace Urho3D
 {
 
 static const int DEFAULT_UPDATE_FPS = 30;
+    
+URHO_REGISTER_OBJECT_MINIMAL(Network)
+    {
+        Definition.Base<Object>();
+    }
 
 Network::Network(Context* context) :
     Object(context),

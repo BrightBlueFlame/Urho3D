@@ -33,6 +33,10 @@
 namespace Urho3D
 {
 
+URHO_REGISTER_OBJECT_MINIMAL(Localization)
+    {
+        Definition.Base<Object>();
+    }
 Localization::Localization(Context* context) :
     Object(context),
     languageIndex_(-1)

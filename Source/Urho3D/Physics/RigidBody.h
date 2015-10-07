@@ -56,8 +56,6 @@ public:
     RigidBody(Context* context);
     /// Destruct. Free the rigid body and geometries.
     virtual ~RigidBody();
-    /// Register object factory.
-    //static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);
