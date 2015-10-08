@@ -49,15 +49,15 @@ class ClassConstructor
 public:
 	ClassConstructor(Context* context, WeakPtr<ClassDef> info);
 
-	template <class U> 
+	template <class U>
 	ClassConstructor<T>& Implements();
 
-	template <class U> 
+	template <class U>
 	ClassConstructor<T>& Base(bool copy = false);
 
 	ClassConstructor<T>& Factory();
 	ClassConstructor<T>& Factory(const char* category);
-    
+
     template <class U>
     ClassConstructor<T>& Attribute(const char* name, size_t offset, U defaultValue, unsigned mode = AM_DEFAULT)
     {
@@ -65,27 +65,27 @@ public:
         return *this;
     }
 
-	template <class U> 
+	template <class U>
 	ClassConstructor<T>& Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(U), U defaultValue, unsigned mode = AM_DEFAULT);
-    
+
     template <class U>
     ClassConstructor<T>& Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode = AM_DEFAULT);
-    
+
     template <class U>
     ClassConstructor<T>& Attribute(const char* name, const U& (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode = AM_DEFAULT);
 
-	template <class U> 
+	template <class U>
 	ClassConstructor<T>& Prop();
 
-	template <class U> 
+	template <class U>
 	ClassConstructor<T>& Prop(const VariantMap& constructorData);
-    
+
     ClassConstructor<T>& Remove(const char* attrib)
     {
         context_->RemoveAttribute<T>(attrib);
         return *this;
     }
-    
+
     ClassConstructor<T>& UpdateDefault(const char* name, const Variant& newValue)
     {
         context_->UpdateAttributeDefaultValue<T>(name, newValue);
@@ -100,7 +100,7 @@ public:
 			classDef_->AddProperty(lastAttribute_,property);
 		return *this;
 	}
-    
+
     Context* GetContext() const { return context_; }
 
 private:
@@ -125,13 +125,13 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Implements()
 {
-	static_assert(U3D_Traits::is_interface<U>::value == true, "Attempted to register interface that is not an interface.");
+//	static_assert(U3D_Traits::is_interface<U>::value == true, "Attempted to register interface that is not an interface.");
 	classDef_->AddInterface(U::GetInterfaceTypeStatic());
 	return *this;
 }
 
 template <class T>
-template <class U> 
+template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Base(bool copy)
 {
     if(copy && context_)
@@ -139,7 +139,7 @@ ClassConstructor<T>& ClassConstructor<T>::Base(bool copy)
         context_->CopyBaseAttributes<U,T>();
     }
     classDef_->AddBase(WeakPtr<ClassDef>(U::GetClassDefStatic()));
-    
+
 	return *this;
 }
 
@@ -164,7 +164,7 @@ ClassConstructor<T>& ClassConstructor<T>::Factory(const char* category)
 }
 
 template <class T>
-template <class U> 
+template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(U), U defaultValue, unsigned mode)
 {
     if(context_)
@@ -174,7 +174,7 @@ ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*get
     }
 	return *this;
 }
-    
+
 template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
@@ -200,7 +200,7 @@ ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, const U& (
 }
 
 template <class T>
-template <class U> 
+template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Prop()
 {
 	if(lastAttribute_)
@@ -215,7 +215,7 @@ ClassConstructor<T>& ClassConstructor<T>::Prop()
 }
 
 template <class T>
-template <class U> 
+template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Prop(const VariantMap& constructorData)
 {
 	if(lastAttribute_)
