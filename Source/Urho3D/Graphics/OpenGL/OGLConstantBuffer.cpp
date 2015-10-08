@@ -32,11 +32,6 @@
 namespace Urho3D
 {
 
-URHO_REGISTER_OBJECT_MINIMAL(ConstantBuffer)
-    {
-        Definition.Base<Object>();
-    }
-    
 ConstantBuffer::ConstantBuffer(Context* context) :
     Object(context),
     GPUObject(GetSubsystem<Graphics>())

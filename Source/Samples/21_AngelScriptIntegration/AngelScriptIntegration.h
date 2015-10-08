@@ -38,7 +38,7 @@ class Scene;
 ///     - Creating a 3D scene and using a script object to animate the objects
 class AngelScriptIntegration : public Sample
 {
-    OBJECT(AngelScriptIntegration);
+    URHO_OBJECT_AUTO1(AngelScriptIntegration, Sample);
 
 public:
     /// Construct.

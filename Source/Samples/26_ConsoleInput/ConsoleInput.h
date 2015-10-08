@@ -30,7 +30,7 @@
 ///       and standard input.
 class ConsoleInput : public Sample
 {
-    OBJECT(ConsoleInput);
+    URHO_OBJECT_AUTO1(ConsoleInput, Sample);
 
 public:
     /// Construct.

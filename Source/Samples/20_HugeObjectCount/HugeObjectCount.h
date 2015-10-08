@@ -41,7 +41,7 @@ class Scene;
 ///     - Optionally speeding up rendering by grouping objects with the StaticModelGroup component
 class HugeObjectCount : public Sample
 {
-    OBJECT(HugeObjectCount);
+    URHO_OBJECT_AUTO1(HugeObjectCount, Sample);
 
 public:
     /// Construct.

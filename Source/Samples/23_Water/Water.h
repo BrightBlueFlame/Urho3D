@@ -40,7 +40,7 @@ class Scene;
 ///     - Setting up a second camera to render reflections on the water surface
 class Water : public Sample
 {
-    OBJECT(Water);
+    URHO_OBJECT_AUTO1(Water, Sample);
 
 public:
     /// Construct.

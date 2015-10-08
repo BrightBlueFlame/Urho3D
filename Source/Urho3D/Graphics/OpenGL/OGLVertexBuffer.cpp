@@ -99,11 +99,6 @@ const unsigned VertexBuffer::elementNormalize[] =
     GL_FALSE, // Instancematrix2
     GL_FALSE // Instancematrix3
 };
-    
-URHO_REGISTER_OBJECT_MINIMAL(Object)
-    {
-        Definition.Base<Object>();
-    }
 
 VertexBuffer::VertexBuffer(Context* context, bool forceHeadless) :
     Object(context),

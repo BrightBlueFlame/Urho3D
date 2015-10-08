@@ -38,7 +38,7 @@ class Scene;
 ///     - Creating rendertarget texture and material programmatically
 class RenderToTexture : public Sample
 {
-    OBJECT(RenderToTexture);
+    URHO_OBJECT_AUTO1(RenderToTexture, Sample);
 
 public:
     /// Construct.

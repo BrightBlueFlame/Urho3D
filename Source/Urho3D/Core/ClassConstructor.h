@@ -92,7 +92,14 @@ public:
         return *this;
     }
 
-	ClassConstructor<T>& operator[](){return *this;}
+	ClassConstructor<T>& operator[](SharedPtr<AttributeProperty> property)
+	{
+		if(!lastAttribute_)
+			classDef_->AddProperty(property);
+		else
+			classDef_->AddProperty(lastAttribute_,property);
+		return *this;
+	}
     
     Context* GetContext() const { return context_; }
 
@@ -108,7 +115,7 @@ private:
 template <class T>
 ClassConstructor<T>::ClassConstructor(Context* context, WeakPtr<ClassDef> classDef)
 : context_(context)
-, lastAttribute_(nullptr)
+, lastAttribute_(0)
 , classDef_(classDef)
 {
 	assert(classDef_);

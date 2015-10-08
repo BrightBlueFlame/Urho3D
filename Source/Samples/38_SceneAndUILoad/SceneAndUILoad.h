@@ -40,7 +40,7 @@ class Scene;
 ///      - Subscribing to the UI layout's events
 class SceneAndUILoad : public Sample
 {
-    OBJECT(SceneAndUILoad);
+    URHO_OBJECT_AUTO1(SceneAndUILoad, Sample);
 
 public:
     /// Construct.

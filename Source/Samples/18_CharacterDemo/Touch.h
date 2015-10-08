@@ -46,7 +46,7 @@ const float CAMERA_MAX_DIST = 20.0f;
 /// - Call the update function 'UpdateTouches()' from HandleUpdate or equivalent update handler function
 class Touch : public Object
 {
-    OBJECT(Touch);
+    URHO_OBJECT_AUTO1(Touch, Sample);
 
 public:
     /// Construct.

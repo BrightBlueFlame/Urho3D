@@ -32,11 +32,6 @@
 
 namespace Urho3D
 {
-    
-URHO_REGISTER_OBJECT_MINIMAL(IndexBuffer)
-    {
-        Definition.Base<Object>();
-    }
 
 IndexBuffer::IndexBuffer(Context* context, bool forceHeadless) :
     Object(context),

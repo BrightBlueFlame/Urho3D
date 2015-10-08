@@ -31,7 +31,7 @@
 ///     - The manually reaction to change language
 class L10n : public Sample
 {
-    OBJECT(L10n);
+    URHO_OBJECT_AUTO1(L10n, Sample);
 
 public:
     /// Construct.

@@ -39,7 +39,7 @@ class Scene;
 ///     - Examining rendering performance with a somewhat large object and light count
 class Billboards : public Sample
 {
-    OBJECT(Billboards);
+    URHO_OBJECT_AUTO1(Billboards, Sample);
 
 public:
     /// Construct.
@@ -80,7 +80,7 @@ private:
     void HandleUpdate(StringHash eventType, VariantMap& eventData);
     /// Handle the post-render update event.
     void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData);
-    
+
     /// Flag for drawing debug geometry.
     bool drawDebug_;
 };

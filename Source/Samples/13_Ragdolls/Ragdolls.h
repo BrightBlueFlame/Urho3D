@@ -39,7 +39,7 @@ class Scene;
 ///     - Using rolling friction to stop rolling objects from moving infinitely
 class Ragdolls : public Sample
 {
-    OBJECT(Ragdolls);
+    URHO_OBJECT_AUTO1(Ragdolls, Sample);
 
 public:
     /// Construct.

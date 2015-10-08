@@ -37,7 +37,7 @@ namespace Urho3D
 ///     - Handling keyboard to move and zoom 2D camera
 class Urho2DSpriterAnimation : public Sample
 {
-    OBJECT(Urho2DSpriterAnimation);
+    URHO_OBJECT_AUTO1(Urho2DSpriterAnimation, Sample);
 
 public:
     /// Construct.
@@ -84,7 +84,7 @@ private:
     void HandleUpdate(StringHash eventType, VariantMap& eventData);
     /// Handle mouse button down event.
     void HandleMouseButtonDown(StringHash eventType, VariantMap& eventData);
-    
+
     /// Spriter nodes.
     SharedPtr<Node> spriterNode_;
     /// Spriter animation index.
