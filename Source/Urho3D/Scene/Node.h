@@ -703,4 +703,4 @@ template <class T> void Node::GetDerivedComponents(PODVector<T*>& dest, bool rec
 
 }
 
-REGISTER_BASEOBJECT_TRAITS(Urho3D::Node);
+URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::Node);

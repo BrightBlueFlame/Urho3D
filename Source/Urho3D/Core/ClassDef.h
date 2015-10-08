@@ -28,7 +28,9 @@
 
 namespace Urho3D
 {
-    
+
+class AttributeProperty;
+
 class ClassDef : public RefCounted
 {
     typedef WeakPtr<ClassDef> CDWeakPtr;
@@ -43,8 +45,8 @@ public:
     
     void AddInterface(StringHash interface);
     void AddBase(CDWeakPtr classInfo);
-    //void AddProperty(SharedPtr<Property> prop);
-    //void AddProperty(AttributeInfo* attrib, SharedPtr<Property> prop);
+	void AddProperty(SharedPtr<AttributeProperty> propertyType);
+    void AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> propertyType);
     
     void Close();
     
@@ -58,10 +60,10 @@ private:
     StringHash classId_;
     
     /// Properties for the whole class.
-    //Vector<SharedPtr<Property> > classProperties_;
+    Vector<SharedPtr<AttributeProperty> > classProperties_;
     
     /// The properties for each attribute.
-    //HashMap<AttributeInfo*, Vector<SharedPtr<Property> > > properties_;
+    HashMap<AttributeInfo*, Vector<SharedPtr<AttributeProperty> > > properties_;
     
     /// Interfaces that this class implements.
     Vector<StringHash> interfaces_;
@@ -72,14 +74,6 @@ private:
     /// Can we still add to this?
     bool closed_;
 };
-    
-/*class Property : public Object
-{
-    URHO_OBJECT(Property);
-        
-public:
-    Property(Context* context);
-};*/
 
 }
 #endif

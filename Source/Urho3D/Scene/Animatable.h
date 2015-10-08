@@ -141,4 +141,4 @@ protected:
 
 }
 
-REGISTER_INTERFACE_TRAITS(Urho3D::Animatable);
+URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Animatable);

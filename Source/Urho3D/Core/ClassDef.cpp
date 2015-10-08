@@ -22,6 +22,7 @@
 
 #include "../Precompiled.h"
 #include "../Core/ClassDef.h"
+#include "../Core/AttributeProperty.h"
 
 #include "../IO/Log.h"
 
@@ -67,8 +68,7 @@ void ClassDef::AddBase(WeakPtr<ClassDef> classInfo)
     }
 }
 
-    /*
-void ClassDef::AddProperty(SharedPtr<Property> prop)
+void ClassDef::AddProperty(SharedPtr<AttributeProperty> prop)
 {
 	if(!closed_)
 	{
@@ -79,33 +79,21 @@ void ClassDef::AddProperty(SharedPtr<Property> prop)
 	}
 }
 
-void ClassDef::AddProperty(AttributeInfo* attrib, SharedPtr<Property> prop)
+void ClassDef::AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> prop)
 {
 	if(!closed_)
 	{
-		if(classProperties_.Find(prop) == classProperties_.End())
+		if(properties_.Find(attrib) == properties_.End())
 		{
-			classProperties_.Push(prop);
+			properties_[attrib].Push(prop);
 		}
 	}
 }
-*/
+
 void ClassDef::Close()
 {
 	closed_ = true;
     
 }
-/*
-Property::Property(Context* context)
-: Object(context)
-{
-}
 
-URHO_REGISTER_OBJECT(Property)
-{
-	Definition
-        .Base<Object>()
-    ;
-}
-*/
 }

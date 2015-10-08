@@ -54,6 +54,9 @@ public:
 
 	template <class U> 
 	ClassConstructor<T>& Base(bool copy = false);
+
+	ClassConstructor<T>& Factory();
+	ClassConstructor<T>& Factory(const char* category);
     
     template <class U>
     ClassConstructor<T>& Attribute(const char* name, size_t offset, U defaultValue, unsigned mode = AM_DEFAULT)
@@ -88,6 +91,8 @@ public:
         context_->UpdateAttributeDefaultValue<T>(name, newValue);
         return *this;
     }
+
+	ClassConstructor<T>& operator[](){return *this;}
     
     Context* GetContext() const { return context_; }
 
@@ -113,6 +118,7 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Implements()
 {
+	static_assert(U3D_Traits::is_interface<U>::value == true, "Attempted to register interface that is not an interface.");
 	classDef_->AddInterface(U::GetInterfaceTypeStatic());
 	return *this;
 }
@@ -127,6 +133,26 @@ ClassConstructor<T>& ClassConstructor<T>::Base(bool copy)
     }
     classDef_->AddBase(WeakPtr<ClassDef>(U::GetClassDefStatic()));
     
+	return *this;
+}
+
+template <class T>
+ClassConstructor<T>& ClassConstructor<T>::Factory()
+{
+	if(context_)
+	{
+		context_->RegisterFactory<T>();
+	}
+	return *this;
+}
+
+template <class T>
+ClassConstructor<T>& ClassConstructor<T>::Factory(const char* category)
+{
+	if(context_)
+	{
+		context_->RegisterFactory<T>(category);
+	}
 	return *this;
 }
 

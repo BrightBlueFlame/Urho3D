@@ -132,4 +132,4 @@ template <class T> ResourceRefList GetResourceRefList(const Vector<SharedPtr<T> 
 }
 
 }
-REGISTER_BASEOBJECT_TRAITS(Urho3D::Resource);
+URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::Resource);

@@ -117,4 +117,4 @@ protected:
 
 }
 
-REGISTER_INTERFACE_TRAITS(Urho3D::CollisionShape2D);
+URHO_REGISTER_INTERFACE_TRAITS(Urho3D::CollisionShape2D);

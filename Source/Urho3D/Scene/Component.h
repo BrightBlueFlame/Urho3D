@@ -136,4 +136,4 @@ template <class T> void Component::GetComponents(PODVector<T*>& dest) const
 
 }
 
-REGISTER_BASEOBJECT_TRAITS(Urho3D::Component);
+URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::Component);

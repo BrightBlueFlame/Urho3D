@@ -115,4 +115,4 @@ protected:
 };
 
 }
-REGISTER_INTERFACE_TRAITS(Urho3D::Drawable2D);
+URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Drawable2D);

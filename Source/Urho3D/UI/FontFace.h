@@ -115,4 +115,4 @@ protected:
 };
 
 }
-REGISTER_INTERFACE_TRAITS(Urho3D::FontFace);
+URHO_REGISTER_INTERFACE_TRAITS(Urho3D::FontFace);

@@ -727,4 +727,4 @@ template <class T> T* UIElement::CreateChild(const String& name, unsigned index)
 }
 
 }
-REGISTER_BASEOBJECT_TRAITS(Urho3D::UIElement);
+URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::UIElement);

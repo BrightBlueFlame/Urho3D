@@ -389,4 +389,4 @@ URHO3D_API bool WriteDrawablesToOBJ(PODVector<Drawable*> drawables, File* output
 
 }
 
-REGISTER_INTERFACE_TRAITS(Urho3D::Drawable);
+URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Drawable);
