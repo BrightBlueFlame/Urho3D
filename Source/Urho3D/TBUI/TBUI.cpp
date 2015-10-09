@@ -368,20 +368,20 @@ namespace Urho3D
 
          // Setup localization
          tb::g_tb_lng = new tb::TBLanguage;
-         tb::g_tb_lng->Load("UI/Language/lng_en.tb.txt");
+         tb::g_tb_lng->Load("TBUI/language/lng_en.tb.txt");
 
          // Setup font
          register_freetype_font_renderer();
-         AddFontInfo("UI/vera.ttf", "Vera");
+         AddFontInfo("TBUI/vera.ttf", "Vera");
          SetFont("Vera");
 
-         if (cache->Exists("UI/override_skin/skin.tb.txt"))
+         if (cache->Exists("TBUI/override_skin/skin.tb.txt"))
          {
-            tb::g_tb_skin->Load("UI/default_skin/skin.tb.txt", "UI/override_skin/skin.tb.txt");
+            tb::g_tb_skin->Load("TBUI/default_skin/skin.tb.txt", "TBUI/override_skin/skin.tb.txt");
          }
          else
          {
-            tb::g_tb_skin->Load("UI/default_skin/skin.tb.txt");
+            tb::g_tb_skin->Load("TBUI/default_skin/skin.tb.txt");
          }
       }
 

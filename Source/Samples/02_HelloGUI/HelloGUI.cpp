@@ -51,6 +51,7 @@ HelloGUI::HelloGUI(Context* context) :
 #ifndef URHO3D_TURBOBADGER
     uiRoot_(GetSubsystem<UI>()->GetRoot()),
 #else
+	uiRoot_(0),
 #endif
     dragBeginPosition_(IntVector2::ZERO)
 {
@@ -72,7 +73,8 @@ void HelloGUI::Start()
     // Set the loaded style as default style
     uiRoot_->SetDefaultStyle(style);
 #else
-
+	GUI::TBUI* ui = context_->GetSubsystem<GUI::TBUI>();
+	uiRoot_ = ui->LoadWidget<tb::TBWidget>("TBUI/ui_content/ui_demo.tb.txt");
 #endif
 
     // Initialize Window
@@ -87,6 +89,7 @@ void HelloGUI::Start()
 
 void HelloGUI::InitControls()
 {
+#ifndef URHO3D_TURBOBADGER
     // Create a CheckBox
     CheckBox* checkBox = new CheckBox(context_);
     checkBox->SetName("CheckBox");
@@ -110,10 +113,12 @@ void HelloGUI::InitControls()
     checkBox->SetStyleAuto();
     button->SetStyleAuto();
     lineEdit->SetStyleAuto();
+#endif
 }
 
 void HelloGUI::InitWindow()
 {
+#ifndef URHO3D_TURBOBADGER
     // Create the Window and add it to the UI's root node
     window_ = new Window(context_);
     uiRoot_->AddChild(window_);
@@ -156,10 +161,12 @@ void HelloGUI::InitWindow()
 
     // Subscribe also to all UI mouse clicks just to see where we have clicked
     SubscribeToEvent(E_UIMOUSECLICK, HANDLER(HelloGUI, HandleControlClicked));
+#endif
 }
 
 void HelloGUI::CreateDraggableFish()
 {
+#ifndef URHO3D_TURBOBADGER
     ResourceCache* cache = GetSubsystem<ResourceCache>();
     Graphics* graphics = GetSubsystem<Graphics>();
 
@@ -189,19 +196,24 @@ void HelloGUI::CreateDraggableFish()
     SubscribeToEvent(draggableFish, E_DRAGBEGIN, HANDLER(HelloGUI, HandleDragBegin));
     SubscribeToEvent(draggableFish, E_DRAGMOVE, HANDLER(HelloGUI, HandleDragMove));
     SubscribeToEvent(draggableFish, E_DRAGEND, HANDLER(HelloGUI, HandleDragEnd));
+#endif
 }
 
 void HelloGUI::HandleDragBegin(StringHash eventType, VariantMap& eventData)
 {
+#ifndef URHO3D_TURBOBADGER
     // Get UIElement relative position where input (touch or click) occured (top-left = IntVector2(0,0))
     dragBeginPosition_ = IntVector2(eventData["ElementX"].GetInt(), eventData["ElementY"].GetInt());
+#endif
 }
 
 void HelloGUI::HandleDragMove(StringHash eventType, VariantMap& eventData)
 {
+#ifndef URHO3D_TURBOBADGER
     IntVector2 dragCurrentPosition = IntVector2(eventData["X"].GetInt(), eventData["Y"].GetInt());
     UIElement* draggedElement = static_cast<UIElement*>(eventData["Element"].GetPtr());
     draggedElement->SetPosition(dragCurrentPosition - dragBeginPosition_);
+#endif
 }
 
 void HelloGUI::HandleDragEnd(StringHash eventType, VariantMap& eventData) // For reference (not used here)
@@ -215,6 +227,7 @@ void HelloGUI::HandleClosePressed(StringHash eventType, VariantMap& eventData)
 
 void HelloGUI::HandleControlClicked(StringHash eventType, VariantMap& eventData)
 {
+#ifndef URHO3D_TURBOBADGER
     // Get the Text control acting as the Window's title
     Text* windowTitle = static_cast<Text*>(window_->GetChild("WindowTitle", true));
 
@@ -230,4 +243,5 @@ void HelloGUI::HandleControlClicked(StringHash eventType, VariantMap& eventData)
 
     // Update the Window's title text
     windowTitle->SetText("Hello " + name + "!");
+#endif
 }

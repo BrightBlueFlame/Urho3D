@@ -84,12 +84,13 @@ private:
     /// Handle close button pressed and released.
     void HandleClosePressed(StringHash eventType, VariantMap& eventData);
 
+#ifndef URHO3D_TURBOBADGER
     /// The Window.
     SharedPtr<Window> window_;
     /// The UI's root UIElement.
-#ifndef URHO3D_TURBOBADGER
     SharedPtr<UIElement> uiRoot_;
 #else
+	// Because I'm a bitch.
 	tb::TBWidget* uiRoot_;
 #endif
     /// Remembered drag begin position.
