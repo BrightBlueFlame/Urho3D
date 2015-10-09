@@ -411,6 +411,11 @@ if (URHO3D_PHYSICS)
     add_definitions (-DURHO3D_PHYSICS)
 endif ()
 
+# Add definition for Turbobadger
+if (URHO3D_TURBOBADGER)
+	add_definitions (-DURHO3D_TURBOBADGER)
+endif ()
+
 # Add definition for Urho2D
 if (URHO3D_URHO2D)
     add_definitions (-DURHO3D_URHO2D)

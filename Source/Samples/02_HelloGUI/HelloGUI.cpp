@@ -26,7 +26,7 @@
 #include <Urho3D/Graphics/Texture2D.h>
 #include <Urho3D/Input/Input.h>
 #include <Urho3D/Resource/ResourceCache.h>
-//#ifndef URHO3D_TURBOBADGER
+
 #include <Urho3D/UI/Button.h>
 #include <Urho3D/UI/CheckBox.h>
 #include <Urho3D/UI/LineEdit.h>
@@ -35,9 +35,10 @@
 #include <Urho3D/UI/UI.h>
 #include <Urho3D/UI/UIEvents.h>
 #include <Urho3D/UI/Window.h>
-/*#else
+
+#ifdef URHO3D_TURBOBADGER
 #include <Urho3D/TBUI/TBUI.h>
-#endif*/
+#endif
 
 #include "HelloGUI.h"
 
@@ -47,7 +48,10 @@ DEFINE_APPLICATION_MAIN(HelloGUI)
 
 HelloGUI::HelloGUI(Context* context) :
     Sample(context),
+#ifndef URHO3D_TURBOBADGER
     uiRoot_(GetSubsystem<UI>()->GetRoot()),
+#else
+#endif
     dragBeginPosition_(IntVector2::ZERO)
 {
 }

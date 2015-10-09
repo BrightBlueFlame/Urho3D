@@ -31,6 +31,11 @@ class Window;
 
 }
 
+namespace tb
+{
+class TBWidget;
+}
+
 /// A simple 'HelloWorld' GUI created purely from code.
 /// This sample demonstrates:
 ///     - Creation of controls and building a UI hierarchy
@@ -82,7 +87,11 @@ private:
     /// The Window.
     SharedPtr<Window> window_;
     /// The UI's root UIElement.
+#ifndef URHO3D_TURBOBADGER
     SharedPtr<UIElement> uiRoot_;
+#else
+	tb::TBWidget* uiRoot_;
+#endif
     /// Remembered drag begin position.
     IntVector2 dragBeginPosition_;
 };
