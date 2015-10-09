@@ -13,16 +13,16 @@
 #include "../Resource/ResourceCache.h"
 
 
-#include <tb_core.h>
-#include <tb_debug.h>
-#include <tb_font_renderer.h>
-#include <tb_language.h>
-#include <tb_skin.h>
-#include <tb_widgets_reader.h>
+#include <tb/tb_core.h>
+#include <tb/tb_debug.h>
+#include <tb/tb_font_renderer.h>
+#include <tb/tb_language.h>
+#include <tb/tb_skin.h>
+#include <tb/tb_widgets_reader.h>
 
-#include <tb_message_window.h>
-#include <tb_node_tree.h>
-#include <animation/tb_widget_animation.h>
+#include <tb/tb_message_window.h>
+#include <tb/tb_node_tree.h>
+#include <tb/animation/tb_widget_animation.h>
 
 // TB global functions
 void register_freetype_font_renderer();

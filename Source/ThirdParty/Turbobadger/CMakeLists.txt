@@ -23,6 +23,11 @@
 # Define target name
 set (TARGET_NAME TurbobadgerUI)
 
+if (APPLE)
+	add_definitions(-DMACOSX)
+	add_definitions(-Dnullptr=0)
+endif (APPLE)
+
 set (CPP_DIRS
 	src/tb
 	src/tb/animation
