@@ -66,10 +66,14 @@ void HelloGUI::Start()
 
     // Load XML file containing default UI style sheet
     ResourceCache* cache = GetSubsystem<ResourceCache>();
+#ifndef URHO3D_TURBOBADGER
     XMLFile* style = cache->GetResource<XMLFile>("UI/DefaultStyle.xml");
 
     // Set the loaded style as default style
     uiRoot_->SetDefaultStyle(style);
+#else
+
+#endif
 
     // Initialize Window
     InitWindow();

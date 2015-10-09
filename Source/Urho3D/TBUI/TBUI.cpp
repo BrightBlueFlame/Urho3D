@@ -90,7 +90,7 @@ namespace Urho3D
             // Needs to be called BEFORE Texture2D::SetSize
             texture->SetAddressMode(Urho3D::COORD_U, Urho3D::ADDRESS_BORDER);
             texture->SetAddressMode(Urho3D::COORD_V, Urho3D::ADDRESS_BORDER),
-               texture->SetBorderColor(Urho3D::Color(0.0f, 0.0f, 0.0f, 0.0f));
+            texture->SetBorderColor(Urho3D::Color(0.0f, 0.0f, 0.0f, 0.0f));
             texture->SetMipsToSkip(Urho3D::QUALITY_LOW, 0);
             texture->SetNumLevels(1);
 
@@ -151,7 +151,7 @@ namespace Urho3D
       {
          TBUI::RegisterObject(context);
 
-         UI::Bitmap::RegisterObject(context);
+         GUI::Bitmap::RegisterObject(context);
       }
 
       void TBUI::Init()
