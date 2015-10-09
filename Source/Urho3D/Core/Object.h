@@ -75,7 +75,7 @@ private: \
 		}\
 		Urho3D::StringHash           typeId_; \
 		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
+		Urho3D::SharedPtr<Urho3D::ClassDef>  classDef_; \
 	}; \
 	__INTERFACEINFOHOLDERGETTER_(TYPE_NAME); \
 
@@ -92,7 +92,7 @@ private: \
 		}\
 		Urho3D::StringHash           typeId_; \
 		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
+		Urho3D::SharedPtr<Urho3D::ClassDef>  classDef_; \
 	}; \
 	__CLASSINFOHOLDERGETTER_(TYPE_NAME); \
 
@@ -109,7 +109,7 @@ private: \
 		}\
 		Urho3D::StringHash           typeId_; \
 		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
+		Urho3D::SharedPtr<Urho3D::ClassDef>  classDef_; \
 	}; \
 	__CLASSINFOHOLDERGETTER_(TYPE_NAME); \
 
@@ -127,7 +127,7 @@ private: \
 		}\
 		Urho3D::StringHash           typeId_; \
 		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
+		Urho3D::SharedPtr<Urho3D::ClassDef>  classDef_; \
 	}; \
 	__CLASSINFOHOLDERGETTER_(TYPE_NAME); \
 
@@ -220,7 +220,7 @@ private: \
     { \
         Urho3D::ClassDef* classDef = typeName::GetClassDefStatic(); \
         context->RegisterFactory< typeName >(__VA_ARGS__); \
-        Urho3D::ClassConstructor< typeName > ccc(context, WeakPtr< ::Urho3D::ClassDef>(classDef)); \
+        Urho3D::ClassConstructor< typeName > ccc(context, ::Urho3D::WeakPtr< ::Urho3D::ClassDef>(classDef)); \
         typeName::DefineMyAttributes(ccc); \
         classDef->Close(); \
     } \
@@ -231,7 +231,7 @@ private: \
     void typeName::RegisterObject(Urho3D::Context* context) \
     { \
         Urho3D::ClassDef* classDef = typeName::GetClassDefStatic(); \
-        Urho3D::ClassConstructor< typeName > ccc(context, WeakPtr<Urho3D::ClassDef>(classDef)); \
+        Urho3D::ClassConstructor< typeName > ccc(context, ::Urho3D::WeakPtr<Urho3D::ClassDef>(classDef)); \
         typeName::DefineMyAttributes(ccc); \
         classDef->Close(); \
     } \

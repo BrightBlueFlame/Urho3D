@@ -2,9 +2,9 @@
 #ifndef _TBUI_TBUI_H
 #define _TBUI_TBUI_H
 
-#include <Urho3D/Urho3D.h>
-#include <Urho3D/Core/Object.h>
-#include <Urho3D/Graphics/ShaderVariation.h>
+#include "../Container/Ptr.h"
+#include "../Core/Object.h"
+#include "../Graphics/ShaderVariation.h"
 
 #include <tb_types.h>
 #include <tb_system.h>
@@ -18,21 +18,16 @@ namespace Urho3D
    class UIBatch;
    class VertexBuffer;
    class Texture2D;
-}
 
-namespace JRPG
-{
-   namespace UI
+   namespace GUI
    {
       class Bitmap : public Urho3D::Object, public tb::TBBitmap
       {
-         OBJECT(Bitmap);
+         URHO_OBJECT(Bitmap);
 
       public:
          Bitmap(Urho3D::Context* context);
          ~Bitmap();
-
-         static void RegisterObject(Urho3D::Context* context);
 
          void Init(int width, int height, tb::uint32 *data);
 
@@ -61,13 +56,12 @@ namespace JRPG
       // Turbo Badger UI subsystem
       class TBUI : public Urho3D::Object, public tb::TBRendererBatcher, public tb::TBWidgetListener
       {
-         OBJECT(TBUI);
+         URHO_OBJECT(TBUI);
 
       public:
          TBUI(Urho3D::Context* context);
          ~TBUI();
 
-         static void RegisterObject(Urho3D::Context* context);
          static void RegisterSystem(Urho3D::Context* context);
 
          void Init();

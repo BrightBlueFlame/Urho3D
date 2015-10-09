@@ -57,6 +57,9 @@
 #ifdef URHO3D_URHO2D
 #include "../Urho2D/Urho2D.h"
 #endif
+#ifdef URHO3D_TURBOBADGER
+#include "../TBUI/TBUI.h"
+#endif
 
 #if defined(__EMSCRIPTEN__) && defined(URHO3D_TESTING)
 #include <emscripten/emscripten.h>
@@ -133,6 +136,13 @@ Engine::Engine(Context* context) :
     context_->RegisterSubsystem(new Input(context_));
     context_->RegisterSubsystem(new Audio(context_));
     context_->RegisterSubsystem(new UI(context_));
+
+#ifdef URHO3D_TURBOBADGER
+	GUI::TBUI::RegisterSystem(context_);
+	GUI::TBUI* tbui = new GUI::TBUI(context_);
+	context_->RegisterSubsystem(tbui);
+	tbui->Init();
+#endif
 
     // Register object factories for libraries which are not automatically registered along with subsystem creation
     RegisterSceneLibrary(context_);

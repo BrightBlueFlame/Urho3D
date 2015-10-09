@@ -2,16 +2,15 @@
 #include "../Precompiled.h"
 #include "TBUI.h"
 
-#include <Urho3D/Urho3D.h>
-#include <Urho3D/Core/Context.h>
-#include <Urho3D/Core/CoreEvents.h>
-#include <Urho3D/Graphics/Graphics.h>
-#include <Urho3D/Graphics/GraphicsEvents.h>
-#include <Urho3D/Graphics/VertexBuffer.h>
-#include <Urho3D/Graphics/Texture2D.h>
-#include <Urho3D/Input/Input.h>
-#include <Urho3D/Input/InputEvents.h>
-#include <Urho3D/Resource/ResourceCache.h>
+#include "../Core/Context.h"
+#include "../Core/CoreEvents.h"
+#include "../Graphics/Graphics.h"
+#include "../Graphics/GraphicsEvents.h"
+#include "../Graphics/VertexBuffer.h"
+#include "../Graphics/Texture2D.h"
+#include "../Input/Input.h"
+#include "../Input/InputEvents.h"
+#include "../Resource/ResourceCache.h"
 
 
 #include <tb_core.h>
@@ -46,15 +45,15 @@ namespace tb
          return 0;
       }
 
-      JRPG::UI::TBUrho3DFile* tbUrho3DFile = new JRPG::UI::TBUrho3DFile(file);
+      Urho3D::GUI::TBUrho3DFile* tbUrho3DFile = new Urho3D::GUI::TBUrho3DFile(file);
 
       return tbUrho3DFile;
    }
 }
 
-namespace JRPG
+namespace Urho3D
 {
-   namespace UI
+   namespace GUI
    {
       Bitmap::Bitmap(Urho3D::Context* context) :
          Urho3D::Object(context)
@@ -66,9 +65,9 @@ namespace JRPG
 
       }
 
-      void Bitmap::RegisterObject(Urho3D::Context* context)
+      URHO_REGISTER_OBJECT(Bitmap)
       {
-         context->RegisterFactory<Bitmap>();
+         Definition.Base<Object>();
       }
 
       void Bitmap::Init(int width, int height, tb::uint32 *data)
@@ -143,9 +142,9 @@ namespace JRPG
          tb::tb_core_shutdown();
       }
 
-      void TBUI::RegisterObject(Urho3D::Context* context)
+      URHO_REGISTER_OBJECT(TBUI)
       {
-         context->RegisterFactory<TBUI>();
+         Definition.Base<Object>();
       }
 
       void TBUI::RegisterSystem(Urho3D::Context* context)
