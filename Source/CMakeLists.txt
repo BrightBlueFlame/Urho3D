@@ -96,6 +96,10 @@ if (URHO3D_PHYSICS)
     add_subdirectory (ThirdParty/Bullet)
 endif ()
 
+if (URHO3D_TURBOBADGER)
+	add_subdirectory (ThirdParty/Turbobadger)
+endif ()
+
 if (NOT IOS AND NOT ANDROID AND NOT RPI AND NOT EMSCRIPTEN)
     if (URHO3D_OPENGL)
         add_subdirectory (ThirdParty/GLEW)

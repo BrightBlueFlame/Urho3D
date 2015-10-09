@@ -221,6 +221,9 @@ if (URHO3D_PHYSICS)
     # This is more practical than patching its header files in many places to make them work with relative path
     list (APPEND INCLUDE_DIRS ${CMAKE_BINARY_DIR}/${DEST_INCLUDE_DIR}/ThirdParty/Bullet)
 endif ()
+if (URHO3D_TURBOBADGER)
+    list (APPEND INCLUDE_DIRS ${CMAKE_BINARY_DIR}/${DEST_INCLUDE_DIR}/ThirdParty/tb)
+endif ()
 if (URHO3D_NAVIGATION)
     # DetourTileCache and DetourCrowd libraries depend on Detour's include dir to be added in the header search path
     list (APPEND INCLUDE_DIRS ${CMAKE_BINARY_DIR}/${DEST_INCLUDE_DIR}/ThirdParty/Detour)
@@ -421,6 +424,9 @@ if (URHO3D_PHYSICS)
     # Bullet library depends on its own include dir to be added in the header search path
     # This is more practical than patching its header files in many places to make them work with relative path
     set (ENGINE_INCLUDE_DIRS "${ENGINE_INCLUDE_DIRS} ${DASH}I\"\${includedir}/${PATH_SUFFIX}/ThirdParty/Bullet\"")
+endif ()
+if (URHO3D_TURBOBADGER)
+    set (ENGINE_INCLUDE_DIRS "${ENGINE_INCLUDE_DIRS} ${DASH}I\"\${includedir}/${PATH_SUFFIX}/ThirdParty/tb\"")
 endif ()
 if (URHO3D_LUA)
     # ditto for Lua/LuaJIT
