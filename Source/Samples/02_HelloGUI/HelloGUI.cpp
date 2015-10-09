@@ -26,6 +26,7 @@
 #include <Urho3D/Graphics/Texture2D.h>
 #include <Urho3D/Input/Input.h>
 #include <Urho3D/Resource/ResourceCache.h>
+//#ifndef URHO3D_TURBOBADGER
 #include <Urho3D/UI/Button.h>
 #include <Urho3D/UI/CheckBox.h>
 #include <Urho3D/UI/LineEdit.h>
@@ -34,6 +35,9 @@
 #include <Urho3D/UI/UI.h>
 #include <Urho3D/UI/UIEvents.h>
 #include <Urho3D/UI/Window.h>
+/*#else
+#include <Urho3D/TBUI/TBUI.h>
+#endif*/
 
 #include "HelloGUI.h"
 
