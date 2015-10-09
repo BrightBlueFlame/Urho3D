@@ -49,14 +49,11 @@ const float MAX_WHEEL_ANGLE = 22.5f;
 /// Vehicle component, responsible for physical movement according to controls.
 class Vehicle : public LogicComponent
 {
-    URHO_OBJECT_AUTO1(Vehicle, Sample)
+    URHO_OBJECT(Vehicle)
 
 public:
     /// Construct.
     Vehicle(Context* context);
-
-    /// Register object factory and attributes.
-    static void RegisterObject(Context* context);
 
     /// Perform post-load after deserialization. Acquire the components from the scene nodes.
     virtual void ApplyAttributes();

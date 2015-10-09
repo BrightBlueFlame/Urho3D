@@ -43,14 +43,11 @@ const float INAIR_THRESHOLD_TIME = 0.1f;
 /// Character component, responsible for physical movement according to controls, as well as animation.
 class Character : public LogicComponent
 {
-    URHO_OBJECT_AUTO1(Character, Sample)
+    URHO_OBJECT(Character)
 
 public:
     /// Construct.
     Character(Context* context);
-
-    /// Register object factory and attributes.
-    static void RegisterObject(Context* context);
 
     /// Handle startup. Called by LogicComponent base class.
     virtual void Start();

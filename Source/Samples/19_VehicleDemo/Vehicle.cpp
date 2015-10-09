@@ -31,6 +31,7 @@
 #include <Urho3D/Physics/RigidBody.h>
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Scene/Scene.h>
+#include <Urho3D/Core/ClassConstructor.h>
 
 #include "Vehicle.h"
 
@@ -42,9 +43,9 @@ Vehicle::Vehicle(Context* context) :
     SetUpdateEventMask(USE_FIXEDUPDATE);
 }
 
-void Vehicle::RegisterObject(Context* context)
+URHO_REGISTER_OBJECT(Vehicle)
 {
-    context->RegisterFactory<Vehicle>();
+	Definition.Base<LogicComponent>();
 
     ATTRIBUTE("Controls Yaw", float, controls_.yaw_, 0.0f, AM_DEFAULT);
     ATTRIBUTE("Controls Pitch", float, controls_.pitch_, 0.0f, AM_DEFAULT);
