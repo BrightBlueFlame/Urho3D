@@ -59,6 +59,7 @@ set (SOURCE_FILES ${CPP_FILES} ${H_FILES})
 
 # Define dependency libs
 set (INCLUDE_DIRS
+	src
 	src/tb
 	src/tb/animation
 	src/tb/image
@@ -66,6 +67,9 @@ set (INCLUDE_DIRS
 	src/tb/renderers
 	src/tb/thirdparty
 	src/tb/utf8)
+
+include_directories(src/tb)
+include_directories(../FreeType/include)
 
 
 # Setup target

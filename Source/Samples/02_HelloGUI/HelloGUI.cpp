@@ -75,6 +75,7 @@ void HelloGUI::Start()
 #else
 	GUI::TBUI* ui = context_->GetSubsystem<GUI::TBUI>();
 	uiRoot_ = ui->LoadWidget<tb::TBWidget>("TBUI/ui_content/ui_demo.tb.txt");
+	ui->SetRoot(uiRoot_);
 #endif
 
     // Initialize Window

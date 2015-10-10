@@ -6,11 +6,11 @@
 #include "../Core/Object.h"
 #include "../Graphics/ShaderVariation.h"
 
-#include <tb_types.h>
-#include <tb_system.h>
-#include <tb_widgets_listener.h>
-#include <tb_window.h>
-#include <renderers/tb_renderer_batcher.h>
+#include <tb/tb_types.h>
+#include <tb/tb_system.h>
+#include <tb/tb_widgets_listener.h>
+#include <tb/tb_window.h>
+#include <tb/renderers/tb_renderer_batcher.h>
 
 namespace Urho3D
 {
