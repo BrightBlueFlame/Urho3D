@@ -30,8 +30,7 @@ namespace Urho3D
 
 class AttributeProperty : public Object
 {
-	URHO_OBJECT_AUTO1(AttributeProperty, Object);
-	URHO_BASEOBJECT(AttributeProperty);
+	URHO_OBJECT(AttributeProperty, Object);
 
 public:
 	AttributeProperty(Context* context);
@@ -42,7 +41,8 @@ private:
 
 class EasyStringProperty : public AttributeProperty
 {
-	URHO_OBJECT_AUTO1(EasyStringProperty, AttributeProperty);
+	URHO_OBJECT(EasyStringProperty, AttributeProperty);
+
 public:
 	EasyStringProperty(Context* context,const String& value);
 
@@ -59,5 +59,5 @@ namespace P {
 	}
 } // namespace P
 } // namespace Urho3D
-URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::AttributeProperty);
+
 #endif

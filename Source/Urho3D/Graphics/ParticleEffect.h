@@ -101,7 +101,7 @@ class XMLElement;
 /// %Particle effect definition.
 class URHO3D_API ParticleEffect : public Resource
 {
-    OBJECT(ParticleEffect, Resource);
+    URHO_OBJECT(ParticleEffect, Resource);
 
 public:
     /// Construct.

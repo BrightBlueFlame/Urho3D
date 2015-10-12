@@ -37,7 +37,7 @@ namespace Urho3D
 ///     - Subscribing to GUI drag events and handling them.
 class UIDrag : public Sample
 {
-    OBJECT(UIDrag, Sample);
+    URHO_OBJECT(UIDrag, Sample);
 
 public:
     /// Construct.
