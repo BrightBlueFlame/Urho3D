@@ -113,7 +113,7 @@ void TypeInfo::AddProperty(SharedPtr<AttributeProperty> prop)
 	}
 	else
 	{
-		LOGERROR("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
+		LOGERRORF("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
 	}
 }
 
@@ -128,7 +128,7 @@ void TypeInfo::AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> p
 	}
 	else
 	{
-		LOGERROR("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
+		LOGERRORF("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
 	}
 }
 
