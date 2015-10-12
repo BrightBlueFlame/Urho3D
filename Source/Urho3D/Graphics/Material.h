@@ -102,7 +102,7 @@ template <> inline unsigned MakeHash(const TextureUnit& value)
 /// Describes how to render 3D geometries.
 class URHO3D_API Material : public Resource
 {
-    URHO_OBJECT(Material);
+    OBJECT(Material, Resource);
 
 public:
     /// Construct.
@@ -110,7 +110,7 @@ public:
     /// Destruct.
     ~Material();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

@@ -49,14 +49,6 @@ Component::Component(Context* context) :
 Component::~Component()
 {
 }
-    
-URHO_REGISTER_OBJECT(Component)
-{
-    Definition
-    .Base<Animatable>()
-    .Implements<Animatable>()
-    ;
-}
 
 bool Component::Save(Serializer& dest) const
 {

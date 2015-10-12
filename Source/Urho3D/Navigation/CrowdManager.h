@@ -58,7 +58,7 @@ struct CrowdObstacleAvoidanceParams
 /// Crowd manager scene component. Should be added only to the root scene node.
 class URHO3D_API CrowdManager : public Component
 {
-    URHO_OBJECT(CrowdManager);
+    OBJECT(CrowdManager, Component);
 
     friend class CrowdAgent;
 
@@ -68,7 +68,7 @@ public:
     /// Destruct.
     virtual ~CrowdManager();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
     /// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
     virtual void ApplyAttributes();
 
@@ -149,9 +149,6 @@ public:
     VariantVector GetObstacleAvoidanceTypesAttr() const;
     /// Get the params for the specified obstacle avoidance type.
     const CrowdObstacleAvoidanceParams& GetObstacleAvoidanceParams(unsigned obstacleAvoidanceType) const;
-    
-    unsigned GetNavigationMeshId() const;
-    void SetNavigationMeshID(unsigned){}
 
 protected:
     /// Create and initialized internal Detour crowd object. When it is a recreate, it preserves the configuration and attempts to re-add existing agents in the previous crowd back to the newly created crowd.

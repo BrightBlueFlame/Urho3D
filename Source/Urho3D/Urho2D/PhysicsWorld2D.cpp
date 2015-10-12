@@ -79,9 +79,10 @@ PhysicsWorld2D::~PhysicsWorld2D()
     world_ = 0;
 }
 
-URHO_REGISTER_OBJECT(PhysicsWorld2D,SUBSYSTEM_CATEGORY)
+void PhysicsWorld2D::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<PhysicsWorld2D>(SUBSYSTEM_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Draw Shape", GetDrawShape, SetDrawShape, bool, false, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Draw Joint", GetDrawJoint, SetDrawJoint, bool, false, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Draw Aabb", GetDrawAabb, SetDrawAabb, bool, false, AM_DEFAULT);
@@ -225,7 +226,7 @@ void PhysicsWorld2D::DrawTransform(const b2Transform& xf)
 
 void PhysicsWorld2D::Update(float timeStep)
 {
-	PROFILE(UpdatePhysics2D);
+    PROFILE(UpdatePhysics2D);
 
     using namespace PhysicsPreStep2D;
 

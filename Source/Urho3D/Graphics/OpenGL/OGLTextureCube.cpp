@@ -77,9 +77,9 @@ TextureCube::~TextureCube()
     Release();
 }
 
-URHO_REGISTER_OBJECT(TextureCube)
+void TextureCube::RegisterObject(Context* context)
 {
-    Definition.Base<Texture>();
+    context->RegisterFactory<TextureCube>();
 }
 
 bool TextureCube::BeginLoad(Deserializer& source)

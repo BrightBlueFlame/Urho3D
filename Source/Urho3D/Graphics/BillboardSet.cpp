@@ -92,8 +92,10 @@ BillboardSet::~BillboardSet()
 {
 }
 
-URHO_REGISTER_OBJECT(BillboardSet, GEOMETRY_CATEGORY)
+void BillboardSet::RegisterObject(Context* context)
 {
+    context->RegisterFactory<BillboardSet>(GEOMETRY_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Material", GetMaterialAttr, SetMaterialAttr, ResourceRef, ResourceRef(Material::GetTypeStatic()),
         AM_DEFAULT);

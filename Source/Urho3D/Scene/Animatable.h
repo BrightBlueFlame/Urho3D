@@ -62,14 +62,15 @@ private:
 /// Base class for animatable object, an animatable object can be set animation on it's attributes, or can be set an object animation to it.
 class URHO3D_API Animatable : public Serializable
 {
-    URHO_INTERFACE(Animatable);
-    URHO_OBJECT(Animatable);
+    OBJECT(Animatable, Serializable);
 
 public:
     /// Construct.
     Animatable(Context* context);
     /// Destruct.
     virtual ~Animatable();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load from XML data. When setInstanceDefault is set to true, after setting the attribute value, store the value as instance's default value. Return true if successful.
     virtual bool LoadXML(const XMLElement& source, bool setInstanceDefault = false);
@@ -151,5 +152,3 @@ protected:
 };
 
 }
-
-URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Animatable);

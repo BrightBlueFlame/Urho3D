@@ -115,9 +115,9 @@ Animation::~Animation()
 {
 }
 
-URHO_REGISTER_OBJECT(Animation)
+void Animation::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<Animation>();
 }
 
 bool Animation::BeginLoad(Deserializer& source)

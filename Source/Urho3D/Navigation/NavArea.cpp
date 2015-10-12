@@ -49,9 +49,10 @@ NavArea::~NavArea()
 {
 }
 
-//void NavArea::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(NavArea, NAVIGATION_CATEGORY)
+void NavArea::RegisterObject(Context* context)
 {
+    context->RegisterFactory<NavArea>(NAVIGATION_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(Component);
     ATTRIBUTE("Bounding Box Min", Vector3, boundingBox_.min_, DEFAULT_BOUNDING_BOX_MIN, AM_DEFAULT);
     ATTRIBUTE("Bounding Box Max", Vector3, boundingBox_.max_, DEFAULT_BOUNDING_BOX_MAX, AM_DEFAULT);

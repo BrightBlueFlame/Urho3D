@@ -97,9 +97,10 @@ Cursor::~Cursor()
     }
 }
 
-//void Cursor::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Cursor, UI_CATEGORY)
+void Cursor::RegisterObject(Context* context)
 {
+    context->RegisterFactory<Cursor>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Priority", M_MAX_INT);
     ACCESSOR_ATTRIBUTE("Use System Shapes", GetUseSystemShapes, SetUseSystemShapes, bool, false, AM_FILE);

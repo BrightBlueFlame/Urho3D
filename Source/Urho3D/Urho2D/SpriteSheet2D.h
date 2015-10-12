@@ -35,13 +35,15 @@ class XMLFile;
 /// Sprite sheet.
 class URHO3D_API SpriteSheet2D : public Resource
 {
-    URHO_OBJECT(SpriteSheet2D);
+    OBJECT(SpriteSheet2D, Resource);
 
 public:
     /// Construct.
     SpriteSheet2D(Context* context);
     /// Destruct.
     virtual ~SpriteSheet2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

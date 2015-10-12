@@ -45,7 +45,7 @@ enum FONT_TYPE
 /// %Font resource.
 class URHO3D_API Font : public Resource
 {
-    URHO_OBJECT(Font);
+    OBJECT(Font, Resource);
 
 public:
     /// Construct.
@@ -53,7 +53,7 @@ public:
     /// Destruct.
     virtual ~Font();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

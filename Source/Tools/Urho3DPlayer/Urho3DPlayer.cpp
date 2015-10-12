@@ -34,9 +34,6 @@
 #include <Urho3D/Resource/ResourceCache.h>
 #include <Urho3D/Resource/ResourceEvents.h>
 
-#include <Urho3D/Core/ClassConstructor.h>
-#include <Urho3D/Core/ClassDef.h>
-
 #include "Urho3DPlayer.h"
 
 #include <Urho3D/DebugNew.h>

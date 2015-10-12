@@ -80,9 +80,10 @@ Constraint::~Constraint()
         physicsWorld_->RemoveConstraint(this);
 }
 
-URHO_REGISTER_OBJECT(Constraint, PHYSICS_CATEGORY)
+void Constraint::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<Constraint>(PHYSICS_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ENUM_ATTRIBUTE("Constraint Type", constraintType_, typeNames, CONSTRAINT_POINT, AM_DEFAULT);
     ATTRIBUTE("Position", Vector3, position_, Vector3::ZERO, AM_DEFAULT);

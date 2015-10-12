@@ -88,8 +88,10 @@ AnimatedModel::~AnimatedModel()
     }
 }
 
-URHO_REGISTER_OBJECT(AnimatedModel, GEOMETRY_CATEGORY)
+void AnimatedModel::RegisterObject(Context* context)
 {
+    context->RegisterFactory<AnimatedModel>(GEOMETRY_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Model", GetModelAttr, SetModelAttr, ResourceRef, ResourceRef(Model::GetTypeStatic()), AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Material", GetMaterialsAttr, SetMaterialsAttr, ResourceRefList, ResourceRefList(Material::GetTypeStatic()),

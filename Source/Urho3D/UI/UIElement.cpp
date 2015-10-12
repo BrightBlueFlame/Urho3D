@@ -148,10 +148,10 @@ UIElement::~UIElement()
     }
 }
 
-// void UIElement::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(UIElement, UI_CATEGORY)
+void UIElement::RegisterObject(Context* context)
 {
-    Definition.Base<Animatable>();
+    context->RegisterFactory<UIElement>(UI_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_FILE);
     ACCESSOR_ATTRIBUTE("Position", GetPosition, SetPosition, IntVector2, IntVector2::ZERO, AM_FILE);
     ACCESSOR_ATTRIBUTE("Size", GetSize, SetSize, IntVector2, IntVector2::ZERO, AM_FILE);

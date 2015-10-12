@@ -128,13 +128,15 @@ struct HeightfieldData : public CollisionGeometryData
 /// Physics collision shape component.
 class URHO3D_API CollisionShape : public Component
 {
-    URHO_OBJECT(CollisionShape);
+    OBJECT(CollisionShape, Component);
 
 public:
     /// Construct.
     CollisionShape(Context* context);
     /// Destruct. Free the geometry data and clean up unused data from the geometry data cache.
     virtual ~CollisionShape();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

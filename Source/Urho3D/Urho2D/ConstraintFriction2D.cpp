@@ -45,8 +45,10 @@ ConstraintFriction2D::~ConstraintFriction2D()
 {
 }
 
-URHO_REGISTER_OBJECT(ConstraintFriction2D, URHO2D_CATEGORY)
+void ConstraintFriction2D::RegisterObject(Context* context)
 {
+    context->RegisterFactory<ConstraintFriction2D>(URHO2D_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Anchor", GetAnchor, SetAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Max Force", GetMaxForce, SetMaxForce, float, 0.0f, AM_DEFAULT);

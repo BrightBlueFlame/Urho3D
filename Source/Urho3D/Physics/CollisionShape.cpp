@@ -432,9 +432,10 @@ CollisionShape::~CollisionShape()
         physicsWorld_->RemoveCollisionShape(this);
 }
 
-URHO_REGISTER_OBJECT(CollisionShape,PHYSICS_CATEGORY)
+void CollisionShape::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<CollisionShape>(PHYSICS_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ENUM_ATTRIBUTE("Shape Type", shapeType_, typeNames, SHAPE_BOX, AM_DEFAULT);
     ATTRIBUTE("Size", Vector3, size_, Vector3::ONE, AM_DEFAULT);

@@ -75,8 +75,10 @@ ScrollBar::~ScrollBar()
 {
 }
 
-URHO_REGISTER_OBJECT(ScrollBar, UI_CATEGORY)
+void ScrollBar::RegisterObject(Context* context)
 {
+    context->RegisterFactory<ScrollBar>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);
     ENUM_ACCESSOR_ATTRIBUTE("Orientation", GetOrientation, SetOrientation, Orientation, orientations, O_HORIZONTAL, AM_FILE);

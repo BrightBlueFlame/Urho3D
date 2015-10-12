@@ -41,15 +41,15 @@ class Vehicle;
 ///     - Defining attributes (including node and component references) of a custom component so that it can be saved and loaded
 class VehicleDemo : public Sample
 {
-    URHO_OBJECT_AUTO1(VehicleDemo, Sample);
+    OBJECT(VehicleDemo, Sample);
 
 public:
     /// Construct.
     VehicleDemo(Context* context);
-
+    
     /// Setup after engine initialization and before running the main loop.
     virtual void Start();
-
+    
 private:
     /// Create static scene content.
     void CreateScene();
@@ -63,7 +63,7 @@ private:
     void HandleUpdate(StringHash eventType, VariantMap& eventData);
     /// Handle application post-update. Update camera position after vehicle has moved.
     void HandlePostUpdate(StringHash eventType, VariantMap& eventData);
-
+    
     /// The controllable vehicle component.
     WeakPtr<Vehicle> vehicle_;
 };

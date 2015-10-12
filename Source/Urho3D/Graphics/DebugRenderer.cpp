@@ -59,11 +59,9 @@ DebugRenderer::~DebugRenderer()
 {
 }
 
-URHO_REGISTER_OBJECT(DebugRenderer, SUBSYSTEM_CATEGORY)
+void DebugRenderer::RegisterObject(Context* context)
 {
-    Definition
-    .Base<Component>()
-    ;
+    context->RegisterFactory<DebugRenderer>(SUBSYSTEM_CATEGORY);
 }
 
 void DebugRenderer::SetView(Camera* camera)

@@ -31,13 +31,15 @@ namespace Urho3D
 /// Tooltip %UI element.
 class URHO3D_API ToolTip : public UIElement
 {
-    URHO_OBJECT(ToolTip)
+    OBJECT(ToolTip, UIElement)
 
 public:
     /// Construct.
     ToolTip(Context* context);
     /// Destruct.
     virtual ~ToolTip();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Perform UI element update.
     virtual void Update(float timeStep);

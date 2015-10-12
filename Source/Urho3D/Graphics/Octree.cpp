@@ -352,10 +352,10 @@ Octree::~Octree()
     ResetRoot();
 }
 
-//void Octree::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Octree, SUBSYSTEM_CATEGORY)
+void Octree::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<Octree>(SUBSYSTEM_CATEGORY);
+
     Vector3 defaultBoundsMin = -Vector3::ONE * DEFAULT_OCTREE_SIZE;
     Vector3 defaultBoundsMax = Vector3::ONE * DEFAULT_OCTREE_SIZE;
 

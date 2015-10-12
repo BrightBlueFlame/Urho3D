@@ -35,7 +35,7 @@ class AnimationState;
 /// Animated model component.
 class URHO3D_API AnimatedModel : public StaticModel
 {
-    URHO_OBJECT(AnimatedModel);
+    OBJECT(AnimatedModel, StaticModel);
 
     friend class AnimationState;
 
@@ -45,7 +45,7 @@ public:
     /// Destruct.
     virtual ~AnimatedModel();
     /// Register object factory. Drawable must be registered first.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load from binary data. Return true if successful.
     virtual bool Load(Deserializer& source, bool setInstanceDefault = false);

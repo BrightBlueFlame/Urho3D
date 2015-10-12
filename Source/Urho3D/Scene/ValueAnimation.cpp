@@ -60,10 +60,9 @@ ValueAnimation::~ValueAnimation()
 {
 }
 
-//void ValueAnimation::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(ValueAnimation)
+void ValueAnimation::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<ValueAnimation>();
 }
 
 bool ValueAnimation::BeginLoad(Deserializer& source)

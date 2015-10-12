@@ -47,8 +47,10 @@ CheckBox::~CheckBox()
 {
 }
 
-URHO_REGISTER_OBJECT(CheckBox, UI_CATEGORY)
+void CheckBox::RegisterObject(Context* context)
 {
+    context->RegisterFactory<CheckBox>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Focus Mode", FM_FOCUSABLE_DEFOCUSABLE);

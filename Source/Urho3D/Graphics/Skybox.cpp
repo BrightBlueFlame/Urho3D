@@ -45,9 +45,11 @@ Skybox::~Skybox()
 {
 }
 
-URHO_REGISTER_OBJECT(Skybox, GEOMETRY_CATEGORY)
+void Skybox::RegisterObject(Context* context)
 {
-    Definition.Base<StaticModel>(true);
+    context->RegisterFactory<Skybox>(GEOMETRY_CATEGORY);
+
+    COPY_BASE_ATTRIBUTES(StaticModel);
 }
 
 void Skybox::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)

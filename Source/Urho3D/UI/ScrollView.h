@@ -33,7 +33,7 @@ class ScrollBar;
 /// Scrollable %UI element for showing a (possibly large) child element.
 class URHO3D_API ScrollView : public UIElement
 {
-    URHO_OBJECT(ScrollView);
+    OBJECT(ScrollView, UIElement);
 
 public:
     /// Construct.
@@ -41,7 +41,7 @@ public:
     /// Destruct.
     virtual ~ScrollView();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Perform UI element update.
     virtual void Update(float timeStep);

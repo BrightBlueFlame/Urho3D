@@ -24,225 +24,59 @@
 
 #include "../Container/LinkedList.h"
 #include "../Core/Variant.h"
-#include "../Core/ClassDef.h"
-
-namespace U3D_Traits {
-    template <class T>
-    struct is_base
-    {
-        static const bool value = false;
-    };
-    
-    template <class T>
-    struct is_interface
-    {
-        static const bool value = false;
-    };
-}
 
 namespace Urho3D
 {
 
 class Context;
 class EventHandler;
+
+/// Type info.
+class URHO3D_API TypeInfo
+{
+public:
+    /// Construct.
+    TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo);
+    /// Destruct.
+    ~TypeInfo();
+
+    /// Check current type is type of specified type.
+    bool IsTypeOf(StringHash type) const;
+    /// Check current type is type of specified type.
+    bool IsTypeOf(const TypeInfo* typeInfo) const;
+    /// Check current type is type of specified class type.
+    template<typename T> bool IsTypeOf() const { return IsTypeOf(T::GetTypeInfoStatic()); }
     
-template <class T> class ClassConstructor;
+    /// Return type.
+    StringHash GetType() const { return type_; }
+    /// Return type name.
+    const String& GetTypeName() const { return typeName_;}
+    /// Return base type info.
+    const TypeInfo* GetBaseTypeInfo() const { return baseTypeInfo_; }
 
-#define __CLASSINFOHOLDERGETTER_(TYPE_NAME) \
-	static const ClassInfoHolder& __GetClassInfoHolderStatic() \
-	{ \
-		static const ClassInfoHolder infoStatic(#TYPE_NAME); \
-		return infoStatic; \
-	} \
+private:
+    /// Type.
+    StringHash type_;
+    /// Type name.
+    String typeName_;
+    /// Base class type info.
+    const TypeInfo* baseTypeInfo_;
+};
 
-#define __INTERFACEINFOHOLDERGETTER_(TYPE_NAME) \
-	static const InterfaceInfoHolder& __GetInterfaceInfoHolderStatic() \
-	{ \
-		static const InterfaceInfoHolder infoStatic(#TYPE_NAME); \
-		return infoStatic; \
-	} \
-
-#define __DEFINTERFACEINFOHOLDER__(TYPE_NAME) \
-private: \
-	struct InterfaceInfoHolder \
-	{ \
-		InterfaceInfoHolder(const char* tn): \
-			typeId_(tn), \
-			typeName_(tn), \
-			classDef_(new Urho3D::ClassDef(typeName_, typeId_)) \
-		{\
-			classDef_->Close(); \
-		}\
-		Urho3D::StringHash           typeId_; \
-		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
-	}; \
-	__INTERFACEINFOHOLDERGETTER_(TYPE_NAME); \
-
-#define __DEFCLASSINFOHOLDER__(TYPE_NAME) \
-private: \
-	struct ClassInfoHolder \
-	{ \
-		ClassInfoHolder(const char* tn): \
-			typeId_(tn), \
-			typeName_(tn), \
-			classDef_(new Urho3D::ClassDef(typeName_, typeId_)) \
-		{\
-			classDef_->Close(); \
-		}\
-		Urho3D::StringHash           typeId_; \
-		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
-	}; \
-	__CLASSINFOHOLDERGETTER_(TYPE_NAME); \
-
-#define __DEFCLASSINFOHOLDERCLOSED0__(TYPE_NAME) \
-private: \
-	struct ClassInfoHolder \
-	{ \
-		ClassInfoHolder(const char* tn): \
-			typeId_(tn), \
-			typeName_(tn), \
-			classDef_(new Urho3D::ClassDef(typeName_, typeId_)) \
-		{\
-			classDef_->Close(); \
-		}\
-		Urho3D::StringHash           typeId_; \
-		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
-	}; \
-	__CLASSINFOHOLDERGETTER_(TYPE_NAME); \
-
-#define __DEFCLASSINFOHOLDERCLOSED1__(TYPE_NAME, BASE_TYPE) \
-private: \
-	struct ClassInfoHolder \
-	{ \
-		ClassInfoHolder(const char* tn): \
-			typeId_(tn), \
-			typeName_(tn), \
-			classDef_(new Urho3D::ClassDef(typeName_, typeId_)) \
-		{\
-			classDef_->AddBase(WeakPtr<Urho3D::ClassDef>(BASE_TYPE::GetClassDefStatic())); \
-			classDef_->Close(); \
-		}\
-		Urho3D::StringHash           typeId_; \
-		Urho3D::String               typeName_; \
-		SharedPtr<Urho3D::ClassDef>  classDef_; \
-	}; \
-	__CLASSINFOHOLDERGETTER_(TYPE_NAME); \
-
-#define URHO_INTERFACE(typeName) \
-	__DEFINTERFACEINFOHOLDER__(typeName); \
-    public: \
-		static Urho3D::ClassDef*     GetInterfaceDefStatic() { return __GetInterfaceInfoHolderStatic().classDef_.Get(); } \
-        static Urho3D::StringHash    GetInterfaceTypeStatic() { return __GetInterfaceInfoHolderStatic().typeId_; } \
-        static const Urho3D::String& GetInterfaceTypeNameStatic() { return __GetInterfaceInfoHolderStatic().typeName_; } \
-    
-#define URHO_OBJECT(typeName) \
-	__DEFCLASSINFOHOLDER__(typeName); \
+#define OBJECT(typeName, baseTypeName) \
     public: \
         typedef typeName ClassName; \
-		static Urho3D::ClassDef*      GetClassDefStatic() { return __GetClassInfoHolderStatic().classDef_.Get(); } \
-		static Urho3D::StringHash     GetTypeStatic()     { return __GetClassInfoHolderStatic().typeId_; } \
-        static const Urho3D::String&  GetTypeNameStatic() { return __GetClassInfoHolderStatic().typeName_; } \
-        virtual Urho3D::ClassDef*     GetClassDef() const { return GetClassDefStatic(); } \
-        virtual Urho3D::StringHash    GetType() const     { return GetTypeStatic(); } \
-        virtual Urho3D::StringHash    GetBaseType() const { return GetBaseTypeStatic(); } \
-        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
-		static void                   RegisterObject(Urho3D::Context* context); \
-        static void                   DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition); \
-
-/*
-#define URHO_OBJECT_NOREGISTER(typeName) \
-    private: \
-        static SharedPtr<Urho3D::ClassDef> s_classDef; \
-    public: \
-        typedef typeName ClassName; \
-        static Urho3D::ClassDef* GetClassDefStatic(); \
-        static void DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition); \
-        virtual Urho3D::ClassDef* GetClassDef() const { return GetClassDefStatic(); } \
-        virtual Urho3D::StringHash GetType() const { return GetTypeStatic(); } \
-        virtual Urho3D::StringHash GetBaseType() const { return GetBaseTypeStatic(); } \
-        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
-        static Urho3D::StringHash GetTypeStatic() { static const Urho3D::StringHash typeStatic(#typeName); return typeStatic; } \
-        static const Urho3D::String& GetTypeNameStatic() { static const Urho3D::String typeNameStatic(#typeName); return typeNameStatic; } \
-*/
-
-#define URHO_OBJECT_AUTO0(typeName) \
-	__DEFCLASSINFOHOLDERCLOSED0__(typeName); \
-    public: \
-        typedef typeName ClassName; \
-        static Urho3D::ClassDef*      GetClassDefStatic() { return __GetClassInfoHolderStatic().classDef_.Get(); } \
-		static Urho3D::StringHash     GetTypeStatic()     { return __GetClassInfoHolderStatic().typeId_; } \
-        static const Urho3D::String&  GetTypeNameStatic() { return __GetClassInfoHolderStatic().typeName_; } \
-        virtual Urho3D::ClassDef*     GetClassDef() const { return GetClassDefStatic(); } \
-        virtual Urho3D::StringHash    GetType() const     { return GetTypeStatic(); } \
-        virtual Urho3D::StringHash    GetBaseType() const { return GetBaseTypeStatic(); } \
-        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
-
-#define URHO_OBJECT_AUTO1(typeName, baseType0) \
-    __DEFCLASSINFOHOLDERCLOSED1__(typeName, baseType0); \
-    public: \
-        typedef typeName ClassName; \
-        static Urho3D::ClassDef*      GetClassDefStatic() { return __GetClassInfoHolderStatic().classDef_.Get(); } \
-		static Urho3D::StringHash     GetTypeStatic()     { return __GetClassInfoHolderStatic().typeId_; } \
-        static const Urho3D::String&  GetTypeNameStatic() { return __GetClassInfoHolderStatic().typeName_; } \
-        virtual Urho3D::ClassDef*     GetClassDef() const { return GetClassDefStatic(); } \
-        virtual Urho3D::StringHash    GetType() const     { return GetTypeStatic(); } \
-        virtual Urho3D::StringHash    GetBaseType() const { return GetBaseTypeStatic(); } \
-        virtual const Urho3D::String& GetTypeName() const { return GetTypeNameStatic(); } \
-
-#define URHO_BASEOBJECT(typeName) \
-    public: \
-        static Urho3D::StringHash GetBaseTypeStatic() { static const Urho3D::StringHash baseTypeStatic(#typeName); return baseTypeStatic; } \
-    
-/// THIS MUST BE CALLED IN THE GLOBAL NAMESPACE!!!
-#define URHO_REGISTER_BASEOBJECT_TRAITS(typeName) \
-    namespace U3D_Traits { \
-        template <> \
-        struct is_base<typeName> \
-        { \
-            static const bool value = true; \
-        }; \
-    }
-
-#define URHO_REGISTER_INTERFACE_TRAITS(typeName) \
-    namespace U3D_Traits { \
-        template <> \
-        struct is_interface<typeName> \
-        { \
-            static const bool value = true; \
-        }; \
-    }
-    
-#define URHO_REGISTER_OBJECT( typeName, ... ) \
-    void typeName::RegisterObject(Urho3D::Context* context) \
-    { \
-        Urho3D::ClassDef* classDef = typeName::GetClassDefStatic(); \
-        context->RegisterFactory< typeName >(__VA_ARGS__); \
-        Urho3D::ClassConstructor< typeName > ccc(context, WeakPtr< ::Urho3D::ClassDef>(classDef)); \
-        typeName::DefineMyAttributes(ccc); \
-        classDef->Close(); \
-    } \
-    void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
-    
-
-#define URHO_REGISTER_OBJECT_NO_FACTORY(typeName) \
-    void typeName::RegisterObject(Urho3D::Context* context) \
-    { \
-        Urho3D::ClassDef* classDef = typeName::GetClassDefStatic(); \
-        Urho3D::ClassConstructor< typeName > ccc(context, WeakPtr<Urho3D::ClassDef>(classDef)); \
-        typeName::DefineMyAttributes(ccc); \
-        classDef->Close(); \
-    } \
-    void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
+        typedef baseTypeName BaseClassName; \
+        virtual Urho3D::StringHash GetType() const { return GetTypeInfoStatic()->GetType(); } \
+        virtual const Urho3D::String& GetTypeName() const { return GetTypeInfoStatic()->GetTypeName(); } \
+        virtual const Urho3D::TypeInfo* GetTypeInfo() const { return GetTypeInfoStatic(); } \
+        static Urho3D::StringHash GetTypeStatic() { return GetTypeInfoStatic()->GetType(); } \
+        static const Urho3D::String& GetTypeNameStatic() { return GetTypeInfoStatic()->GetTypeName(); } \
+        static const Urho3D::TypeInfo* GetTypeInfoStatic() { static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); return &typeInfoStatic; } \
 
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted
 {
-    URHO_OBJECT_AUTO0(Object);
-    URHO_BASEOBJECT(Object);
-
     friend class Context;
 
 public:
@@ -250,9 +84,30 @@ public:
     Object(Context* context);
     /// Destruct. Clean up self from event sender & receiver structures.
     virtual ~Object();
-    
+
+    /// Return type hash.
+    virtual StringHash GetType() const = 0;
+    /// Return type name.
+    virtual const String& GetTypeName() const = 0;
+    /// Return type info.
+    virtual const TypeInfo* GetTypeInfo() const = 0;
     /// Handle event.
     virtual void OnEvent(Object* sender, StringHash eventType, VariantMap& eventData);
+
+    /// Return type info static.
+    static const TypeInfo* GetTypeInfoStatic() { return 0; }
+    /// Check current type is type of specified type.
+    static bool IsTypeOf(StringHash type);
+    /// Check current type is type of specified type.
+    static bool IsTypeOf(const TypeInfo* typeInfo);
+    /// Check current type is type of specified class.
+    template<typename T> static bool IsTypeOf() { return IsTypeOf(T::GetTypeInfoStatic()); }
+    /// Check current instance is type of specified type.
+    bool IsInstanceOf(StringHash type) const;
+    /// Check current instance is type of specified type.
+    bool IsInstanceOf(const TypeInfo* typeInfo) const;
+    /// Check current instance is type of specified class.
+    template<typename T> bool IsInstanceOf() const { return IsInstanceOf(T::GetTypeInfoStatic()); }
 
     /// Subscribe to an event that can be sent by any sender.
     void SubscribeToEvent(StringHash eventType, EventHandler* handler);
@@ -334,24 +189,20 @@ public:
     /// Return execution context.
     Context* GetContext() const { return context_; }
 
-    /// Return type hash of objects created by this factory.
-    StringHash GetType() const { return type_; }
+    /// Return type info of objects created by this factory.
+    const TypeInfo* GetTypeInfo() const { return typeInfo_; }
 
-    /// Return base type hash of objects created by this factory.
-    StringHash GetBaseType() const { return baseType_; }
+    /// Return type hash of objects created by this factory.
+    StringHash GetType() const { return typeInfo_->GetType(); }
 
     /// Return type name of objects created by this factory.
-    const String& GetTypeName() const { return typeName_; }
+    const String& GetTypeName() const { return typeInfo_->GetTypeName(); }
 
 protected:
     /// Execution context.
     Context* context_;
-    /// Object type.
-    StringHash type_;
-    /// Object base type.
-    StringHash baseType_;
-    /// Object type name.
-    String typeName_;
+    /// Type info.
+    const TypeInfo* typeInfo_;
 };
 
 /// Template implementation of the object factory.
@@ -362,9 +213,7 @@ public:
     ObjectFactoryImpl(Context* context) :
         ObjectFactory(context)
     {
-        type_ = T::GetTypeStatic();
-        baseType_ = T::GetBaseTypeStatic();
-        typeName_ = T::GetTypeNameStatic();
+        typeInfo_ = T::GetTypeInfoStatic();
     }
 
     /// Create an object of the specific type.
@@ -481,6 +330,3 @@ private:
 #define HANDLER_USERDATA(className, function, userData) (new Urho3D::EventHandlerImpl<className>(this, &className::function, userData))
 
 }
-
-URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::Object);
-URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Object);

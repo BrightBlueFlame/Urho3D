@@ -83,7 +83,7 @@ struct AnimationControl
 /// %Component that drives an AnimatedModel's animations.
 class URHO3D_API AnimationController : public Component
 {
-    URHO_OBJECT(AnimationController);
+    OBJECT(AnimationController, Component);
 
 public:
     /// Construct.
@@ -91,7 +91,7 @@ public:
     /// Destruct.
     virtual ~AnimationController();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

@@ -33,13 +33,15 @@ class Texture2D;
 /// Sprite.
 class URHO3D_API Sprite2D : public Resource
 {
-    URHO_OBJECT(Sprite2D);
+    OBJECT(Sprite2D, Resource);
 
 public:
     /// Construct.
     Sprite2D(Context* context);
     /// Destruct.
     virtual ~Sprite2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

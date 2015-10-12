@@ -30,7 +30,7 @@ namespace Urho3D
 /// %Menu %UI element that optionally shows a popup.
 class URHO3D_API Menu : public Button
 {
-    URHO_OBJECT(Menu);
+    OBJECT(Menu, Button);
 
     using UIElement::LoadXML;
 
@@ -40,7 +40,7 @@ public:
     /// Destruct.
     virtual ~Menu();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load from XML data with style. Return true if successful.
     virtual bool LoadXML(const XMLElement& source, XMLFile* styleFile, bool setInstanceDefault = false);

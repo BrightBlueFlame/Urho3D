@@ -134,10 +134,10 @@ FileSelector::~FileSelector()
 {
     window_->Remove();
 }
-    
-URHO_REGISTER_OBJECT(FileSelector)
+
+void FileSelector::RegisterObject(Context* context)
 {
-    Definition.Base<Object>();
+    context->RegisterFactory<FileSelector>();
 }
 
 void FileSelector::SetDefaultStyle(XMLFile* style)

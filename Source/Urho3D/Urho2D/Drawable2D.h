@@ -63,14 +63,15 @@ extern URHO3D_API const float PIXEL_SIZE;
 /// Base class for 2D visible components.
 class URHO3D_API Drawable2D : public Drawable
 {
-    URHO_INTERFACE(Drawable);
-    URHO_OBJECT(Drawable2D);
+    OBJECT(Drawable2D, Drawable);
 
 public:
     /// Construct.
     Drawable2D(Context* context);
     /// Destruct.
     ~Drawable2D();
+    /// Register object factory. Drawable must be registered first.
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();
@@ -115,4 +116,3 @@ protected:
 };
 
 }
-URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Drawable2D);

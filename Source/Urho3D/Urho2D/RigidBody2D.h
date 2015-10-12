@@ -44,13 +44,15 @@ enum BodyType2D
 /// 2D rigid body component.
 class URHO3D_API RigidBody2D : public Component
 {
-    URHO_OBJECT(RigidBody2D);
+    OBJECT(RigidBody2D, Component);
 
 public:
     /// Construct.
     RigidBody2D(Context* context);
     /// Destruct.
     virtual ~RigidBody2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

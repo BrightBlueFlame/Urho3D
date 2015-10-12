@@ -34,13 +34,15 @@ class Image;
 /// 3D texture resource.
 class URHO3D_API Texture3D : public Texture
 {
-    URHO_OBJECT(Texture3D);
+    OBJECT(Texture3D, Texture);
 
 public:
     /// Construct.
     Texture3D(Context* context);
     /// Destruct.
     virtual ~Texture3D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

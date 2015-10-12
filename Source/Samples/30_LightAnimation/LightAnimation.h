@@ -37,7 +37,7 @@ class Scene;
 ///     - Usage of attribute animation for light color animation
 class LightAnimation : public Sample
 {
-    URHO_OBJECT_AUTO1(LightAnimation, Sample);
+    OBJECT(LightAnimation, Sample);
 
 public:
     /// Construct.

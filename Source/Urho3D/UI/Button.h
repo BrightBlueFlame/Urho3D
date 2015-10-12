@@ -30,7 +30,7 @@ namespace Urho3D
 /// Push button %UI element.
 class URHO3D_API Button : public BorderImage
 {
-    URHO_OBJECT(Button);
+    OBJECT(Button, BorderImage);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~Button();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Perform UI element update.
     virtual void Update(float timeStep);

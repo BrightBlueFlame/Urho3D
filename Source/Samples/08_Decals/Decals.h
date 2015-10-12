@@ -41,7 +41,7 @@ class Scene;
 ///     - Displaying renderer debug geometry to see the effect of occlusion
 class Decals : public Sample
 {
-    URHO_OBJECT_AUTO1(Decals, Sample);
+    OBJECT(Decals, Sample);
 
 public:
     /// Construct.
@@ -92,7 +92,7 @@ private:
     void HandleUpdate(StringHash eventType, VariantMap& eventData);
     /// Handle the post-render update event.
     void HandlePostRenderUpdate(StringHash eventType, VariantMap& eventData);
-
+    
     /// Flag for drawing debug geometry.
     bool drawDebug_;
 };

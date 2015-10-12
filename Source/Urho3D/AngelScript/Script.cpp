@@ -41,7 +41,7 @@ namespace Urho3D
 
 class ScriptResourceRouter : public ResourceRouter
 {
-    URHO_OBJECT_AUTO0(ScriptResourceRouter);
+    OBJECT(ScriptResourceRouter, ResourceRouter);
 
     /// Construct.
     ScriptResourceRouter(Context* context) :

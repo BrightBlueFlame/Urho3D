@@ -34,14 +34,15 @@ class RigidBody2D;
 /// 2D collision shape component.
 class URHO3D_API CollisionShape2D : public Component
 {
-    URHO_INTERFACE(CollisionShape2D);
-    URHO_OBJECT(CollisionShape2D);
+    OBJECT(CollisionShape2D, Component);
 
 public:
     /// Construct.
     CollisionShape2D(Context* context);
     /// Destruct.
     virtual ~CollisionShape2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();
@@ -116,5 +117,3 @@ protected:
 };
 
 }
-
-URHO_REGISTER_INTERFACE_TRAITS(Urho3D::CollisionShape2D);

@@ -76,9 +76,9 @@ Sound::~Sound()
 {
 }
 
-URHO_REGISTER_OBJECT(Sound)
+void Sound::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<Sound>();
 }
 
 bool Sound::BeginLoad(Deserializer& source)

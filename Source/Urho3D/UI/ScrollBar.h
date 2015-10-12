@@ -33,13 +33,15 @@ class Slider;
 /// Scroll bar %UI element with forward and back buttons.
 class URHO3D_API ScrollBar : public UIElement
 {
-    URHO_OBJECT(ScrollBar);
+    OBJECT(ScrollBar, UIElement);
 
 public:
     /// Construct.
     ScrollBar(Context* context);
     /// Destruct.
     virtual ~ScrollBar();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

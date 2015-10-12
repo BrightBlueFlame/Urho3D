@@ -38,7 +38,7 @@ static const int STREAM_BUFFER_LENGTH = 100;
 /// %Sound source component with stereo position.
 class URHO3D_API SoundSource : public Component
 {
-    URHO_OBJECT(SoundSource);
+    OBJECT(SoundSource, Component);
 
 public:
     /// Construct.
@@ -46,7 +46,7 @@ public:
     /// Destruct. Remove self from the audio subsystem
     virtual ~SoundSource();
     /// Register object factory.
-    // static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Play a sound.
     void Play(Sound* sound);

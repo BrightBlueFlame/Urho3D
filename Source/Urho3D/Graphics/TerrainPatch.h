@@ -34,7 +34,7 @@ class VertexBuffer;
 /// Individually rendered part of a heightmap terrain.
 class URHO3D_API TerrainPatch : public Drawable
 {
-    URHO_OBJECT(TerrainPatch);
+    OBJECT(TerrainPatch, Drawable);
 
 public:
     /// Construct.
@@ -42,7 +42,7 @@ public:
     /// Destruct.
     ~TerrainPatch();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Process octree raycast. May be called from a worker thread.
     virtual void ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results);

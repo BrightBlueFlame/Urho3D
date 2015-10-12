@@ -86,12 +86,9 @@ Renderer2D::~Renderer2D()
 {
 }
 
-URHO_REGISTER_OBJECT(Renderer2D)
+void Renderer2D::RegisterObject(Context* context)
 {
-    Definition
-    .Base<Drawable>()
-    .Implements<Drawable>()
-    ;
+    context->RegisterFactory<Renderer2D>();
 }
 
 static inline bool CompareRayQueryResults(RayQueryResult& lr, RayQueryResult& rr)

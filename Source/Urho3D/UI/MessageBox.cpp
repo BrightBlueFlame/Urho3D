@@ -105,9 +105,9 @@ MessageBox::~MessageBox()
         window_->Remove();
 }
 
-URHO_REGISTER_OBJECT(MessageBox)
+void MessageBox::RegisterObject(Context* context)
 {
-    Definition.Base<Object>();
+    context->RegisterFactory<MessageBox>();
 }
 
 void MessageBox::SetTitle(const String& text)

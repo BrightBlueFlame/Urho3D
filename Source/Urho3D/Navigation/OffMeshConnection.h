@@ -30,7 +30,7 @@ namespace Urho3D
 /// A link between otherwise unconnected regions of the navigation mesh.
 class URHO3D_API OffMeshConnection : public Component
 {
-    URHO_OBJECT(OffMeshConnection);
+    OBJECT(OffMeshConnection, Component);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~OffMeshConnection();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);
@@ -60,8 +60,6 @@ public:
 
     /// Return endpoint node.
     Node* GetEndPoint() const;
-    unsigned GetEndPointID() const;
-    void SetEndPointID(unsigned epid);
 
     /// Return radius.
     float GetRadius() const { return radius_; }

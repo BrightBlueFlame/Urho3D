@@ -302,9 +302,9 @@ TmxFile2D::~TmxFile2D()
         delete layers_[i];
 }
 
-URHO_REGISTER_OBJECT(TmxFile2D)
+void TmxFile2D::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<TmxFile2D>();
 }
 
 bool TmxFile2D::BeginLoad(Deserializer& source)

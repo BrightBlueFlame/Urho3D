@@ -34,7 +34,7 @@ class Texture2D;
 /// %Image %UI element with optional border.
 class URHO3D_API BorderImage : public UIElement
 {
-    URHO_OBJECT(BorderImage);
+    OBJECT(BorderImage, UIElement);
 
 public:
     /// Construct.
@@ -42,7 +42,7 @@ public:
     /// Destruct.
     virtual ~BorderImage();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Return UI rendering batches.
     virtual void GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor);

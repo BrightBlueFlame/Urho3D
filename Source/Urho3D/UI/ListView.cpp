@@ -73,7 +73,7 @@ void SetItemHierarchyParent(UIElement* item, bool enable)
 /// Hierarchy container (used by ListView internally when in hierarchy mode).
 class HierarchyContainer : public UIElement
 {
-    URHO_OBJECT(HierarchyContainer);
+    OBJECT(HierarchyContainer, UIElement);
 
 public:
     /// Construct.
@@ -86,6 +86,9 @@ public:
         SubscribeToEvent(overlayContainer->GetParent(), E_VIEWCHANGED, HANDLER(HierarchyContainer, HandleViewChanged));
         SubscribeToEvent(E_UIMOUSECLICK, HANDLER(HierarchyContainer, HandleUIMouseClick));
     }
+
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle layout updated by adjusting the position of the overlays.
     void HandleLayoutUpdated(StringHash eventType, VariantMap& eventData)
@@ -156,7 +159,7 @@ private:
     UIElement* overlayContainer_;
 };
 
-URHO_REGISTER_OBJECT_NO_FACTORY(HierarchyContainer)
+void HierarchyContainer::RegisterObject(Context* context)
 {
     COPY_BASE_ATTRIBUTES(UIElement);
 }
@@ -187,9 +190,11 @@ ListView::~ListView()
 {
 }
 
-URHO_REGISTER_OBJECT(ListView, UI_CATEGORY)
+void ListView::RegisterObject(Context* context)
 {
-    HierarchyContainer::RegisterObject(Definition.GetContext());
+    context->RegisterFactory<ListView>(UI_CATEGORY);
+
+    HierarchyContainer::RegisterObject(context);
 
     COPY_BASE_ATTRIBUTES(ScrollView);
     ENUM_ACCESSOR_ATTRIBUTE("Highlight Mode", GetHighlightMode, SetHighlightMode, HighlightMode, highlightModes, HM_FOCUS, AM_FILE);

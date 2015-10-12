@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D weld constraint component.
 class URHO3D_API ConstraintWeld2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintWeld2D);
+    OBJECT(ConstraintWeld2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintWeld2D(Context* context);
     /// Destruct.
     virtual ~ConstraintWeld2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

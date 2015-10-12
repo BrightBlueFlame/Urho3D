@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D pulley constraint component.
 class URHO3D_API ConstraintPulley2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintPulley2D);
+    OBJECT(ConstraintPulley2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintPulley2D(Context* context);
     /// Destruct.
     virtual ~ConstraintPulley2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set other body ground anchor point.
     void SetOwnerBodyGroundAnchor(const Vector2& groundAnchor);

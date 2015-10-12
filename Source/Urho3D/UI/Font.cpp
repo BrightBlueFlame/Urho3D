@@ -59,9 +59,9 @@ Font::~Font()
     fontData_.Reset();
 }
 
-URHO_REGISTER_OBJECT(Font)
+void Font::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<Font>();
 }
 
 bool Font::BeginLoad(Deserializer& source)

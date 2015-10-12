@@ -35,13 +35,15 @@ class XMLFile;
 /// 2D texture resource.
 class URHO3D_API Texture2D : public Texture
 {
-    URHO_OBJECT(Texture2D);
+    OBJECT(Texture2D, Texture);
 
 public:
     /// Construct.
     Texture2D(Context* context);
     /// Destruct.
     virtual ~Texture2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

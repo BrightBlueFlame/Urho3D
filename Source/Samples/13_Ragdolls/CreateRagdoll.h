@@ -30,16 +30,16 @@ using namespace Urho3D;
 /// Custom component that creates a ragdoll upon collision.
 class CreateRagdoll : public Component
 {
-    URHO_OBJECT_AUTO1(CreateRagdoll, Component);
-
+    OBJECT(CreateRagdoll, Component);
+    
 public:
     /// Construct.
     CreateRagdoll(Context* context);
-
+    
 protected:
     /// Handle node being assigned.
     virtual void OnNodeSet(Node* node);
-
+    
 private:
     /// Handle scene node's physics collision.
     void HandleNodeCollision(StringHash eventType, VariantMap& eventData);

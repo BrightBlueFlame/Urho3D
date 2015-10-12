@@ -295,9 +295,9 @@ PListFile::~PListFile()
 {
 }
 
-URHO_REGISTER_OBJECT(PListFile)
+void PListFile::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<PListFile>();
 }
 
 bool PListFile::BeginLoad(Deserializer& source)

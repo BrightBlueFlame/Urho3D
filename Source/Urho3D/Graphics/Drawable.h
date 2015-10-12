@@ -99,8 +99,7 @@ struct SourceBatch
 /// Base class for visible components.
 class URHO3D_API Drawable : public Component
 {
-    URHO_INTERFACE(Drawable);
-    URHO_OBJECT(Drawable);
+    OBJECT(Drawable, Component);
 
     friend class Octant;
     friend class Octree;
@@ -112,7 +111,7 @@ public:
     /// Destruct.
     virtual ~Drawable();
     /// Register object attributes. Drawable must be registered first.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();
@@ -388,5 +387,3 @@ inline bool CompareDrawables(Drawable* lhs, Drawable* rhs)
 URHO3D_API bool WriteDrawablesToOBJ(PODVector<Drawable*> drawables, File* outputFile, bool writeLightmapUV = false);
 
 }
-
-URHO_REGISTER_INTERFACE_TRAITS(Urho3D::Drawable);

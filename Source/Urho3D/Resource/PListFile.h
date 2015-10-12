@@ -137,13 +137,15 @@ private:
 /// Property list (plist).
 class URHO3D_API PListFile : public Resource
 {
-    URHO_OBJECT(PListFile);
+    OBJECT(PListFile, Resource);
 
 public:
     /// Construct.
     PListFile(Context* context);
     /// Destruct.
     virtual ~PListFile();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

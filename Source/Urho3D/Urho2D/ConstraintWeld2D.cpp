@@ -44,8 +44,10 @@ ConstraintWeld2D::~ConstraintWeld2D()
 {
 }
 
-URHO_REGISTER_OBJECT(ConstraintWeld2D, URHO2D_CATEGORY)
+void ConstraintWeld2D::RegisterObject(Context* context)
 {
+    context->RegisterFactory<ConstraintWeld2D>(URHO2D_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Anchor", GetAnchor, SetAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Frequency Hz", GetFrequencyHz, SetFrequencyHz, float, 0.0f, AM_DEFAULT);

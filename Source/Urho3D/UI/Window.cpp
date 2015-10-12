@@ -61,8 +61,10 @@ Window::~Window()
 {
 }
 
-URHO_REGISTER_OBJECT(Window, UI_CATEGORY)
+void Window::RegisterObject(Context* context)
 {
+    context->RegisterFactory<Window>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Bring To Front", true);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Clip Children", true);

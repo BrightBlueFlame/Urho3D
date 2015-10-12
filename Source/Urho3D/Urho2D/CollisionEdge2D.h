@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D edge collision component.
 class URHO3D_API CollisionEdge2D : public CollisionShape2D
 {
-    URHO_OBJECT(CollisionEdge2D);
+    OBJECT(CollisionEdge2D, CollisionShape2D);
 
 public:
     /// Construct.
     CollisionEdge2D(Context* context);
     /// Destruct.
     virtual ~CollisionEdge2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set vertex 1.
     void SetVertex1(const Vector2& vertex);

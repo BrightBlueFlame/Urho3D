@@ -41,13 +41,15 @@ enum HighlightMode
 /// Scrollable list %UI element.
 class URHO3D_API ListView : public ScrollView
 {
-    URHO_OBJECT(ListView);
+    OBJECT(ListView, ScrollView);
 
 public:
     /// Construct.
     ListView(Context* context);
     /// Destruct.
     virtual ~ListView();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// React to a key press.
     virtual void OnKey(int key, int buttons, int qualifiers);

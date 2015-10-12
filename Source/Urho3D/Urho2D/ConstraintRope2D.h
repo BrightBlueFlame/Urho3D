@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D rope constraint component.
 class URHO3D_API ConstraintRope2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintRope2D);
+    OBJECT(ConstraintRope2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintRope2D(Context* context);
     /// Destruct.
     virtual ~ConstraintRope2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set owner body anchor.
     void SetOwnerBodyAnchor(const Vector2& anchor);

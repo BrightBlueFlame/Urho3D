@@ -40,7 +40,7 @@ class View;
 /// %Viewport definition either for a render surface or the backbuffer.
 class URHO3D_API Viewport : public Object
 {
-    URHO_OBJECT_AUTO1(Viewport, Object);
+    OBJECT(Viewport, Object);
 
 public:
     /// Construct with defaults.

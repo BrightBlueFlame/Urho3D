@@ -54,8 +54,10 @@ View3D::~View3D()
     ResetScene();
 }
 
-URHO_REGISTER_OBJECT(View3D, UI_CATEGORY)
+void View3D::RegisterObject(Context* context)
 {
+    context->RegisterFactory<View3D>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(Window);
     // The texture format is API specific, so do not register it as a serializable attribute
     ACCESSOR_ATTRIBUTE("Auto Update", GetAutoUpdate, SetAutoUpdate, bool, true, AM_FILE);

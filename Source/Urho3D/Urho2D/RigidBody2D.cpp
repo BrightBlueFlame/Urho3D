@@ -68,9 +68,9 @@ RigidBody2D::~RigidBody2D()
     }
 }
 
-URHO_REGISTER_OBJECT(RigidBody2D, URHO2D_CATEGORY)
+void RigidBody2D::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<RigidBody2D>(URHO2D_CATEGORY);
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ENUM_ACCESSOR_ATTRIBUTE("Body Type", GetBodyType, SetBodyType, BodyType2D, bodyTypeNames, DEFAULT_BODYTYPE, AM_DEFAULT);
@@ -393,17 +393,17 @@ void RigidBody2D::ReleaseBody()
 
 void RigidBody2D::ApplyWorldTransform()
 {
-	if (!body_)
-		return;
+    if (!body_)
+        return;
 
-	if (!body_->IsActive())
-		return; 
-	
-	if (body_->GetType() == b2_staticBody)
-		return;
+    if (!body_->IsActive())
+        return; 
+    
+    if (body_->GetType() == b2_staticBody)
+        return;
 
-	if (!body_->IsAwake())
-		return;
+    if (!body_->IsAwake())
+        return;
 
     physicsWorld_->SetApplyingTransforms(true);
 

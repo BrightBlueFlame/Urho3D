@@ -29,13 +29,15 @@ namespace Urho3D
 /// 2D chain collision component.
 class URHO3D_API CollisionChain2D : public CollisionShape2D
 {
-    URHO_OBJECT(CollisionChain2D);
+    OBJECT(CollisionChain2D, CollisionShape2D);
 
 public:
     /// Construct.
     CollisionChain2D(Context* context);
     /// Destruct.
     virtual ~CollisionChain2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set loop.
     void SetLoop(bool loop);

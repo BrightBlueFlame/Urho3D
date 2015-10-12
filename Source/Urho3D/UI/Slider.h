@@ -30,13 +30,15 @@ namespace Urho3D
 /// %Slider bar %UI element.
 class URHO3D_API Slider : public BorderImage
 {
-    URHO_OBJECT(Slider);
+    OBJECT(Slider, BorderImage);
 
 public:
     /// Construct.
     Slider(Context* context);
     /// Destruct.
     virtual ~Slider();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Perform UI element update.
     virtual void Update(float timeStep);

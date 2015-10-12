@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D wheel constraint component.
 class URHO3D_API ConstraintWheel2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintWheel2D);
+    OBJECT(ConstraintWheel2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintWheel2D(Context* context);
     /// Destruct.
     virtual ~ConstraintWheel2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

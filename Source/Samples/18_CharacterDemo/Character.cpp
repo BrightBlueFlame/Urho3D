@@ -28,7 +28,6 @@
 #include <Urho3D/Physics/RigidBody.h>
 #include <Urho3D/Scene/Scene.h>
 #include <Urho3D/Scene/SceneEvents.h>
-#include <Urho3D/Core/ClassConstructor.h>
 
 #include "Character.h"
 
@@ -42,10 +41,9 @@ Character::Character(Context* context) :
     SetUpdateEventMask(USE_FIXEDUPDATE);
 }
 
-//void Character::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Character)
+void Character::RegisterObject(Context* context)
 {
-	Definition.Base<LogicComponent>();
+    context->RegisterFactory<Character>();
 
     // These macros register the class attributes to the Context for automatic load / save handling.
     // We specify the Default attribute mode which means it will be used both for saving into file, and network replication

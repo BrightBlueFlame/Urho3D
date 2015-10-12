@@ -125,10 +125,9 @@ SoundSource::~SoundSource()
         audio_->RemoveSoundSource(this);
 }
 
-//void SoundSource::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(SoundSource, AUDIO_CATEGORY)
+void SoundSource::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<SoundSource>(AUDIO_CATEGORY);
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Sound", GetSoundAttr, SetSoundAttr, ResourceRef, ResourceRef(Sound::GetTypeStatic()), AM_DEFAULT);

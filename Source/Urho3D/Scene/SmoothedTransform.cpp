@@ -45,9 +45,9 @@ SmoothedTransform::~SmoothedTransform()
 {
 }
 
-URHO_REGISTER_OBJECT(SmoothedTransform)
+void SmoothedTransform::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<SmoothedTransform>();
 }
 
 void SmoothedTransform::Update(float constant, float squaredSnapThreshold)

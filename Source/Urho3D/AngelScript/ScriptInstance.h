@@ -56,7 +56,7 @@ enum ScriptInstanceMethod
 /// %Script object component.
 class URHO3D_API ScriptInstance : public Component, public ScriptEventListener
 {
-    URHO_OBJECT(ScriptInstance);
+    OBJECT(ScriptInstance, Component);
 
 public:
     /// Construct.
@@ -64,7 +64,7 @@ public:
     /// Destruct.
     virtual ~ScriptInstance();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

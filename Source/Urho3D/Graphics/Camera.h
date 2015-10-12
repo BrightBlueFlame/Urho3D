@@ -43,7 +43,7 @@ static const unsigned VO_DISABLE_OCCLUSION = 0x4;
 /// %Camera component.
 class URHO3D_API Camera : public Component
 {
-    URHO_OBJECT(Camera);
+    OBJECT(Camera, Component);
 
 public:
     /// Construct.
@@ -51,7 +51,7 @@ public:
     /// Destruct.
     virtual ~Camera();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Visualize the component as debug geometry.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

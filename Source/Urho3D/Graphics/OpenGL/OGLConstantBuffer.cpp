@@ -32,6 +32,7 @@
 namespace Urho3D
 {
 
+
 ConstantBuffer::ConstantBuffer(Context* context) :
     Object(context),
     GPUObject(GetSubsystem<Graphics>())

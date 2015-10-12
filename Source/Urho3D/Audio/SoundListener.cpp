@@ -39,9 +39,10 @@ SoundListener::~SoundListener()
 {
 }
 
-URHO_REGISTER_OBJECT(SoundListener, AUDIO_CATEGORY)
+void SoundListener::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<SoundListener>(AUDIO_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
 }
 

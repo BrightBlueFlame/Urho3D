@@ -86,9 +86,9 @@ ParticleEffect::~ParticleEffect()
 {
 }
 
-URHO_REGISTER_OBJECT(ParticleEffect)
+void ParticleEffect::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<ParticleEffect>();
 }
 
 bool ParticleEffect::BeginLoad(Deserializer& source)

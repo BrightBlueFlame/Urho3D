@@ -52,8 +52,10 @@ Button::~Button()
 {
 }
 
-URHO_REGISTER_OBJECT(Button, UI_CATEGORY)
+void Button::RegisterObject(Context* context)
 {
+    context->RegisterFactory<Button>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(BorderImage);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Is Enabled", true);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Focus Mode", FM_FOCUSABLE);

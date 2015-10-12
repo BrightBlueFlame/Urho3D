@@ -35,13 +35,15 @@ class Text;
 /// 3D text component.
 class URHO3D_API Text3D : public Drawable
 {
-    URHO_OBJECT(Text3D);
+    OBJECT(Text3D, Drawable);
 
 public:
     /// Construct.
     Text3D(Context* context);
     /// Destruct.
     ~Text3D();
+    /// Register object factory. Drawable must be registered first.
+    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

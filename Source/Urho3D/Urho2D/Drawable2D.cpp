@@ -56,11 +56,8 @@ Drawable2D::~Drawable2D()
         renderer_->RemoveDrawable(this);
 }
 
-URHO_REGISTER_OBJECT_NO_FACTORY(Drawable2D)
+void Drawable2D::RegisterObject(Context* context)
 {
-    Definition
-    .Base<Drawable>()
-    .Implements<Drawable>();
     ACCESSOR_ATTRIBUTE("Layer", GetLayer, SetLayer, int, 0, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Order in Layer", GetOrderInLayer, SetOrderInLayer, int, 0, AM_DEFAULT);
     ATTRIBUTE("View Mask", int, viewMask_, DEFAULT_VIEWMASK, AM_DEFAULT);

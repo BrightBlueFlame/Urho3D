@@ -32,13 +32,13 @@ class Audio;
 /// %Sound source component with three-dimensional position.
 class URHO3D_API SoundSource3D : public SoundSource
 {
-    URHO_OBJECT(SoundSource3D);
+    OBJECT(SoundSource3D, SoundSource);
 
 public:
     /// Construct.
     SoundSource3D(Context* context);
     /// Register object factory.
-    // static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Visualize the component as debug geometry.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

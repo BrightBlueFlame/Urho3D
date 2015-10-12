@@ -51,10 +51,9 @@ ObjectAnimation::~ObjectAnimation()
 {
 }
 
-//void ObjectAnimation::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(ObjectAnimation)
+void ObjectAnimation::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<ObjectAnimation>();
 }
 
 bool ObjectAnimation::BeginLoad(Deserializer& source)

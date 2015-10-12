@@ -185,10 +185,9 @@ Material::~Material()
 {
 }
 
-//void Material::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Material)
+void Material::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<Material>();
 }
 
 bool Material::BeginLoad(Deserializer& source)

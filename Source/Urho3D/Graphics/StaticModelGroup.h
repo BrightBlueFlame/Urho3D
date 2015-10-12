@@ -30,7 +30,7 @@ namespace Urho3D
 /// Renders several object instances while culling and receiving light as one unit. Can be used as a CPU-side optimization, but note that also regular StaticModels will use instanced rendering if possible.
 class URHO3D_API StaticModelGroup : public StaticModel
 {
-    URHO_OBJECT(StaticModelGroup);
+    OBJECT(StaticModelGroup, StaticModel);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~StaticModelGroup();
     /// Register object factory. StaticModel must be registered first.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately. Called after scene load or a network update.
     void ApplyAttributes();

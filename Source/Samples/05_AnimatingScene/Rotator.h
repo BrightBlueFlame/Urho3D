@@ -30,7 +30,7 @@ using namespace Urho3D;
 /// Custom logic component for rotating a scene node.
 class Rotator : public LogicComponent
 {
-    URHO_OBJECT_AUTO1(Rotator, LogicComponent);
+    OBJECT(Rotator, LogicComponent);
     
 public:
     /// Construct.

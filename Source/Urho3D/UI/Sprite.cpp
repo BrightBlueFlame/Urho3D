@@ -52,9 +52,9 @@ Sprite::~Sprite()
 {
 }
 
-URHO_REGISTER_OBJECT(Sprite, UI_CATEGORY)
+void Sprite::RegisterObject(Context* context)
 {
-    Definition.Base<UIElement>();
+    context->RegisterFactory<Sprite>(UI_CATEGORY);
 
     ACCESSOR_ATTRIBUTE("Name", GetName, SetName, String, String::EMPTY, AM_FILE);
     ACCESSOR_ATTRIBUTE("Position", GetPosition, SetPosition, Vector2, Vector2::ZERO, AM_FILE);

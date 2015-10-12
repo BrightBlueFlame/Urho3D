@@ -39,13 +39,15 @@ class TmxTileLayer2D;
 /// Tile map component.
 class URHO3D_API TileMapLayer2D : public Component
 {
-    URHO_OBJECT(TileMapLayer2D);
+    OBJECT(TileMapLayer2D, Component);
 
 public:
     /// Construct.
     TileMapLayer2D(Context* context);
     /// Destruct.
     ~TileMapLayer2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Add debug geometry to the debug renderer.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

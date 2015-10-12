@@ -67,9 +67,9 @@ TerrainPatch::~TerrainPatch()
 {
 }
 
-URHO_REGISTER_OBJECT(TerrainPatch)
+void TerrainPatch::RegisterObject(Context* context)
 {
-    Definition.Base<Drawable>();
+    context->RegisterFactory<TerrainPatch>();
 }
 
 void TerrainPatch::ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results)

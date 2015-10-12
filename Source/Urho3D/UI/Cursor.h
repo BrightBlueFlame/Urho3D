@@ -91,7 +91,7 @@ struct URHO3D_API CursorShapeInfo
 /// Mouse cursor %UI element.
 class URHO3D_API Cursor : public BorderImage
 {
-    URHO_OBJECT(Cursor);
+    OBJECT(Cursor, BorderImage);
 
 public:
     /// Construct.
@@ -99,7 +99,7 @@ public:
     /// Destruct.
     virtual ~Cursor();
     /// Register object factory.
-    // static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Return UI rendering batches.
     virtual void GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor);

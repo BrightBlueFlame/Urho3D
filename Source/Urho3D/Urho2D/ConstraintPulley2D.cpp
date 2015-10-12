@@ -48,8 +48,10 @@ ConstraintPulley2D::~ConstraintPulley2D()
 {
 }
 
-URHO_REGISTER_OBJECT(ConstraintPulley2D, URHO2D_CATEGORY)
+void ConstraintPulley2D::RegisterObject(Context* context)
 {
+    context->RegisterFactory<ConstraintPulley2D>(URHO2D_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Owner Body Ground Anchor", GetOwnerBodyGroundAnchor, SetOwnerBodyGroundAnchor, Vector2, Vector2::ZERO,
         AM_DEFAULT);

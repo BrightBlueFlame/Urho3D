@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D distance constraint component.
 class URHO3D_API ConstraintDistance2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintDistance2D);
+    OBJECT(ConstraintDistance2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintDistance2D(Context* context);
     /// Destruct.
     virtual ~ConstraintDistance2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set owner body anchor.
     void SetOwnerBodyAnchor(const Vector2& anchor);

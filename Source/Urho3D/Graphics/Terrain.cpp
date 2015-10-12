@@ -113,9 +113,10 @@ Terrain::~Terrain()
 {
 }
 
-URHO_REGISTER_OBJECT(Terrain, GEOMETRY_CATEGORY)
+void Terrain::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<Terrain>(GEOMETRY_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Height Map", GetHeightMapAttr, SetHeightMapAttr, ResourceRef, ResourceRef(Image::GetTypeStatic()),
         AM_DEFAULT);

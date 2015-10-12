@@ -72,7 +72,7 @@ struct GlyphLocation
 /// %Text %UI element.
 class URHO3D_API Text : public UIElement
 {
-    URHO_OBJECT(Text);
+    OBJECT(Text, UIElement);
 
     friend class Text3D;
 
@@ -81,6 +81,8 @@ public:
     Text(Context* context);
     /// Destruct.
     virtual ~Text();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

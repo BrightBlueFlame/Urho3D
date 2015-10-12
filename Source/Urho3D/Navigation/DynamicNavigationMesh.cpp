@@ -232,9 +232,10 @@ DynamicNavigationMesh::~DynamicNavigationMesh()
     meshProcessor_ = 0;
 }
 
-//void DynamicNavigationMesh::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(DynamicNavigationMesh, NAVIGATION_CATEGORY)
+void DynamicNavigationMesh::RegisterObject(Context* context)
 {
+    context->RegisterFactory<DynamicNavigationMesh>(NAVIGATION_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(NavigationMesh);
     ACCESSOR_ATTRIBUTE("Max Obstacles", GetMaxObstacles, SetMaxObstacles, unsigned, DEFAULT_MAX_OBSTACLES, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Draw Obstacles", GetDrawObstacles, SetDrawObstacles, bool, false, AM_DEFAULT);

@@ -77,8 +77,10 @@ Text::~Text()
 {
 }
 
-URHO_REGISTER_OBJECT(Text, UI_CATEGORY)
+void Text::RegisterObject(Context* context)
 {
+    context->RegisterFactory<Text>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(UIElement);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Use Derived Opacity", false);
     MIXED_ACCESSOR_ATTRIBUTE("Font", GetFontAttr, SetFontAttr, ResourceRef, ResourceRef(Font::GetTypeStatic()), AM_FILE);
@@ -94,7 +96,7 @@ URHO_REGISTER_OBJECT(Text, UI_CATEGORY)
     ACCESSOR_ATTRIBUTE("Effect Color", GetEffectColor, SetEffectColor, Color, Color::BLACK, AM_FILE);
 
     // Change the default value for UseDerivedOpacity
-    Definition.GetContext()->GetAttribute<Text>("Use Derived Opacity")->defaultValue_ = false;
+    context->GetAttribute<Text>("Use Derived Opacity")->defaultValue_ = false;
 }
 
 void Text::ApplyAttributes()

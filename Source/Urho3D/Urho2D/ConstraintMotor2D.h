@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D motor constraint component.
 class URHO3D_API ConstraintMotor2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintMotor2D);
+    OBJECT(ConstraintMotor2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintMotor2D(Context* context);
     /// Destruct.
     virtual ~ConstraintMotor2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set linear offset.
     void SetLinearOffset(const Vector2& linearOffset);

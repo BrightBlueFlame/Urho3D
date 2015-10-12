@@ -30,7 +30,7 @@ namespace Urho3D
 /// Component which tags geometry for inclusion in the navigation mesh. Optionally auto-includes geometry from child nodes.
 class URHO3D_API Navigable : public Component
 {
-    URHO_OBJECT(Navigable);
+    OBJECT(Navigable, Component);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~Navigable();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Set whether geometry is automatically collected from child nodes. Default true.
     void SetRecursive(bool enable);

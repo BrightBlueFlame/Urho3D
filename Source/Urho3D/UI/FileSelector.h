@@ -50,7 +50,7 @@ struct FileSelectorEntry
 /// %File selector dialog.
 class URHO3D_API FileSelector : public Object
 {
-    URHO_OBJECT(FileSelector);
+    OBJECT(FileSelector, Object);
 
 public:
     /// Construct.
@@ -58,7 +58,7 @@ public:
     /// Destruct.
     virtual ~FileSelector();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Set fileselector UI style.
     void SetDefaultStyle(XMLFile* style);

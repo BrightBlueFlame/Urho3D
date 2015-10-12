@@ -65,12 +65,9 @@ Model::~Model()
 {
 }
 
-//void Model::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Model)
+void Model::RegisterObject(Context* context)
 {
-    Definition
-    .Base<Resource>()
-    ;
+    context->RegisterFactory<Model>();
 }
 
 bool Model::BeginLoad(Deserializer& source)

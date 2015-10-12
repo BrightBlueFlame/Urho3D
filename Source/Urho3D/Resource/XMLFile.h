@@ -40,7 +40,7 @@ namespace Urho3D
 /// XML document resource.
 class URHO3D_API XMLFile : public Resource
 {
-    URHO_OBJECT(XMLFile);
+    OBJECT(XMLFile, Resource);
 
 public:
     /// Construct.
@@ -48,7 +48,7 @@ public:
     /// Destruct.
     virtual ~XMLFile();
     /// Register object factory.
-    // static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

@@ -35,13 +35,15 @@ class Image;
 /// Cube texture resource.
 class URHO3D_API TextureCube : public Texture
 {
-    URHO_OBJECT(TextureCube);
+    OBJECT(TextureCube, Texture);
 
 public:
     /// Construct.
     TextureCube(Context* context);
     /// Destruct.
     virtual ~TextureCube();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

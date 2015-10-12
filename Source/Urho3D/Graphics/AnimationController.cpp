@@ -60,9 +60,10 @@ AnimationController::~AnimationController()
 {
 }
 
-URHO_REGISTER_OBJECT(AnimationController, LOGIC_CATEGORY)
+void AnimationController::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<AnimationController>(LOGIC_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Animations", GetAnimationsAttr, SetAnimationsAttr, VariantVector, Variant::emptyVariantVector,
         AM_FILE | AM_NOEDIT);

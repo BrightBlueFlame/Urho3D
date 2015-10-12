@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D revolute constraint component.
 class URHO3D_API ConstraintRevolute2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintRevolute2D);
+    OBJECT(ConstraintRevolute2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintRevolute2D(Context* context);
     /// Destruct.
     virtual ~ConstraintRevolute2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

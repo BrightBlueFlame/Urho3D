@@ -39,7 +39,7 @@ class Scene;
 ///     - Attaching a light to an object (the camera)
 class AnimatingScene : public Sample
 {
-    URHO_OBJECT_AUTO1(AnimatingScene, Sample);
+    OBJECT(AnimatingScene, Sample);
 
 public:
     /// Construct.

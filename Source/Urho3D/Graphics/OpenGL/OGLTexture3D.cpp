@@ -54,9 +54,9 @@ Texture3D::~Texture3D()
     Release();
 }
 
-URHO_REGISTER_OBJECT(Texture3D)
+void Texture3D::RegisterObject(Context* context)
 {
-    Definition.Base<Texture>();
+    context->RegisterFactory<Texture3D>();
 }
 
 bool Texture3D::BeginLoad(Deserializer& source)

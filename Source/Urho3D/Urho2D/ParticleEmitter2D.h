@@ -75,13 +75,15 @@ struct Particle2D
 /// 2D particle emitter component.
 class URHO3D_API ParticleEmitter2D : public Drawable2D
 {
-    URHO_OBJECT(ParticleEmitter2D);
+    OBJECT(ParticleEmitter2D, Drawable2D);
 
 public:
     /// Construct.
     ParticleEmitter2D(Context* context);
     /// Destruct.
     ~ParticleEmitter2D();
+    /// Register object factory. drawable2d must be registered first.
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

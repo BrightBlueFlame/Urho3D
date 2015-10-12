@@ -42,9 +42,10 @@ Navigable::~Navigable()
 {
 }
 
-URHO_REGISTER_OBJECT(Navigable, NAVIGATION_CATEGORY)
+void Navigable::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<Navigable>(NAVIGATION_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ATTRIBUTE("Recursive", bool, recursive_, true, AM_DEFAULT);
 }

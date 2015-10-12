@@ -69,8 +69,10 @@ DropDownList::~DropDownList()
 {
 }
 
-URHO_REGISTER_OBJECT(DropDownList, UI_CATEGORY)
+void DropDownList::RegisterObject(Context* context)
 {
+    context->RegisterFactory<DropDownList>(UI_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(Menu);
     UPDATE_ATTRIBUTE_DEFAULT_VALUE("Focus Mode", FM_FOCUSABLE_DEFOCUSABLE);
     ACCESSOR_ATTRIBUTE("Selection", GetSelection, SetSelectionAttr, unsigned, 0, AM_FILE);

@@ -42,7 +42,7 @@ class Window;
 ///     - Accessing available Events data (eventData)
 class HelloGUI : public Sample
 {
-    URHO_OBJECT_AUTO1(HelloGUI, Sample);
+    OBJECT(HelloGUI, Sample);
 
 public:
     /// Construct.

@@ -39,7 +39,7 @@ class Slider;
 ///     - Controlling sound and music master volume
 class SoundEffects : public Sample
 {
-    URHO_OBJECT_AUTO1(SoundEffects, Sample);
+    OBJECT(SoundEffects, Sample);
 
 public:
     /// Construct.

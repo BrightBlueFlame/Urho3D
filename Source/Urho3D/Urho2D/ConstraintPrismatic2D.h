@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D prismatic constraint component.
 class URHO3D_API ConstraintPrismatic2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintPrismatic2D);
+    OBJECT(ConstraintPrismatic2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintPrismatic2D(Context* context);
     /// Destruct.
     virtual ~ConstraintPrismatic2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

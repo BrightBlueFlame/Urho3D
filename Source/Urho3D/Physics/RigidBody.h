@@ -49,13 +49,15 @@ enum CollisionEventMode
 /// Physics rigid body component.
 class URHO3D_API RigidBody : public Component, public btMotionState
 {
-    URHO_OBJECT(RigidBody);
+    OBJECT(RigidBody, Component);
 
 public:
     /// Construct.
     RigidBody(Context* context);
     /// Destruct. Free the rigid body and geometries.
     virtual ~RigidBody();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

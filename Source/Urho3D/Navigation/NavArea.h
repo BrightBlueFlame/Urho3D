@@ -30,13 +30,15 @@ namespace Urho3D
 
 class URHO3D_API NavArea : public Component
 {
-    URHO_OBJECT(NavArea);
+    OBJECT(NavArea, Component);
 
 public:
     /// Construct.
     NavArea(Context*);
     /// Destruct.
     virtual ~NavArea();
+    /// Register object factory and attributes.
+    static void RegisterObject(Context*);
 
     /// Render debug geometry for the bounds.
     virtual void DrawDebugGeometry(DebugRenderer* debug, bool depthTest);

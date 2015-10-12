@@ -150,7 +150,7 @@ struct URHO3D_API FocusParameters
 /// %Light component.
 class URHO3D_API Light : public Drawable
 {
-    URHO_OBJECT(Light);
+    OBJECT(Light, Drawable);
 
 public:
     /// Construct.
@@ -158,7 +158,7 @@ public:
     /// Destruct.
     virtual ~Light();
     /// Register object factory. Drawable must be registered first.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle attribute change.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

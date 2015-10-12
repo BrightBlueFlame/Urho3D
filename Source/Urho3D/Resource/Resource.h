@@ -49,8 +49,7 @@ enum AsyncLoadState
 /// Base class for resources.
 class URHO3D_API Resource : public Object
 {
-    URHO_OBJECT_AUTO1(Resource, Object);
-    URHO_BASEOBJECT(Resource);
+    OBJECT(Resource, Object);
 
 public:
     /// Construct.
@@ -132,4 +131,3 @@ template <class T> ResourceRefList GetResourceRefList(const Vector<SharedPtr<T> 
 }
 
 }
-URHO_REGISTER_BASEOBJECT_TRAITS(Urho3D::Resource);

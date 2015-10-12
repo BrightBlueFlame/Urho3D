@@ -89,13 +89,15 @@ struct CompressedLevel
 /// %Image resource.
 class URHO3D_API Image : public Resource
 {
-    URHO_OBJECT(Image);
+    OBJECT(Image, Resource);
 
 public:
     /// Construct empty.
     Image(Context* context);
     /// Destruct.
     virtual ~Image();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

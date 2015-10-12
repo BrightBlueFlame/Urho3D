@@ -178,9 +178,10 @@ PhysicsWorld::~PhysicsWorld()
     collisionConfiguration_ = 0;
 }
 
-URHO_REGISTER_OBJECT(PhysicsWorld, SUBSYSTEM_CATEGORY)
+void PhysicsWorld::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<PhysicsWorld>(SUBSYSTEM_CATEGORY);
+
     MIXED_ACCESSOR_ATTRIBUTE("Gravity", GetGravity, SetGravity, Vector3, DEFAULT_GRAVITY, AM_DEFAULT);
     ATTRIBUTE("Physics FPS", int, fps_, DEFAULT_FPS, AM_DEFAULT);
     ATTRIBUTE("Max Substeps", int, maxSubSteps_, 0, AM_DEFAULT);

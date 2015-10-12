@@ -119,9 +119,9 @@ AnimationSet2D::~AnimationSet2D()
     Dispose();
 }
 
-URHO_REGISTER_OBJECT(AnimationSet2D)
+void AnimationSet2D::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<AnimationSet2D>();
 }
 
 bool AnimationSet2D::BeginLoad(Deserializer& source)

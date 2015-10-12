@@ -35,7 +35,7 @@ class XMLElement;
 /// Object animation class, an object animation include one or more attribute animations and theirs wrap mode and speed for an Animatable object.
 class URHO3D_API ObjectAnimation : public Resource
 {
-    URHO_OBJECT(ObjectAnimation);
+    OBJECT(ObjectAnimation, Resource);
 
 public:
     /// Construct.
@@ -43,7 +43,7 @@ public:
     /// Destruct.
     virtual ~ObjectAnimation();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

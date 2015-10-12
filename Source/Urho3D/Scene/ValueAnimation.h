@@ -62,7 +62,7 @@ struct VAnimEventFrame
 /// Value animation class.
 class URHO3D_API ValueAnimation : public Resource
 {
-    URHO_OBJECT(ValueAnimation);
+    OBJECT(ValueAnimation, Resource);
 
 public:
     /// Construct.
@@ -70,7 +70,7 @@ public:
     /// Destruct.
     virtual ~ValueAnimation();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

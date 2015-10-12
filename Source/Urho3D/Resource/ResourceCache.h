@@ -80,8 +80,7 @@ public:
 /// %Resource cache subsystem. Loads resources on demand and stores them for later access.
 class URHO3D_API ResourceCache : public Object
 {
-    URHO_INTERFACE(ResourceCache);
-    URHO_OBJECT_AUTO1(ResourceCache, Object);
+    OBJECT(ResourceCache, Object);
 
 public:
     /// Construct.
@@ -292,5 +291,3 @@ template <class T> void ResourceCache::GetResources(PODVector<T*>& result) const
 void URHO3D_API RegisterResourceLibrary(Context* context);
 
 }
-
-URHO_REGISTER_INTERFACE_TRAITS(Urho3D::ResourceCache);

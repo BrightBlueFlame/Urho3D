@@ -36,7 +36,7 @@ static const float DEFAULT_BASE_PRIORITY = 100.0f;
 static const float DEFAULT_DISTANCE_FACTOR = 0.0f;
 static const float DEFAULT_MIN_PRIORITY = 0.0f;
 static const float UPDATE_THRESHOLD = 100.0f;
-    
+
 NetworkPriority::NetworkPriority(Context* context) :
     Component(context),
     basePriority_(DEFAULT_BASE_PRIORITY),
@@ -50,9 +50,10 @@ NetworkPriority::~NetworkPriority()
 {
 }
 
-URHO_REGISTER_OBJECT(NetworkPriority, NETWORK_CATEGORY)
+void NetworkPriority::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<NetworkPriority>(NETWORK_CATEGORY);
+
     ATTRIBUTE("Base Priority", float, basePriority_, DEFAULT_BASE_PRIORITY, AM_DEFAULT);
     ATTRIBUTE("Distance Factor", float, distanceFactor_, DEFAULT_DISTANCE_FACTOR, AM_DEFAULT);
     ATTRIBUTE("Minimum Priority", float, minPriority_, DEFAULT_MIN_PRIORITY, AM_DEFAULT);

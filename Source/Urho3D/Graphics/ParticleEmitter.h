@@ -53,7 +53,7 @@ struct Particle
 /// %Particle emitter component.
 class URHO3D_API ParticleEmitter : public BillboardSet
 {
-    URHO_OBJECT(ParticleEmitter);
+    OBJECT(ParticleEmitter, BillboardSet);
 
 public:
     /// Construct.
@@ -61,7 +61,7 @@ public:
     /// Destruct.
     virtual ~ParticleEmitter();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

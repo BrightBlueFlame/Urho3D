@@ -161,7 +161,7 @@ class URHO3D_API Octree : public Component, public Octant
 {
     friend void RaycastDrawablesWork(const WorkItem* item, unsigned threadIndex);
 
-    URHO_OBJECT(Octree);
+    OBJECT(Octree, Component);
 
 public:
     /// Construct.
@@ -169,7 +169,7 @@ public:
     /// Destruct.
     ~Octree();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle attribute change.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

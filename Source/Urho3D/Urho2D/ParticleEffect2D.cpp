@@ -100,9 +100,9 @@ ParticleEffect2D::~ParticleEffect2D()
 {
 }
 
-URHO_REGISTER_OBJECT(ParticleEffect2D)
+void ParticleEffect2D::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<ParticleEffect2D>();
 }
 
 bool ParticleEffect2D::BeginLoad(Deserializer& source)

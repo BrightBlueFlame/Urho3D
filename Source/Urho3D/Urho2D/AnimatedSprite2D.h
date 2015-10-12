@@ -54,13 +54,15 @@ class AnimationSet2D;
 /// Animated sprite component, it uses to play animation created by Spine (http://www.esotericsoftware.com) and Spriter (http://www.brashmonkey.com/).
 class URHO3D_API AnimatedSprite2D : public StaticSprite2D
 {
-    URHO_OBJECT(AnimatedSprite2D);
+    OBJECT(AnimatedSprite2D, StaticSprite2D);
 
 public:
     /// Construct.
     AnimatedSprite2D(Context* context);
     /// Destruct.
     virtual ~AnimatedSprite2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

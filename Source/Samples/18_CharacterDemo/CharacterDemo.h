@@ -45,7 +45,7 @@ class Touch;
 ///     - Using touch inputs/gyroscope for iOS/Android (implemented through an external file)
 class CharacterDemo : public Sample
 {
-    URHO_OBJECT_AUTO1(CharacterDemo, Sample);
+    OBJECT(CharacterDemo, Sample);
 
 public:
     /// Construct.

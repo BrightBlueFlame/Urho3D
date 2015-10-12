@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D friction constraint component.
 class URHO3D_API ConstraintFriction2D : public Constraint2D
 {
-    URHO_OBJECT(ConstraintFriction2D);
+    OBJECT(ConstraintFriction2D, Constraint2D);
 
 public:
     /// Construct.
     ConstraintFriction2D(Context* context);
     /// Destruct.
     virtual ~ConstraintFriction2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set anchor.
     void SetAnchor(const Vector2& anchor);

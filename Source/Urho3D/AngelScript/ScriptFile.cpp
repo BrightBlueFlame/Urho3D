@@ -107,9 +107,9 @@ ScriptFile::~ScriptFile()
     ReleaseModule();
 }
 
-URHO_REGISTER_OBJECT(ScriptFile)
+void ScriptFile::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<ScriptFile>();
 }
 
 bool ScriptFile::BeginLoad(Deserializer& source)

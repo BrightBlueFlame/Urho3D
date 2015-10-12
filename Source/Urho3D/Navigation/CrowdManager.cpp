@@ -73,9 +73,9 @@ CrowdManager::~CrowdManager()
     crowd_ = 0;
 }
 
-URHO_REGISTER_OBJECT(CrowdManager, NAVIGATION_CATEGORY)
+void CrowdManager::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<CrowdManager>(NAVIGATION_CATEGORY);
 
     ATTRIBUTE("Max Agents", unsigned, maxAgents_, DEFAULT_MAX_AGENTS, AM_DEFAULT);
     ATTRIBUTE("Max Agent Radius", float, maxAgentRadius_, DEFAULT_MAX_AGENT_RADIUS, AM_DEFAULT);

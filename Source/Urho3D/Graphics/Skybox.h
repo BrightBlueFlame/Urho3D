@@ -30,7 +30,7 @@ namespace Urho3D
 /// Static model component with fixed position in relation to the camera.
 class URHO3D_API Skybox : public StaticModel
 {
-    URHO_OBJECT(Skybox);
+    OBJECT(Skybox, StaticModel);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~Skybox();
     /// Register object factory. StaticModel must be registered first.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Process octree raycast. May be called from a worker thread.
     virtual void ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results);

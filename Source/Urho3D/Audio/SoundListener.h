@@ -30,7 +30,7 @@ namespace Urho3D
 /// %Sound listener component
 class URHO3D_API SoundListener : public Component
 {
-    URHO_OBJECT(SoundListener);
+    OBJECT(SoundListener, Component);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~SoundListener();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 };
 
 }

@@ -76,10 +76,10 @@ ScriptInstance::~ScriptInstance()
     ReleaseObject();
 }
 
-//void ScriptInstance::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(ScriptInstance, LOGIC_CATEGORY)
+void ScriptInstance::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<ScriptInstance>(LOGIC_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     MIXED_ACCESSOR_ATTRIBUTE("Delayed Method Calls", GetDelayedCallsAttr, SetDelayedCallsAttr, PODVector<unsigned char>,
         Variant::emptyBuffer, AM_FILE | AM_NOEDIT);
@@ -642,18 +642,18 @@ void ScriptInstance::GetScriptAttributes()
             if (j != factories.End())
             {
                 // Check base class type. Node & Component are supported as ID attributes, Resource as a resource reference
-                StringHash baseType = j->second_->GetBaseType();
-                if (baseType == Node::GetTypeStatic())
+                const TypeInfo* typeInfo = j->second_->GetTypeInfo();
+                if (typeInfo->IsTypeOf<Node>())
                 {
                     info.mode_ |= AM_NODEID;
                     info.type_ = VAR_INT;
                 }
-                else if (baseType == Component::GetTypeStatic())
+                else if (typeInfo->IsTypeOf<Component>())
                 {
                     info.mode_ |= AM_COMPONENTID;
                     info.type_ = VAR_INT;
                 }
-                else if (baseType == Resource::GetTypeStatic())
+                else if (typeInfo->IsTypeOf<Resource>())
                 {
                     info.type_ = VAR_RESOURCEREF;
                     info.defaultValue_ = ResourceRef(typeHash);

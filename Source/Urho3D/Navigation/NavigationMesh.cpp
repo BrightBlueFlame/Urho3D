@@ -138,9 +138,10 @@ NavigationMesh::~NavigationMesh()
     pathData_ = 0;
 }
 
-URHO_REGISTER_OBJECT(NavigationMesh, NAVIGATION_CATEGORY)
+void NavigationMesh::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<NavigationMesh>(NAVIGATION_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Tile Size", GetTileSize, SetTileSize, int, DEFAULT_TILE_SIZE, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Cell Size", GetCellSize, SetCellSize, float, DEFAULT_CELL_SIZE, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Cell Height", GetCellHeight, SetCellHeight, float, DEFAULT_CELL_HEIGHT, AM_DEFAULT);

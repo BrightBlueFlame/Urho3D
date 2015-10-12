@@ -108,11 +108,9 @@ Light::~Light()
 {
 }
 
-// void Light::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Light, SCENE_CATEGORY)
+void Light::RegisterObject(Context* context)
 {
-    Definition.Base<Drawable>();
-    Context* context = Definition.GetContext();
+    context->RegisterFactory<Light>(SCENE_CATEGORY);
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ENUM_ACCESSOR_ATTRIBUTE("Light Type", GetLightType, SetLightType, LightType, typeNames, DEFAULT_LIGHTTYPE, AM_DEFAULT);

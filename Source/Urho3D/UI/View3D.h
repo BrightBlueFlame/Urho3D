@@ -36,13 +36,15 @@ class Viewport;
 /// %UI element which renders a 3D scene.
 class URHO3D_API View3D : public Window
 {
-    URHO_OBJECT(View3D);
+    OBJECT(View3D, Window);
 
 public:
     /// Construct.
     View3D(Context* context);
     /// Destruct.
     ~View3D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// React to resize.
     virtual void OnResize();

@@ -45,7 +45,7 @@ class RigidBody;
 /// Physics constraint component. Connects two rigid bodies together, or one rigid body to a static point.
 class URHO3D_API Constraint : public Component
 {
-    URHO_OBJECT(Constraint);
+    OBJECT(Constraint, Component);
 
     friend class RigidBody;
 
@@ -54,6 +54,8 @@ public:
     Constraint(Context* context);
     /// Destruct.
     ~Constraint();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

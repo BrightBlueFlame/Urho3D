@@ -50,9 +50,9 @@ JSONFile::~JSONFile()
 {
 }
 
-URHO_REGISTER_OBJECT(JSONFile)
+void JSONFile::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<JSONFile>();
 }
 
 // Convert rapidjson value to JSON value.

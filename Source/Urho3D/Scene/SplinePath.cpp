@@ -47,9 +47,10 @@ SplinePath::SplinePath(Context* context) :
     UpdateNodeIds();
 }
 
-URHO_REGISTER_OBJECT(SplinePath, LOGIC_CATEGORY)
+void SplinePath::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<SplinePath>(LOGIC_CATEGORY);
+
     ENUM_ACCESSOR_ATTRIBUTE("Interpolation Mode", GetInterpolationMode, SetInterpolationMode, InterpolationMode,
         interpolationModeNames, BEZIER_CURVE, AM_FILE);
     ATTRIBUTE("Speed", float, speed_, 1.f, AM_FILE);

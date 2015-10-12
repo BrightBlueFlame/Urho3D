@@ -56,7 +56,7 @@ const char* logLevelPrefixes[] =
 
 static Log* logInstance = 0;
 static bool threadErrorDisplayed = false;
-    
+
 Log::Log(Context* context) :
     Object(context),
 #ifdef _DEBUG

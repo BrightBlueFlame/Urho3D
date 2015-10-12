@@ -33,7 +33,7 @@ class Text;
 /// Single-line text editor %UI element.
 class URHO3D_API LineEdit : public BorderImage
 {
-    URHO_OBJECT(LineEdit);
+    OBJECT(LineEdit, BorderImage);
 
 public:
     /// Construct.
@@ -41,7 +41,7 @@ public:
     /// Destruct.
     virtual ~LineEdit();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Apply attribute changes that can not be applied immediately.
     virtual void ApplyAttributes();

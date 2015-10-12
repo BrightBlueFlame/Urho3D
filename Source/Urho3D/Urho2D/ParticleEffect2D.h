@@ -41,13 +41,15 @@ enum EmitterType2D
 /// 2D particle effect resource.
 class URHO3D_API ParticleEffect2D : public Resource
 {
-    URHO_OBJECT(ParticleEffect2D);
+    OBJECT(ParticleEffect2D, Resource);
 
 public:
     /// Construct.
     ParticleEffect2D(Context* context);
     /// Destruct.
     ~ParticleEffect2D();
+    /// Register object factory. Drawable2D must be registered first.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

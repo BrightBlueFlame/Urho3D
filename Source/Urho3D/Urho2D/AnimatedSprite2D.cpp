@@ -70,8 +70,10 @@ AnimatedSprite2D::~AnimatedSprite2D()
     Dispose();
 }
 
-URHO_REGISTER_OBJECT(AnimatedSprite2D, URHO2D_CATEGORY)
+void AnimatedSprite2D::RegisterObject(Context* context)
 {
+    context->RegisterFactory<AnimatedSprite2D>(URHO2D_CATEGORY);
+
     COPY_BASE_ATTRIBUTES(StaticSprite2D);
     REMOVE_ATTRIBUTE("Sprite");
     ACCESSOR_ATTRIBUTE("Speed", GetSpeed, SetSpeed, float, 1.0f, AM_DEFAULT);
@@ -292,7 +294,9 @@ void AnimatedSprite2D::SetSpineAnimation()
             return;
         }
     }
-
+    
+    // Reset slots to setup pose, fix issue #932
+    spSkeleton_setSlotsToSetupPose(skeleton_);
     spAnimationState_setAnimationByName(animationState_, 0, animationName_.CString(), loopMode_ != LM_FORCE_CLAMPED ? true : false);
 
     UpdateAnimation(0.0f);
@@ -306,7 +310,7 @@ void AnimatedSprite2D::UpdateSpineAnimation(float timeStep)
     skeleton_->flipX = flipX_;
     skeleton_->flipY = flipY_;
 
-    spSkeleton_update(skeleton_, timeStep);        
+    spSkeleton_update(skeleton_, timeStep); 
     spAnimationState_update(animationState_, timeStep);
     spAnimationState_apply(animationState_, skeleton_);
     spSkeleton_updateWorldTransform(skeleton_);

@@ -75,9 +75,9 @@ Shader::~Shader()
     cache->ResetDependencies(this);
 }
 
-URHO_REGISTER_OBJECT(Shader)
+void Shader::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<Shader>();
 }
 
 bool Shader::BeginLoad(Deserializer& source)

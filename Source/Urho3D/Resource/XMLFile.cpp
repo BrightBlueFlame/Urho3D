@@ -75,9 +75,9 @@ XMLFile::~XMLFile()
     document_ = 0;
 }
 
-URHO_REGISTER_OBJECT(XMLFile)
+void XMLFile::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<XMLFile>();
 }
 
 bool XMLFile::BeginLoad(Deserializer& source)

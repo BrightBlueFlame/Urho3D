@@ -36,7 +36,7 @@ namespace Urho3D
 ///     - Displaying physics debug geometry
 class Urho2DPhysics : public Sample
 {
-    URHO_OBJECT_AUTO1(Urho2DPhysics, Sample);
+    OBJECT(Urho2DPhysics, Sample);
 
 public:
     /// Construct.

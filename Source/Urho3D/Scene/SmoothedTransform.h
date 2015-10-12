@@ -37,7 +37,7 @@ static const unsigned SMOOTH_ROTATION = 2;
 /// Transform smoothing component for network updates.
 class URHO3D_API SmoothedTransform : public Component
 {
-    URHO_OBJECT(SmoothedTransform);
+    OBJECT(SmoothedTransform, Component);
 
 public:
     /// Construct.
@@ -45,7 +45,7 @@ public:
     /// Destruct.
     ~SmoothedTransform();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Update smoothing.
     void Update(float constant, float squaredSnapThreshold);

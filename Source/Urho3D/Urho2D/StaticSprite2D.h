@@ -32,13 +32,15 @@ class Sprite2D;
 /// Static sprite component.
 class URHO3D_API StaticSprite2D : public Drawable2D
 {
-    URHO_OBJECT(StaticSprite2D);
+    OBJECT(StaticSprite2D, Drawable2D);
 
 public:
     /// Construct.
     StaticSprite2D(Context* context);
     /// Destruct.
     ~StaticSprite2D();
+    /// Register object factory. Drawable2D must be registered first.
+    static void RegisterObject(Context* context);
 
     /// Set sprite.
     void SetSprite(Sprite2D* sprite);

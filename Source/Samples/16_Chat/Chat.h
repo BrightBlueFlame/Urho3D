@@ -40,7 +40,7 @@ class UIElement;
 ///     - Implementing simple chat functionality with network messages
 class Chat : public Sample
 {
-    URHO_OBJECT_AUTO1(Chat, Sample);
+    OBJECT(Chat, Sample);
 
 public:
     /// Construct.

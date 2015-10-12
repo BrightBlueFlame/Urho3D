@@ -45,13 +45,15 @@ enum WindowDragMode
 /// %Window %UI element that can optionally by moved or resized.
 class URHO3D_API Window : public BorderImage
 {
-    URHO_OBJECT(Window);
+    OBJECT(Window, BorderImage);
 
 public:
     /// Construct.
     Window(Context* context);
     /// Destruct.
     virtual ~Window();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Return UI rendering batches.
     virtual void GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor);

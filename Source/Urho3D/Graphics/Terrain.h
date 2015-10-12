@@ -36,7 +36,7 @@ class TerrainPatch;
 /// Heightmap terrain component.
 class URHO3D_API Terrain : public Component
 {
-    URHO_OBJECT(Terrain);
+    OBJECT(Terrain, Component);
 
 public:
     /// Construct.
@@ -44,7 +44,7 @@ public:
     /// Destruct.
     ~Terrain();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Handle attribute write access.
     virtual void OnSetAttribute(const AttributeInfo& attr, const Variant& src);

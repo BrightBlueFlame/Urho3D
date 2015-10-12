@@ -45,8 +45,10 @@ ConstraintWheel2D::~ConstraintWheel2D()
 {
 }
 
-URHO_REGISTER_OBJECT(ConstraintWheel2D, URHO2D_CATEGORY)
+void ConstraintWheel2D::RegisterObject(Context* context)
 {
+    context->RegisterFactory<ConstraintWheel2D>(URHO2D_CATEGORY);
+
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Anchor", GetAnchor, SetAnchor, Vector2, Vector2::ZERO, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Axis", GetAxis, SetAxis, Vector2, Vector2::RIGHT, AM_DEFAULT);

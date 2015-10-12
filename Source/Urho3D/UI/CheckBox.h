@@ -30,7 +30,7 @@ namespace Urho3D
 /// %UI element that can be toggled between unchecked and checked state.
 class URHO3D_API CheckBox : public BorderImage
 {
-    URHO_OBJECT(CheckBox);
+    OBJECT(CheckBox, BorderImage);
 
 public:
     /// Construct.
@@ -38,7 +38,7 @@ public:
     /// Destruct.
     virtual ~CheckBox();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Return UI rendering batches.
     virtual void GetBatches(PODVector<UIBatch>& batches, PODVector<float>& vertexData, const IntRect& currentScissor);

@@ -31,13 +31,15 @@ namespace Urho3D
 /// %UI element which allows sub-pixel positioning and size, as well as rotation. Only other Sprites should be added as child elements.
 class URHO3D_API Sprite : public UIElement
 {
-    URHO_OBJECT(Sprite);
+    OBJECT(Sprite, UIElement);
 
 public:
     /// Construct.
     Sprite(Context* context);
     /// Destruct.
     virtual ~Sprite();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Return whether is visible and inside a scissor rectangle and should be rendered.
     virtual bool IsWithinScissor(const IntRect& currentScissor);

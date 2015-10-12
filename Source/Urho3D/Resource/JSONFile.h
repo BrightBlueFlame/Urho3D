@@ -31,13 +31,15 @@ namespace Urho3D
 /// JSON document resource.
 class URHO3D_API JSONFile : public Resource
 {
-    URHO_OBJECT(JSONFile);
+    OBJECT(JSONFile, Resource);
 
 public:
     /// Construct.
     JSONFile(Context* context);
     /// Destruct.
     virtual ~JSONFile();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

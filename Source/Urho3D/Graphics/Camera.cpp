@@ -81,9 +81,9 @@ Camera::~Camera()
 {
 }
 
-URHO_REGISTER_OBJECT(Camera, SCENE_CATEGORY)
+void Camera::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<Camera>(SCENE_CATEGORY);
 
     ACCESSOR_ATTRIBUTE("Is Enabled", IsEnabled, SetEnabled, bool, true, AM_DEFAULT);
     ACCESSOR_ATTRIBUTE("Near Clip", GetNearClip, SetNearClip, float, DEFAULT_NEARCLIP, AM_DEFAULT);

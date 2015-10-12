@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D polygon collision component.
 class URHO3D_API CollisionPolygon2D : public CollisionShape2D
 {
-    URHO_OBJECT(CollisionPolygon2D);
+    OBJECT(CollisionPolygon2D, CollisionShape2D);
 
 public:
     /// Construct.
     CollisionPolygon2D(Context* context);
     /// Destruct.
     virtual ~CollisionPolygon2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set vertex count.
     void SetVertexCount(unsigned count);

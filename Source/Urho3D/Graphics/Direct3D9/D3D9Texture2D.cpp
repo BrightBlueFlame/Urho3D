@@ -49,9 +49,9 @@ Texture2D::~Texture2D()
     Release();
 }
 
-URHO_REGISTER_OBJECT(Texture2D)
+void Texture2D::RegisterObject(Context* context)
 {
-	Definition.Base<Texture>();
+    context->RegisterFactory<Texture2D>();
 }
 
 bool Texture2D::BeginLoad(Deserializer& source)

@@ -35,13 +35,15 @@ class PhysicsWorld2D;
 /// 2D physics constraint component.
 class URHO3D_API Constraint2D : public Component
 {
-    URHO_OBJECT(Constraint2D);
+    OBJECT(Constraint2D, Component);
 
 public:
     /// Construct.
     Constraint2D(Context* context);
     /// Destruct.
     virtual ~Constraint2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Handle enabled/disabled state change.
     virtual void OnSetEnabled();

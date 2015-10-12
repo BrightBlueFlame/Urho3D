@@ -38,7 +38,7 @@ class Scene;
 ///     - Adding post processing effects to a viewport's render path and toggling them
 class MultipleViewports : public Sample
 {
-    URHO_OBJECT_AUTO1(MultipleViewports, Sample);
+    OBJECT(MultipleViewports, Sample);
 
 public:
     /// Construct.

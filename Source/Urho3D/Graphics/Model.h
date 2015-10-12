@@ -107,7 +107,7 @@ struct GeometryDesc
 /// 3D model resource.
 class URHO3D_API Model : public Resource
 {
-    URHO_OBJECT(Model);
+    OBJECT(Model, Resource);
 
 public:
     /// Construct.
@@ -115,7 +115,7 @@ public:
     /// Destruct.
     virtual ~Model();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Load resource from stream. May be called from a worker thread. Return true if successful.
     virtual bool BeginLoad(Deserializer& source);

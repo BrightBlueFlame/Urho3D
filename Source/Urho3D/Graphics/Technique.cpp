@@ -185,9 +185,9 @@ Technique::~Technique()
 {
 }
 
-URHO_REGISTER_OBJECT(Technique)
+void Technique::RegisterObject(Context* context)
 {
-    Definition.Base<Resource>();
+    context->RegisterFactory<Technique>();
 }
 
 bool Technique::BeginLoad(Deserializer& source)

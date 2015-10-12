@@ -254,13 +254,9 @@ Image::~Image()
 {
 }
 
-//void Image::RegisterObject(Context* context)
-URHO_REGISTER_OBJECT(Image)
+void Image::RegisterObject(Context* context)
 {
-    Definition
-    .Base<Resource>()
-    ;
-    //context->RegisterFactory<Image>();
+    context->RegisterFactory<Image>();
 }
 
 bool Image::BeginLoad(Deserializer& source)

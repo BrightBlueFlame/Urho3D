@@ -48,9 +48,9 @@ TileMapLayer2D::~TileMapLayer2D()
 {
 }
 
-URHO_REGISTER_OBJECT(TileMapLayer2D)
+void TileMapLayer2D::RegisterObject(Context* context)
 {
-    Definition.Base<Component>();
+    context->RegisterFactory<TileMapLayer2D>();
 }
 
 void TileMapLayer2D::DrawDebugGeometry(DebugRenderer* debug, bool depthTest)

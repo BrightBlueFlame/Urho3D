@@ -33,7 +33,7 @@ class DynamicNavigationMesh;
 /// Obstacle for dynamic navigation mesh.
 class URHO3D_API Obstacle : public Component
 {
-    URHO_OBJECT(Obstacle)
+    OBJECT(Obstacle, Component)
 
     friend class DynamicNavigationMesh;
 
@@ -44,7 +44,7 @@ public:
     virtual ~Obstacle();
 
     /// Register Obstacle with engine context.
-    //static void RegisterObject(Context*);
+    static void RegisterObject(Context*);
 
     /// Update the owning mesh when enabled status has changed.
     virtual void OnSetEnabled();

@@ -58,7 +58,7 @@ static const unsigned MAX_BILLBOARDS = 65536 / 4;
 /// %Billboard component.
 class URHO3D_API BillboardSet : public Drawable
 {
-    URHO_OBJECT(BillboardSet);
+    OBJECT(BillboardSet, Drawable);
 
 public:
     /// Construct.
@@ -66,7 +66,7 @@ public:
     /// Destruct.
     virtual ~BillboardSet();
     /// Register object factory.
-    //static void RegisterObject(Context* context);
+    static void RegisterObject(Context* context);
 
     /// Process octree raycast. May be called from a worker thread.
     virtual void ProcessRayQuery(const RayOctreeQuery& query, PODVector<RayQueryResult>& results);

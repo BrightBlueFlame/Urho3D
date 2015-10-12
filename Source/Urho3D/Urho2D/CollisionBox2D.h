@@ -30,13 +30,15 @@ namespace Urho3D
 /// 2D box collision component.
 class URHO3D_API CollisionBox2D : public CollisionShape2D
 {
-    URHO_OBJECT(CollisionBox2D);
+    OBJECT(CollisionBox2D, CollisionShape2D);
 
 public:
     /// Construct.
     CollisionBox2D(Context* context);
     /// Destruct.
     virtual ~CollisionBox2D();
+    /// Register object factory.
+    static void RegisterObject(Context* context);
 
     /// Set size.
     void SetSize(const Vector2& size);
