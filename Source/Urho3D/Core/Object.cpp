@@ -25,6 +25,8 @@
 
 #include "../Core/Context.h"
 #include "../Core/Thread.h"
+#include "../Core/Attribute.h"
+#include "../Core/AttributeProperty.h"
 #include "../IO/Log.h"
 
 #include "../DebugNew.h"
@@ -69,6 +71,65 @@ bool TypeInfo::IsTypeOf(const TypeInfo* typeInfo) const
     }
 
     return false;
+}
+
+const AttributeProperty* TypeInfo::FindProperty(const TypeInfo* propType) const
+{
+	for(PropertyList::ConstIterator propertyIter=classProperties_.Begin(); propertyIter!=classProperties_.End(); ++propertyIter)
+	{
+		if((*propertyIter)->GetTypeInfo()->IsTypeOf(propType))
+		{
+			return (*propertyIter).Get();
+		}
+	}
+	return 0;
+}
+
+Vector<AttributeInfo*> TypeInfo::FindAttributesWithProperty(const TypeInfo* propType) const
+{
+	Vector<AttributeInfo*> outAttribs;
+	for(PropertyMap::ConstIterator attribsIter=properties_.Begin(); attribsIter!=properties_.End(); ++attribsIter)
+	{
+		for(PropertyList::ConstIterator propertyIter=(*attribsIter).second_.Begin(); propertyIter!=(*attribsIter).second_.End(); ++propertyIter)
+		{
+			if((*propertyIter)->GetTypeInfo()->IsTypeOf(propType))
+			{
+				outAttribs.Push((*attribsIter).first_);
+				break;
+			}
+		}
+	}
+	return outAttribs;
+}
+
+void TypeInfo::AddProperty(SharedPtr<AttributeProperty> prop)
+{
+	if(prop->IsInstanceOf<AttributeProperty>())
+	{
+		if(classProperties_.Find(prop) == classProperties_.End())
+		{
+			classProperties_.Push(prop);
+		}
+	}
+	else
+	{
+		LOGERROR("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
+	}
+}
+
+void TypeInfo::AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> prop)
+{
+	if(prop->IsInstanceOf<AttributeProperty>())
+	{
+		if(properties_.Find(attrib) == properties_.End())
+		{
+			properties_[attrib].Push(prop);
+		}
+	}
+	else
+	{
+		LOGERROR("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
+	}
 }
 
 Object::Object(Context* context) :

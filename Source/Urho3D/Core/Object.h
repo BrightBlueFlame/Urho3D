@@ -30,6 +30,8 @@ namespace Urho3D
 
 class Context;
 class EventHandler;
+struct AttributeInfo;
+class AttributeProperty;
 
 /// Type info.
 class URHO3D_API TypeInfo
@@ -46,6 +48,9 @@ public:
     bool IsTypeOf(const TypeInfo* typeInfo) const;
     /// Check current type is type of specified class type.
     template<typename T> bool IsTypeOf() const { return IsTypeOf(T::GetTypeInfoStatic()); }
+
+	const AttributeProperty* FindProperty(const TypeInfo* propType) const;
+	Vector<AttributeInfo*> FindAttributesWithProperty(const TypeInfo* propType) const;
     
     /// Return type.
     StringHash GetType() const { return type_; }
@@ -54,6 +59,15 @@ public:
     /// Return base type info.
     const TypeInfo* GetBaseTypeInfo() const { return baseTypeInfo_; }
 
+	template<typename T> 
+	const T* FindProperty() const { return static_cast<const T*>(FindProperty(T::GetTypeInfoStatic())); }
+
+	template<typename T> 
+	Vector<AttributeInfo*> FindAttributesWithProperty() { return FindAttributesWithProperty(T::GetTypeInfoStatic()); }
+
+	void AddProperty(SharedPtr<AttributeProperty> propertyType);
+    void AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> propertyType);
+
 private:
     /// Type.
     StringHash type_;
@@ -61,6 +75,17 @@ private:
     String typeName_;
     /// Base class type info.
     const TypeInfo* baseTypeInfo_;
+
+	/// Properties for the whole class.
+	typedef Vector<SharedPtr<AttributeProperty> > PropertyList;
+    PropertyList classProperties_;
+    
+    /// The properties for each attribute.
+	typedef HashMap<AttributeInfo*, PropertyList> PropertyMap;
+    PropertyMap properties_;
+    
+    /// Interfaces that this class implements.
+    Vector<StringHash> interfaces_;
 };
 
 #define URHO_OBJECT(typeName, baseTypeName) \
