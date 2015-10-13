@@ -39,31 +39,37 @@
 
 #include <cstdio>
 
+#define URHO_REGISTER_OBJECT(typeName) \
+	namespace typeName##_NAMESPACE { \
+		void typeName##_DefineAttributes(Urho3D::ClassConstructor<typeName>& cc); \
+	}\
+	void typeName::RegisterObject(Urho3D::Context* context) \
+	{ \
+		const Urho3D::TypeInfo* typeInfo = typeName::GetTypeInfoStatic(); \
+		Urho3D::ClassConstructor<typeName> cc(context, const_cast<Urho3D::TypeInfo*>(typeInfo)); \
+		typeName##_NAMESPACE::typeName##_DefineAttributes(cc); \
+	} \
+	void typeName##_NAMESPACE::typeName##_DefineAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
+
 namespace Urho3D
 {
 
+class TypeInfo;
 
 template <class T>
 class ClassConstructor
 {
 public:
-	ClassConstructor(Context* context, WeakPtr<ClassDef> info);
+	ClassConstructor(Context* context, TypeInfo* info);
 
 	template <class U>
 	ClassConstructor<T>& Implements();
-
-	template <class U>
-	ClassConstructor<T>& Base(bool copy = false);
 
 	ClassConstructor<T>& Factory();
 	ClassConstructor<T>& Factory(const char* category);
 
     template <class U>
-    ClassConstructor<T>& Attribute(const char* name, size_t offset, U defaultValue, unsigned mode = AM_DEFAULT)
-    {
-        context_->RegisterAttribute<T>(Urho3D::AttributeInfo(GetVariantType<U>(), name, offset, defaultValue, mode));
-        return *this;
-    }
+    ClassConstructor<T>& Attribute(const char* name, size_t offset, U defaultValue, unsigned mode = AM_DEFAULT);
 
 	template <class U>
 	ClassConstructor<T>& Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(U), U defaultValue, unsigned mode = AM_DEFAULT);
@@ -74,32 +80,11 @@ public:
     template <class U>
     ClassConstructor<T>& Attribute(const char* name, const U& (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode = AM_DEFAULT);
 
-	template <class U>
-	ClassConstructor<T>& Prop();
+    ClassConstructor<T>& Remove(const char* attrib);
 
-	template <class U>
-	ClassConstructor<T>& Prop(const VariantMap& constructorData);
+    ClassConstructor<T>& UpdateDefault(const char* name, const Variant& newValue);
 
-    ClassConstructor<T>& Remove(const char* attrib)
-    {
-        context_->RemoveAttribute<T>(attrib);
-        return *this;
-    }
-
-    ClassConstructor<T>& UpdateDefault(const char* name, const Variant& newValue)
-    {
-        context_->UpdateAttributeDefaultValue<T>(name, newValue);
-        return *this;
-    }
-
-	ClassConstructor<T>& operator[](SharedPtr<AttributeProperty> property)
-	{
-		if(!lastAttribute_)
-			classDef_->AddProperty(property);
-		else
-			classDef_->AddProperty(lastAttribute_,property);
-		return *this;
-	}
+	ClassConstructor<T>& operator[](SharedPtr<AttributeProperty> property);
 
     Context* GetContext() const { return context_; }
 
@@ -109,16 +94,17 @@ private:
 	/// The last attribute added to Context.
 	AttributeInfo* lastAttribute_;
 	/// The class info we will be returning.
-	WeakPtr<ClassDef> classDef_;
+	TypeInfo* typeInfo_;
 };
 
 template <class T>
-ClassConstructor<T>::ClassConstructor(Context* context, WeakPtr<ClassDef> classDef)
+ClassConstructor<T>::ClassConstructor(Context* context, TypeInfo* typeInfo)
 : context_(context)
 , lastAttribute_(0)
-, classDef_(classDef)
+, typeInfo_(typeInfo)
 {
-	assert(classDef_);
+	assert(context_);
+	assert(typeInfo_);
 }
 
 template <class T>
@@ -126,52 +112,39 @@ template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Implements()
 {
 //	static_assert(U3D_Traits::is_interface<U>::value == true, "Attempted to register interface that is not an interface.");
-	classDef_->AddInterface(U::GetInterfaceTypeStatic());
-	return *this;
-}
-
-template <class T>
-template <class U>
-ClassConstructor<T>& ClassConstructor<T>::Base(bool copy)
-{
-    if(copy && context_)
-    {
-        context_->CopyBaseAttributes<U,T>();
-    }
-    classDef_->AddBase(WeakPtr<ClassDef>(U::GetClassDefStatic()));
-
+	typeInfo_->AddInterface(U::GetInterfaceTypeStatic());
 	return *this;
 }
 
 template <class T>
 ClassConstructor<T>& ClassConstructor<T>::Factory()
 {
-	if(context_)
-	{
-		context_->RegisterFactory<T>();
-	}
+	
+	context_->RegisterFactory<T>();
 	return *this;
 }
 
 template <class T>
 ClassConstructor<T>& ClassConstructor<T>::Factory(const char* category)
 {
-	if(context_)
-	{
-		context_->RegisterFactory<T>(category);
-	}
+	context_->RegisterFactory<T>(category);
 	return *this;
+}
+
+template <class T>
+template <class U>
+ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, size_t offset, U defaultValue, unsigned mode = AM_DEFAULT)
+{
+    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, offset, defaultValue, mode));
+    return *this;
 }
 
 template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(U), U defaultValue, unsigned mode)
 {
-    if(context_)
-    {
-        context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
-        lastAttribute_ = context_->GetAttribute<T>(name);
-    }
+    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
+    lastAttribute_ = context_->GetAttribute<T>(name);
 	return *this;
 }
 
@@ -179,11 +152,8 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, U (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
 {
-    if(context_)
-    {
-        context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, MixedAttributeTrait<U> >(getter, setter), defaultValue, mode));
-        lastAttribute_ = context_->GetAttribute<T>(name);
-    }
+    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, MixedAttributeTrait<U> >(getter, setter), defaultValue, mode));
+	lastAttribute_ = context_->GetAttribute<T>(name);
     return *this;
 }
 
@@ -191,41 +161,32 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, const U& (T::*getter)() const, void (T::*setter)(const U&), U defaultValue, unsigned mode)
 {
-    if(context_)
-    {
-        context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
-        lastAttribute_ = context_->GetAttribute<T>(name);
-    }
+    context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, new AttributeAccessorImpl<T, U, AttributeTrait<U> >(getter, setter), defaultValue, mode));
+	lastAttribute_ = context_->GetAttribute<T>(name);
     return *this;
 }
 
 template <class T>
-template <class U>
-ClassConstructor<T>& ClassConstructor<T>::Prop()
+ClassConstructor<T>& ClassConstructor<T>::Remove(const char* attrib)
 {
-	if(lastAttribute_)
-	{
-		// classDef_->AddProperty(lastAttribute_, new U());
-	}
-	else
-	{
-		// classDef_->AddProperty(new U());
-	}
-	return *this;
+    context_->RemoveAttribute<T>(attrib);
+    return *this;
 }
 
 template <class T>
-template <class U>
-ClassConstructor<T>& ClassConstructor<T>::Prop(const VariantMap& constructorData)
+ClassConstructor<T>& ClassConstructor<T>::UpdateDefault(const char* name, const Variant& newValue)
 {
-	if(lastAttribute_)
-	{
-		// classDef_->AddProperty(lastAttribute_, new U(constructorData));
-	}
+    context_->UpdateAttributeDefaultValue<T>(name, newValue);
+    return *this;
+}
+
+template <class T>
+ClassConstructor<T>& ClassConstructor<T>::operator[](SharedPtr<AttributeProperty> property)
+{
+	if(!lastAttribute_)
+		typeInfo_->AddProperty(property);
 	else
-	{
-		// classDef_->AddProperty(new U(constructorData));
-	}
+		typeInfo_->AddProperty(lastAttribute_,property);
 	return *this;
 }
 

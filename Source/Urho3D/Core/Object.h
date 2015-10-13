@@ -63,7 +63,7 @@ public:
 	const T* FindProperty() const { return static_cast<const T*>(FindProperty(T::GetTypeInfoStatic())); }
 
 	template<typename T> 
-	Vector<AttributeInfo*> FindAttributesWithProperty() { return FindAttributesWithProperty(T::GetTypeInfoStatic()); }
+	Vector<AttributeInfo*> FindAttributesWithProperty() const { return FindAttributesWithProperty(T::GetTypeInfoStatic()); }
 
 	void AddProperty(SharedPtr<AttributeProperty> propertyType);
     void AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> propertyType);
@@ -92,11 +92,11 @@ private:
     public: \
         typedef typeName ClassName; \
         typedef baseTypeName BaseClassName; \
-        virtual Urho3D::StringHash GetType() const { return GetTypeInfoStatic()->GetType(); } \
-        virtual const Urho3D::String& GetTypeName() const { return GetTypeInfoStatic()->GetTypeName(); } \
-        virtual const Urho3D::TypeInfo* GetTypeInfo() const { return GetTypeInfoStatic(); } \
-        static Urho3D::StringHash GetTypeStatic() { return GetTypeInfoStatic()->GetType(); } \
-        static const Urho3D::String& GetTypeNameStatic() { return GetTypeInfoStatic()->GetTypeName(); } \
+        virtual Urho3D::StringHash GetType() const { return typeName::GetTypeInfoStatic()->GetType(); } \
+        virtual const Urho3D::String& GetTypeName() const { return typeName::GetTypeInfoStatic()->GetTypeName(); } \
+        virtual const Urho3D::TypeInfo* GetTypeInfo() const { return typeName::GetTypeInfoStatic(); } \
+        static Urho3D::StringHash GetTypeStatic() { return typeName::GetTypeInfoStatic()->GetType(); } \
+        static const Urho3D::String& GetTypeNameStatic() { return typeName::GetTypeInfoStatic()->GetTypeName(); } \
         static const Urho3D::TypeInfo* GetTypeInfoStatic() { static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); return &typeInfoStatic; } \
 
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.

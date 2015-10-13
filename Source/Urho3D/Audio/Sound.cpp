@@ -35,6 +35,8 @@
 
 #include "../DebugNew.h"
 
+#include "../Core/ClassConstructor.h"
+
 namespace Urho3D
 {
 
