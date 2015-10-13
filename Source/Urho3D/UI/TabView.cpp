@@ -28,7 +28,8 @@
 
 namespace Urho3D
 {
-TabView::TabView(Context* context):
+
+TabView::TabView(Context* context) :
 	UIElement(context)
 {
 }
