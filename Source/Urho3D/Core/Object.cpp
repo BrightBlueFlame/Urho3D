@@ -101,6 +101,12 @@ Vector<AttributeInfo*> TypeInfo::FindAttributesWithProperty(const TypeInfo* prop
 	}
 	return outAttribs;
 }
+    
+void TypeInfo::AddInterface(const TypeInfo* interfaceInfo)
+{
+    assert(interfaces_.Find(interfaceInfo) == interfaces_.End());
+    interfaces_.Push(interfaceInfo);
+}
 
 void TypeInfo::AddProperty(SharedPtr<AttributeProperty> prop)
 {

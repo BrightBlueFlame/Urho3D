@@ -65,6 +65,7 @@ public:
 	template<typename T> 
 	Vector<AttributeInfo*> FindAttributesWithProperty() const { return FindAttributesWithProperty(T::GetTypeInfoStatic()); }
 
+    void AddInterface(const TypeInfo* interfaceInfo);
 	void AddProperty(SharedPtr<AttributeProperty> propertyType);
     void AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> propertyType);
 
@@ -85,7 +86,7 @@ private:
     PropertyMap properties_;
     
     /// Interfaces that this class implements.
-    Vector<StringHash> interfaces_;
+    Vector<const TypeInfo*> interfaces_;
 };
 
 #define URHO_OBJECT(typeName, baseTypeName) \
@@ -97,7 +98,19 @@ private:
         virtual const Urho3D::TypeInfo* GetTypeInfo() const { return typeName::GetTypeInfoStatic(); } \
         static Urho3D::StringHash GetTypeStatic() { return typeName::GetTypeInfoStatic()->GetType(); } \
         static const Urho3D::String& GetTypeNameStatic() { return typeName::GetTypeInfoStatic()->GetTypeName(); } \
-        static const Urho3D::TypeInfo* GetTypeInfoStatic() { static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); return &typeInfoStatic; } \
+        static const Urho3D::TypeInfo* GetTypeInfoStatic() { \
+            static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); \
+            return &typeInfoStatic; \
+        } \
+    
+#define URHO_INTERFACE(typeName) \
+public: \
+    static Urho3D::StringHash GetInterfaceTypeStatic() { return typeName::GetTypeInfoStatic()->GetType(); } \
+    static const Urho3D::String& GetInterfaceTypeNameStatic() { return typeName::GetTypeInfoStatic()->GetTypeName(); } \
+    static const Urho3D::TypeInfo* GetInterfaceTypeInfoStatic() { \
+        static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); \
+        return &typeInfoStatic; \
+    } \
 
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted

@@ -111,8 +111,7 @@ template <class T>
 template <class U>
 ClassConstructor<T>& ClassConstructor<T>::Implements()
 {
-//	static_assert(U3D_Traits::is_interface<U>::value == true, "Attempted to register interface that is not an interface.");
-	typeInfo_->AddInterface(U::GetInterfaceTypeStatic());
+	typeInfo_->AddInterface(U::GetInterfaceTypeInfoStatic());
 	return *this;
 }
 
@@ -133,7 +132,7 @@ ClassConstructor<T>& ClassConstructor<T>::Factory(const char* category)
 
 template <class T>
 template <class U>
-ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, size_t offset, U defaultValue, unsigned mode = AM_DEFAULT)
+ClassConstructor<T>& ClassConstructor<T>::Attribute(const char* name, size_t offset, U defaultValue, unsigned mode)
 {
     context_->RegisterAttribute<T>(AttributeInfo(GetVariantType<U>(), name, offset, defaultValue, mode));
     return *this;
