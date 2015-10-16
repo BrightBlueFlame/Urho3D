@@ -77,11 +77,7 @@ struct ScratchBuffer
 /// %Graphics subsystem. Manages the application window, rendering state and GPU resources.
 class URHO3D_API Graphics : public Object
 {
-<<<<<<< HEAD
     URHO_OBJECT(Graphics, Object);
-=======
-    OBJECT(Graphics, Object);
->>>>>>> upstream/master
 
 public:
     /// Construct.

@@ -34,11 +34,7 @@ class Image;
 /// 3D texture resource.
 class URHO3D_API Texture3D : public Texture
 {
-<<<<<<< HEAD
     URHO_OBJECT(Texture3D, Texture);
-=======
-    OBJECT(Texture3D, Texture);
->>>>>>> upstream/master
 
 public:
     /// Construct.
