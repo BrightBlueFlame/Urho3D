@@ -358,6 +358,26 @@ private:
     HandlerFunctionPtr function_;
 };
 
+template <class T>
+T TypeInfoCast(Object* obj)
+{
+    if(obj->IsTypeOf<T>())
+    {
+        return static_cast<T>(obj);
+    }
+    return 0;
+}
+    
+template <class T>
+T TypeInfoCast(const Object* obj)
+{
+    if(obj->IsTypeOf<T>())
+    {
+        return static_cast<T>(obj);
+    }
+    return 0;
+}
+    
 /// Describe an event's hash ID and begin a namespace in which to define its parameters.
 #define EVENT(eventID, eventName) static const Urho3D::StringHash eventID(#eventName); namespace eventName
 /// Describe an event's parameter hash ID. Should be used inside an event namespace.
