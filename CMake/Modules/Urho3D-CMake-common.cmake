@@ -58,13 +58,18 @@ if (NOT MSVC AND NOT DEFINED URHO3D_DEFAULT_64BIT)  # Only do this once in the i
     endif ()
     set (URHO3D_DEFAULT_64BIT ${URHO3D_DEFAULT_64BIT} CACHE INTERNAL "Default value for URHO3D_64BIT build option")
     # The 'ANDROID' CMake variable is already set by android.toolchain.cmake when it is being used for cross-compiling Android
-    # The other arm platform that Urho3D supports that is not Android is Raspberry Pi at the moment
-    if (NOT ANDROID AND NOT EMSCRIPTEN)
-        string (REGEX MATCH "#define +__arm__ +1" matched "${PREDEFINED_MACROS}")
-        if (matched)
-            # Set the CMake variable here instead of in raspberrypi.toolchain.cmake because Raspberry Pi can be built natively too on the Raspberry-Pi device itself
-            set (RPI TRUE CACHE INTERNAL "Setup build for Raspberry Pi platform")
-        endif ()
+    # When ANDROID is true and ARM is not then we are targeting Android on Intel Atom
+    string (REGEX MATCH "#define +__(arm|aarch64)__ +1" matched "${PREDEFINED_MACROS}")
+    if (matched OR IOS)     # Assume iOS is always on ARM for now
+        set (ARM TRUE)
+    else ()
+        set (ARM FALSE)
+    endif ()
+    set (ARM ${ARM} CACHE INTERNAL "Targeting ARM platform")
+    # The other arm platform that Urho3D supports that is not Android/iOS is Raspberry Pi at the moment
+    if (ARM AND NOT ANDROID AND NOT IOS)
+        # Set the CMake variable here instead of in raspberrypi.toolchain.cmake because Raspberry Pi can be built natively too on the Raspberry-Pi device itself
+        set (RPI TRUE CACHE INTERNAL "Setup build for Raspberry Pi platform")
     endif ()
 endif ()
 if (ANDROID OR RPI OR EMSCRIPTEN)
@@ -81,19 +86,23 @@ cmake_dependent_option (URHO3D_NETWORK "Enable networking support" TRUE "NOT EMS
 cmake_dependent_option (URHO3D_DATABASE_ODBC "Enable Database support with ODBC, requires vendor-specific ODBC driver" FALSE "NOT IOS AND NOT ANDROID AND NOT EMSCRIPTEN" FALSE)
 option (URHO3D_PHYSICS "Enable physics support" TRUE)
 option (URHO3D_URHO2D "Enable 2D graphics and physics support" TRUE)
-if (MINGW AND NOT DEFINED URHO3D_SSE)
-    # Certain MinGW versions fail to compile SSE code. This is the initial guess for known "bad" version range, and can be tightened later
-    execute_process (COMMAND ${CMAKE_C_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION ERROR_QUIET)
-    if (GCC_VERSION VERSION_LESS 4.9.1)
-        message (WARNING "Disabling SSE by default due to MinGW version. It is recommended to upgrade to MinGW with GCC >= 4.9.1. You can also try to re-enable SSE with CMake option -DURHO3D_SSE=1, but this may result in compile errors.")
-        set (URHO3D_DEFAULT_SSE FALSE)
-    else ()
-        set (URHO3D_DEFAULT_SSE TRUE)
-    endif ()
-else ()
+if (NOT DEFINED URHO3D_DEFAULT_SSE)
+    # Set the default to true for all the platforms that support SSE except the following
     set (URHO3D_DEFAULT_SSE TRUE)
+    if (MINGW)
+        # Certain MinGW versions fail to compile SSE code. This is the initial guess for known "bad" version range, and can be tightened later
+        execute_process (COMMAND ${CMAKE_C_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION ERROR_QUIET)
+        if (GCC_VERSION VERSION_LESS 4.9.1)
+            message (WARNING "Disabling SSE by default due to MinGW version. It is recommended to upgrade to MinGW with GCC >= 4.9.1. You can also try to re-enable SSE with CMake option -DURHO3D_SSE=1, but this may result in compile errors.")
+            set (URHO3D_DEFAULT_SSE FALSE)
+        endif ()
+    elseif (EMSCRIPTEN)
+        # In Emscripten, default to false for targeting SSE2, since the SIMD.js specification is not yet widely adopted in browsers
+        set (URHO3D_DEFAULT_SSE FALSE)
+    endif ()
+    set (URHO3D_DEFAULT_SSE ${URHO3D_DEFAULT_SSE} CACHE INTERNAL "Default value for URHO3D_SSE build option")
 endif ()
-cmake_dependent_option (URHO3D_SSE "Enable SSE instruction set" ${URHO3D_DEFAULT_SSE} "NOT EMSCRIPTEN" FALSE)
+cmake_dependent_option (URHO3D_SSE "Enable SSE2 instruction set (HTML5 and Intel platforms only including Android on Intel Atom)" ${URHO3D_DEFAULT_SSE} "NOT ARM" FALSE)
 if (CMAKE_PROJECT_NAME STREQUAL Urho3D)
     cmake_dependent_option (URHO3D_LUAJIT_AMALG "Enable LuaJIT amalgamated build (LuaJIT only)" FALSE "URHO3D_LUAJIT" FALSE)
     cmake_dependent_option (URHO3D_SAFE_LUA "Enable Lua C++ wrapper safety checks (Lua/LuaJIT only)" FALSE "URHO3D_LUA OR URHO3D_LUAJIT" FALSE)
@@ -129,6 +138,12 @@ endif ()
 option (URHO3D_PACKAGING "Enable resources packaging support, on Emscripten default to 1, on other platforms default to 0" ${EMSCRIPTEN})
 option (URHO3D_PROFILING "Enable profiling support" TRUE)
 option (URHO3D_LOGGING "Enable logging support" TRUE)
+# Emscripten thread support is yet experimental; default false
+if (NOT EMSCRIPTEN)
+    option (URHO3D_THREADING "Enable threading support" TRUE)
+else ()
+    option (URHO3D_THREADING "Enable threading support" FALSE)
+endif ()
 option (URHO3D_TESTING "Enable testing support")
 if (URHO3D_TESTING)
     if (EMSCRIPTEN)
@@ -337,6 +352,11 @@ if (URHO3D_LOGGING)
     add_definitions (-DURHO3D_LOGGING)
 endif ()
 
+# Enable threading by default, except for Emscripten.
+if (URHO3D_THREADING)
+    add_definitions (-DURHO3D_THREADING)
+endif ()
+
 # If not on Windows platform, enable Unix mode for kNet library
 if (NOT WIN32)
     add_definitions (-DKNET_UNIX)
@@ -509,10 +529,10 @@ if (MSVC)
     set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${DEBUG_RUNTIME}")
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELEASE} ${RELEASE_RUNTIME} /fp:fast /Zi /GS- /D _SECURE_SCL=0")
     set (CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELWITHDEBINFO})
-    # SSE flag is redundant if already compiling as 64bit
+    # In Visual Studio, SSE2 flag is redundant if already compiling as 64bit.
     if (URHO3D_SSE AND NOT URHO3D_64BIT)
-        set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /arch:SSE")
-        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /arch:SSE")
+        set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /arch:SSE2")
+        set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /arch:SSE2")
     endif ()
     set (CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /OPT:REF /OPT:ICF /DEBUG")
     set (CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} /OPT:REF /OPT:ICF")
@@ -549,20 +569,23 @@ else ()
             else ()
                 set (DASH_MBIT -m32)
                 if (URHO3D_SSE)
-                    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -msse")
-                    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse")
+                    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -msse2")
+                    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse2")
                 endif ()
             endif ()
             if (NOT URHO3D_NOABI)
                 set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${DASH_MBIT}")
                 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${DASH_MBIT}")
-                set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${DASH_MBIT}")
             endif ()
         endif ()
         if (EMSCRIPTEN)
             # Emscripten-specific setup
             set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-warn-absolute-paths -Wno-unknown-warning-option")
             set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-warn-absolute-paths -Wno-unknown-warning-option")
+            if (URHO3D_THREADING)
+                set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -s USE_PTHREADS=1")
+                set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -s USE_PTHREADS=1")
+            endif ()
             # Prior to version 1.31.3 emcc does not consistently add the cpp standard and remove Emscripten-specific compiler flags
             # before passing on the work to the underlying LLVM/Clang compiler, this has resulted in preprocessing error when enabling the PCH and ccache
             # (See https://github.com/kripken/emscripten/issues/3365 for more detail)
@@ -590,6 +613,11 @@ else ()
             # Reduce GCC optimization level from -O3 to -O2 for stability in RELEASE build configuration
             set (CMAKE_C_FLAGS_RELEASE "-O2 -DNDEBUG")
             set (CMAKE_CXX_FLAGS_RELEASE "-O2 -DNDEBUG")
+            # SSE requires force-aligned stack
+            if (URHO3D_SSE)
+                set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mstackrealign")
+                set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mstackrealign")
+            endif ()
         else ()
             # Not Android and not Emscripten and not MinGW derivative
             set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -pthread")     # This will emit '-DREENTRANT' to compiler and '-lpthread' to linker on Linux and Mac OSX platform

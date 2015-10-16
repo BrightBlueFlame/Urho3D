@@ -30,7 +30,11 @@ namespace Urho3D
 /// 2D rope constraint component.
 class URHO3D_API ConstraintRope2D : public Constraint2D
 {
+<<<<<<< HEAD
     URHO_OBJECT(ConstraintRope2D, Constraint2D);
+=======
+    OBJECT(ConstraintRope2D, Constraint2D);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

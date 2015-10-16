@@ -75,12 +75,17 @@ struct FrameInfo
 };
 
 /// Source data for a 3D geometry draw call.
-struct SourceBatch
+struct URHO3D_API SourceBatch
 {
     /// Construct with defaults.
     SourceBatch();
+    /// Copy-construct.
+    SourceBatch(const SourceBatch& batch);
     /// Destruct.
     ~SourceBatch();
+
+    /// Assignment operator.
+    SourceBatch& operator =(const SourceBatch& rhs);
 
     /// Distance from camera.
     float distance_;
@@ -99,7 +104,11 @@ struct SourceBatch
 /// Base class for visible components.
 class URHO3D_API Drawable : public Component
 {
+<<<<<<< HEAD
     URHO_OBJECT(Drawable, Component);
+=======
+    OBJECT(Drawable, Component);
+>>>>>>> upstream/master
 
     friend class Octant;
     friend class Octree;

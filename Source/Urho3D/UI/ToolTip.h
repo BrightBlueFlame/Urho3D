@@ -31,7 +31,11 @@ namespace Urho3D
 /// Tooltip %UI element.
 class URHO3D_API ToolTip : public UIElement
 {
+<<<<<<< HEAD
     URHO_OBJECT(ToolTip, UIElement)
+=======
+    OBJECT(ToolTip, UIElement)
+>>>>>>> upstream/master
 
 public:
     /// Construct.

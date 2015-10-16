@@ -72,7 +72,11 @@ struct GlyphLocation
 /// %Text %UI element.
 class URHO3D_API Text : public UIElement
 {
+<<<<<<< HEAD
     URHO_OBJECT(Text, UIElement);
+=======
+    OBJECT(Text, UIElement);
+>>>>>>> upstream/master
 
     friend class Text3D;
 

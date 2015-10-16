@@ -35,7 +35,11 @@ class Text;
 /// 3D text component.
 class URHO3D_API Text3D : public Drawable
 {
+<<<<<<< HEAD
     URHO_OBJECT(Text3D, Drawable);
+=======
+    OBJECT(Text3D, Drawable);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

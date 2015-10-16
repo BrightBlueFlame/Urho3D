@@ -35,7 +35,11 @@ class Image;
 /// Cube texture resource.
 class URHO3D_API TextureCube : public Texture
 {
+<<<<<<< HEAD
     URHO_OBJECT(TextureCube, Texture);
+=======
+    OBJECT(TextureCube, Texture);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

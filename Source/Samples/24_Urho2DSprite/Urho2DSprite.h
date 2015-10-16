@@ -37,7 +37,11 @@ namespace Urho3D
 ///     - Handling keyboard to move and zoom 2D camera
 class Urho2DSprite : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(Urho2DSprite, Sample);
+=======
+    OBJECT(Urho2DSprite, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

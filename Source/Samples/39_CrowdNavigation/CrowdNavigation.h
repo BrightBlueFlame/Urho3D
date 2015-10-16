@@ -45,7 +45,11 @@ class Scene;
 ///     - Using agents to simulate moving obstacles
 class CrowdNavigation : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(CrowdNavigation, Sample);
+=======
+    OBJECT(CrowdNavigation, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

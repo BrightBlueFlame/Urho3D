@@ -111,7 +111,11 @@ class ResourceCache;
 /// Base class for %UI elements.
 class URHO3D_API UIElement : public Animatable
 {
+<<<<<<< HEAD
     URHO_OBJECT(UIElement, Animatable);
+=======
+    OBJECT(UIElement, Animatable);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

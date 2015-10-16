@@ -37,7 +37,11 @@ class BufferedSoundStream;
 ///     - Playing back a sound stream produced on-the-fly by a simple CPU synthesis algorithm
 class SoundSynthesis : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(SoundSynthesis, Sample);
+=======
+    OBJECT(SoundSynthesis, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

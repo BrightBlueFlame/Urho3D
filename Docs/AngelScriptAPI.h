@@ -49,8 +49,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint numAttributes;
@@ -122,8 +120,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -228,8 +224,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 /* readonly */
 BoundingBox boundingBox;
@@ -301,8 +295,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 String animationName;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 float length;
@@ -400,8 +392,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -445,8 +435,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -577,8 +565,6 @@ void Stop();
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 bool initialized;
@@ -667,8 +653,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 Array<Billboard> billboards;
 /* readonly */
@@ -819,8 +803,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -937,6 +919,7 @@ void Define(const Sphere&);
 void Define(const Vector3&);
 void Define(const Vector3&, const Vector3&);
 void Define(float, float);
+bool Defined() const;
 Intersection IsInside(const BoundingBox&) const;
 Intersection IsInside(const Sphere&) const;
 Intersection IsInside(const Vector3&) const;
@@ -957,7 +940,6 @@ BoundingBox Transformed(const Matrix3x4&) const;
 // Properties:
 /* readonly */
 Vector3 center;
-bool defined;
 /* readonly */
 Vector3 halfSize;
 Vector3 max;
@@ -1055,8 +1037,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -1217,8 +1197,6 @@ Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoAspectRatio;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 Plane clipPlane;
 /* readonly */
@@ -1367,8 +1345,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -1519,8 +1495,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 int categoryBits;
 Vector2 center;
@@ -1603,8 +1577,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 int categoryBits;
 float density;
@@ -1684,8 +1656,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 int categoryBits;
 Vector2 center;
@@ -1764,8 +1734,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 int categoryBits;
@@ -1848,8 +1816,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 int categoryBits;
@@ -1940,8 +1906,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -2013,8 +1977,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 int categoryBits;
@@ -2140,8 +2102,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -2178,8 +2138,6 @@ String ToString() const;
 // Properties:
 /* readonly */
 String address;
-/* readonly */
-StringHash baseType;
 /* readonly */
 float bytesInPerSec;
 /* readonly */
@@ -2239,8 +2197,6 @@ void UpdateElements();
 bool autoVisibleOnError;
 /* readonly */
 BorderImage background;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -2310,8 +2266,6 @@ Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* writeonly */
 Vector3 axis;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 float cfm;
@@ -2392,8 +2346,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 bool enabled;
@@ -2460,8 +2412,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool collideConnected;
@@ -2535,8 +2485,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 bool enabled;
@@ -2605,8 +2553,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool collideConnected;
@@ -2679,8 +2625,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 float correctionFactor;
@@ -2751,8 +2695,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool collideConnected;
@@ -2827,8 +2769,6 @@ Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 Vector2 axis;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 bool enableLimit;
@@ -2901,8 +2841,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool collideConnected;
@@ -2977,8 +2915,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 bool enableLimit;
@@ -3052,8 +2988,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 bool enabled;
@@ -3125,8 +3059,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool collideConnected;
 float dampingRatio;
@@ -3197,8 +3129,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 Vector2 axis;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool collideConnected;
@@ -3294,8 +3224,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -3401,8 +3329,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool enabled;
@@ -3541,8 +3467,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -3701,8 +3625,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 BoundingBox boundingBox;
 bool castShadows;
 /* readonly */
@@ -3771,8 +3693,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 uint poolSize;
 /* readonly */
@@ -3794,8 +3714,6 @@ DbResult Execute(const String&, bool = false);
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -3841,8 +3759,6 @@ void ToggleAll();
 void Update();
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 XMLFile defaultStyle;
@@ -3918,8 +3834,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -3986,8 +3900,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -4157,8 +4069,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 BoundingBox boundingBox;
 bool castShadows;
 /* readonly */
@@ -4239,8 +4149,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -4384,8 +4292,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -4567,8 +4473,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 BoundingBox boundingBox;
 /* readonly */
 String category;
@@ -4628,8 +4532,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 bool autoExit;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -4727,8 +4629,6 @@ bool WriteVectorBuffer(const VectorBuffer&);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint checksum;
@@ -4765,8 +4665,6 @@ void SetFilters(Array<String>, uint);
 void UpdateElements();
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 Button cancelButton;
 /* readonly */
@@ -4826,8 +4724,6 @@ uint SystemRunAsync(const String&, Array<String>);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 String currentDir;
 bool executeConsoleCommands;
@@ -4871,8 +4767,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 IntVector2 absoluteGlyphOffset;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -4925,8 +4819,6 @@ bool SetVertexBuffer(uint, VertexBuffer, uint = MASK_DEFAULT);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 bool empty;
@@ -4977,8 +4869,6 @@ bool ToggleFullscreen();
 // Properties:
 /* readonly */
 String apiName;
-/* readonly */
-StringHash baseType;
 /* readonly */
 bool borderless;
 /* readonly */
@@ -5145,8 +5035,6 @@ bool SetSize(int, int, uint);
 /* readonly */
 bool array;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint components;
@@ -5192,8 +5080,6 @@ void SetSize(uint, bool, bool = false);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 bool dynamic;
@@ -5237,8 +5123,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 void SetMouseVisible(bool, bool = false);
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -5346,8 +5230,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -5470,8 +5352,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 float brightness;
@@ -5625,8 +5505,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -5850,8 +5728,6 @@ Array<Variant> attributes;
 bool autoDisableChildren;
 float autoDisableThreshold;
 int baseIndent;
-/* readonly */
-StringHash baseType;
 bool bringToBack;
 bool bringToFront;
 /* readonly */
@@ -5994,8 +5870,6 @@ void SetLanguage(int);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 String language;
@@ -6026,8 +5900,6 @@ void Warning(const String&);
 void Write(const String&, bool = false);
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -6070,8 +5942,6 @@ void SetUVTransform(const Vector2&, float, float);
 void SortTechniques();
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 CullMode cullMode;
@@ -6295,8 +6165,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -6417,8 +6285,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 String message;
 /* readonly */
@@ -6447,8 +6313,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 bool SetGeometry(uint, uint, Geometry);
 
 // Properties:
-/* readonly */
-StringHash baseType;
 BoundingBox boundingBox;
 /* readonly */
 String category;
@@ -6515,8 +6379,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BoundingBox boundingBox;
 /* readonly */
 String category;
@@ -6583,8 +6445,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool enabled;
@@ -6666,8 +6526,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 BoundingBox boundingBox;
 /* readonly */
 String category;
@@ -6731,8 +6589,6 @@ void UnregisterAllRemoteEvents();
 void UnregisterRemoteEvent(const String&) const;
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -6798,8 +6654,6 @@ Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 float basePriority;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 float distanceFactor;
 bool enabled;
@@ -6862,6 +6716,7 @@ Vector3 LocalToWorld(const Vector3&) const;
 Vector3 LocalToWorld(const Vector4&) const;
 Vector2 LocalToWorld2D(const Vector2&) const;
 bool LookAt(const Vector3&, const Vector3& = Vector3 ( 0 , 1 , 0 ), TransformSpace = TS_WORLD);
+void MarkDirty();
 void MarkNetworkUpdate() const;
 void Pitch(float, TransformSpace = TS_LOCAL);
 void Remove();
@@ -6930,8 +6785,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -7005,8 +6858,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 int refs;
@@ -7036,8 +6887,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 // Properties:
 /* readonly */
 Array<Variant> attributeAnimations;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -7100,8 +6949,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool enabled;
@@ -7181,8 +7028,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -7250,8 +7095,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 bool bidirectional;
 /* readonly */
 String category;
@@ -7289,8 +7132,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 bool compressed() const;
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -7337,8 +7178,6 @@ void SortTextureFrames();
 // Properties:
 float activeTime;
 float animationLodBias;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 Vector3 constantForce;
@@ -7395,8 +7234,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -7461,8 +7298,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 Array<Billboard> billboards;
 /* readonly */
@@ -7558,8 +7393,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 /* readonly */
 BoundingBox boundingBox;
@@ -7699,8 +7532,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -7778,8 +7609,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoClearForces;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool continuousPhysics;
@@ -8093,8 +7922,6 @@ void SetDefaultRenderPath(XMLFile);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 Material defaultLightRamp;
@@ -8161,8 +7988,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint memoryUse;
@@ -8211,8 +8036,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 bool autoReloadResources;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 int finishBackgroundResourcesMs;
@@ -8326,8 +8149,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 float ccdMotionThreshold;
 float ccdRadius;
@@ -8422,8 +8243,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool awake;
-/* readonly */
-StringHash baseType;
 BodyType2D bodyType;
 bool bullet;
 /* readonly */
@@ -8588,8 +8407,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint checksum;
@@ -8677,8 +8494,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 Scene defaultScene;
 ScriptFile defaultScriptFile;
@@ -8706,8 +8521,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -8773,8 +8586,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 String className;
@@ -8895,8 +8706,6 @@ Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
 Button backButton;
-/* readonly */
-StringHash baseType;
 bool bringToBack;
 bool bringToFront;
 /* readonly */
@@ -9093,8 +8902,6 @@ Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoDisableChildren;
 float autoDisableThreshold;
-/* readonly */
-StringHash baseType;
 bool bringToBack;
 bool bringToFront;
 /* readonly */
@@ -9232,8 +9039,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint numAttributes;
@@ -9342,8 +9147,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -9479,8 +9282,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -9633,8 +9434,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -9673,8 +9472,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -9746,8 +9543,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -9818,8 +9613,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoRemove;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool enabled;
@@ -9903,8 +9696,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoRemove;
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 bool enabled;
@@ -10034,8 +9825,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 Node controlledNode;
 bool enabled;
@@ -10142,8 +9931,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 bool bringToBack;
 bool bringToFront;
@@ -10218,8 +10005,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 Vector2 hotSpot;
 /* readonly */
@@ -10252,8 +10037,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -10317,8 +10100,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -10411,8 +10192,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -10509,8 +10288,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 /* readonly */
 BoundingBox boundingBox;
@@ -10646,8 +10423,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool desktop;
 /* readonly */
@@ -10727,8 +10502,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 bool castShadows;
 /* readonly */
 String category;
@@ -10817,8 +10590,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 /* readonly */
 BoundingBox boundingBox;
 bool castShadows;
@@ -10948,8 +10719,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoLocalizable;
-/* readonly */
-StringHash baseType;
 bool bringToBack;
 bool bringToFront;
 /* readonly */
@@ -11120,8 +10889,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 BoundingBox boundingBox;
 bool castShadows;
 /* readonly */
@@ -11207,8 +10974,6 @@ void SetNumLevels(uint);
 // Properties:
 Array<TextureAddressMode> addressMode;
 Texture backupTexture;
-/* readonly */
-StringHash baseType;
 Color borderColor;
 /* readonly */
 String category;
@@ -11267,8 +11032,6 @@ bool SetSize(int, int, uint, TextureUsage = TEXTURE_STATIC);
 // Properties:
 Array<TextureAddressMode> addressMode;
 Texture backupTexture;
-/* readonly */
-StringHash baseType;
 Color borderColor;
 /* readonly */
 String category;
@@ -11328,8 +11091,6 @@ bool SetSize(int, int, uint, TextureUsage = TEXTURE_STATIC);
 // Properties:
 Array<TextureAddressMode> addressMode;
 Texture backupTexture;
-/* readonly */
-StringHash baseType;
 Color borderColor;
 /* readonly */
 String category;
@@ -11389,8 +11150,6 @@ bool SetSize(int, uint, TextureUsage = TEXTURE_STATIC);
 // Properties:
 Array<TextureAddressMode> addressMode;
 Texture backupTexture;
-/* readonly */
-StringHash baseType;
 Color borderColor;
 /* readonly */
 String category;
@@ -11503,8 +11262,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 bool enabled;
 /* readonly */
@@ -11594,8 +11351,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 int drawOrder;
 bool enabled;
@@ -11667,8 +11422,6 @@ void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 float elapsedTime;
@@ -11709,8 +11462,6 @@ bool Save(VectorBuffer&) const;
 void SendEvent(const String&, VariantMap& = VariantMap ( ));
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 /* readonly */
@@ -11812,8 +11563,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 bool bringToBack;
 bool bringToFront;
 /* readonly */
@@ -11948,8 +11697,6 @@ const Array<UIElement> GetDragElements();
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 String clipBoardText;
 Cursor cursor;
@@ -12066,8 +11813,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 bool bringToBack;
 bool bringToFront;
 /* readonly */
@@ -12177,8 +11922,6 @@ void SetEventFrame(float, const String&, const VariantMap& = VariantMap ( ));
 void SetKeyFrame(float, const Variant&);
 
 // Properties:
-/* readonly */
-StringHash baseType;
 /* readonly */
 String category;
 InterpMethod interpolationMethod;
@@ -12428,8 +12171,6 @@ void SetSize(uint, uint, bool = false);
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 bool dynamic;
@@ -12539,8 +12280,6 @@ Array<Variant> attributeDefaults;
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
 bool autoUpdate;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -12676,11 +12415,10 @@ void SetRenderPath(XMLFile);
 Vector2 WorldToScreenPoint(const Vector3&) const;
 
 // Properties:
-/* readonly */
-StringHash baseType;
 Camera camera;
 /* readonly */
 String category;
+Camera cullCamera;
 bool drawDebug;
 IntRect rect;
 /* readonly */
@@ -12795,8 +12533,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BlendMode blendMode;
 IntRect border;
 bool bringToBack;
@@ -13012,8 +12748,6 @@ String ToString(const String& = String ( "\t" )) const;
 
 // Properties:
 /* readonly */
-StringHash baseType;
-/* readonly */
 String category;
 /* readonly */
 uint memoryUse;
@@ -13110,8 +12844,6 @@ Array<Variant> attributeDefaults;
 /* readonly */
 Array<AttributeInfo> attributeInfos;
 Array<Variant> attributes;
-/* readonly */
-StringHash baseType;
 BoundingBox boundingBox;
 bool castShadows;
 /* readonly */

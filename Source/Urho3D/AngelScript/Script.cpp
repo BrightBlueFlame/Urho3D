@@ -41,7 +41,11 @@ namespace Urho3D
 
 class ScriptResourceRouter : public ResourceRouter
 {
+<<<<<<< HEAD
     URHO_OBJECT(ScriptResourceRouter, ResourceRouter);
+=======
+    OBJECT(ScriptResourceRouter, ResourceRouter);
+>>>>>>> upstream/master
 
     /// Construct.
     ScriptResourceRouter(Context* context) :

@@ -30,7 +30,11 @@
 ///       and standard input.
 class ConsoleInput : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(ConsoleInput, Sample);
+=======
+    OBJECT(ConsoleInput, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

@@ -35,7 +35,11 @@ class PhysicsWorld2D;
 /// 2D physics constraint component.
 class URHO3D_API Constraint2D : public Component
 {
+<<<<<<< HEAD
     URHO_OBJECT(Constraint2D, Component);
+=======
+    OBJECT(Constraint2D, Component);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

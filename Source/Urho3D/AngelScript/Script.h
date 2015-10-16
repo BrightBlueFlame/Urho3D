@@ -53,7 +53,11 @@ enum DumpMode
 /// Scripting subsystem. Allows execution of AngelScript.
 class URHO3D_API Script : public Object
 {
+<<<<<<< HEAD
     URHO_OBJECT(Script, Object);
+=======
+    OBJECT(Script, Object);
+>>>>>>> upstream/master
 
     friend class ScriptFile;
 

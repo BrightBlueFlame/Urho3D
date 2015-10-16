@@ -153,7 +153,11 @@ private:
 /// Tile map file.
 class URHO3D_API TmxFile2D : public Resource
 {
+<<<<<<< HEAD
     URHO_OBJECT(TmxFile2D, Resource);
+=======
+    OBJECT(TmxFile2D, Resource);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

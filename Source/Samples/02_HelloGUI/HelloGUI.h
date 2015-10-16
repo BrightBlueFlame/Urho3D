@@ -42,7 +42,11 @@ class Window;
 ///     - Accessing available Events data (eventData)
 class HelloGUI : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(HelloGUI, Sample);
+=======
+    OBJECT(HelloGUI, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

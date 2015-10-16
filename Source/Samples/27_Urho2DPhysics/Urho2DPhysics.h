@@ -36,7 +36,11 @@ namespace Urho3D
 ///     - Displaying physics debug geometry
 class Urho2DPhysics : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(Urho2DPhysics, Sample);
+=======
+    OBJECT(Urho2DPhysics, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

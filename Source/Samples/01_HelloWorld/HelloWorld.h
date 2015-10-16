@@ -31,7 +31,11 @@
 ///     - Subscribing to and handling of update events
 class HelloWorld : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(HelloWorld, Sample);
+=======
+    OBJECT(HelloWorld, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

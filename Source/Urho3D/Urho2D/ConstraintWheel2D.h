@@ -30,7 +30,11 @@ namespace Urho3D
 /// 2D wheel constraint component.
 class URHO3D_API ConstraintWheel2D : public Constraint2D
 {
+<<<<<<< HEAD
     URHO_OBJECT(ConstraintWheel2D, Constraint2D);
+=======
+    OBJECT(ConstraintWheel2D, Constraint2D);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

@@ -33,7 +33,11 @@ class Slider;
 /// Scroll bar %UI element with forward and back buttons.
 class URHO3D_API ScrollBar : public UIElement
 {
+<<<<<<< HEAD
     URHO_OBJECT(ScrollBar, UIElement);
+=======
+    OBJECT(ScrollBar, UIElement);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

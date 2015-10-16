@@ -36,7 +36,11 @@ class Viewport;
 /// %UI element which renders a 3D scene.
 class URHO3D_API View3D : public Window
 {
+<<<<<<< HEAD
     URHO_OBJECT(View3D, Window);
+=======
+    OBJECT(View3D, Window);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

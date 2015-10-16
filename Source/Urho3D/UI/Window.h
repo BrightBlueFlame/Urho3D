@@ -45,7 +45,11 @@ enum WindowDragMode
 /// %Window %UI element that can optionally by moved or resized.
 class URHO3D_API Window : public BorderImage
 {
+<<<<<<< HEAD
     URHO_OBJECT(Window, BorderImage);
+=======
+    OBJECT(Window, BorderImage);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

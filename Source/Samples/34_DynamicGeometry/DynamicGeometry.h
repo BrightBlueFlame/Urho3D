@@ -39,7 +39,11 @@ class Scene;
 ///     - Creating a Model resource and its buffer data from scratch
 class DynamicGeometry : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(DynamicGeometry, Sample);
+=======
+    OBJECT(DynamicGeometry, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

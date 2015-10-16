@@ -35,7 +35,11 @@ class XMLFile;
 /// Message box dialog.
 class URHO3D_API MessageBox : public Object
 {
+<<<<<<< HEAD
     URHO_OBJECT(MessageBox, Object);
+=======
+    OBJECT(MessageBox, Object);
+>>>>>>> upstream/master
 
 public:
     /// Construct. If layout file is not given, use the default message box layout. If style file is not given, use the default style file from root UI element.

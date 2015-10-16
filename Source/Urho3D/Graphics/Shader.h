@@ -33,7 +33,11 @@ class ShaderVariation;
 /// %Shader resource consisting of several shader variations.
 class URHO3D_API Shader : public Resource
 {
+<<<<<<< HEAD
     URHO_OBJECT(Shader, Resource);
+=======
+    OBJECT(Shader, Resource);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

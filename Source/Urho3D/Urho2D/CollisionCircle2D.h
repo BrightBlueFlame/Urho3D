@@ -30,7 +30,11 @@ namespace Urho3D
 /// 2D circle collision component.
 class URHO3D_API CollisionCircle2D : public CollisionShape2D
 {
+<<<<<<< HEAD
     URHO_OBJECT(CollisionCircle2D, CollisionShape2D);
+=======
+    OBJECT(CollisionCircle2D, CollisionShape2D);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

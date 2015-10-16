@@ -50,7 +50,11 @@ struct FileSelectorEntry
 /// %File selector dialog.
 class URHO3D_API FileSelector : public Object
 {
+<<<<<<< HEAD
     URHO_OBJECT(FileSelector, Object);
+=======
+    OBJECT(FileSelector, Object);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

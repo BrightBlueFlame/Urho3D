@@ -40,7 +40,11 @@ class Scene;
 ///     - Handling keyboard and mouse input to move a freelook camera
 class SignedDistanceFieldText : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(SignedDistanceFieldText, Sample);
+=======
+    OBJECT(SignedDistanceFieldText, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

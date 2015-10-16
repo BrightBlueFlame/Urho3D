@@ -41,7 +41,11 @@ class Vehicle;
 ///     - Defining attributes (including node and component references) of a custom component so that it can be saved and loaded
 class VehicleDemo : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(VehicleDemo, Sample);
+=======
+    OBJECT(VehicleDemo, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

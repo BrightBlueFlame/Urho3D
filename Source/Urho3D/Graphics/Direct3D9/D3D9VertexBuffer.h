@@ -32,7 +32,11 @@ namespace Urho3D
 /// Hardware vertex buffer.
 class URHO3D_API VertexBuffer : public Object, public GPUObject
 {
+<<<<<<< HEAD
     URHO_OBJECT(VertexBuffer, Object);
+=======
+    OBJECT(VertexBuffer, Object);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

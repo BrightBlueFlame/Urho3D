@@ -41,7 +41,11 @@ class Scene;
 ///     - Displaying renderer debug geometry
 class SkeletalAnimation : public Sample
 {
+<<<<<<< HEAD
     URHO_OBJECT(SkeletalAnimation, Sample);
+=======
+    OBJECT(SkeletalAnimation, Sample);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

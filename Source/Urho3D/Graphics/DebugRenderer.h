@@ -94,7 +94,11 @@ struct DebugTriangle
 /// Debug geometry rendering component. Should be added only to the root scene node.
 class URHO3D_API DebugRenderer : public Component
 {
+<<<<<<< HEAD
     URHO_OBJECT(DebugRenderer, Component);
+=======
+    OBJECT(DebugRenderer, Component);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

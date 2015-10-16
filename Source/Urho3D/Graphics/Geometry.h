@@ -37,7 +37,11 @@ class VertexBuffer;
 /// Defines one or more vertex buffers, an index buffer and a draw range.
 class URHO3D_API Geometry : public Object
 {
+<<<<<<< HEAD
     URHO_OBJECT(Geometry, Object);
+=======
+    OBJECT(Geometry, Object);
+>>>>>>> upstream/master
 
 public:
     /// Construct with one empty vertex buffer.

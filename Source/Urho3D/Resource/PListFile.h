@@ -137,7 +137,11 @@ private:
 /// Property list (plist).
 class URHO3D_API PListFile : public Resource
 {
+<<<<<<< HEAD
     URHO_OBJECT(PListFile, Resource);
+=======
+    OBJECT(PListFile, Resource);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

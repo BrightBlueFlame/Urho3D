@@ -134,7 +134,11 @@ class EmscriptenInput;
 /// %Input subsystem. Converts operating system window messages to input state and events.
 class URHO3D_API Input : public Object
 {
+<<<<<<< HEAD
     URHO_OBJECT(Input, Object);
+=======
+    OBJECT(Input, Object);
+>>>>>>> upstream/master
 
 #ifdef __EMSCRIPTEN__
     friend class EmscriptenInput;

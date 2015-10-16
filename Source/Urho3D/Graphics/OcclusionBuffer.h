@@ -58,7 +58,11 @@ static const float OCCLUSION_Z_SCALE = 16777216.0f;
 /// Software renderer for occlusion.
 class URHO3D_API OcclusionBuffer : public Object
 {
+<<<<<<< HEAD
     URHO_OBJECT(OcclusionBuffer, Object);
+=======
+    OBJECT(OcclusionBuffer, Object);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

@@ -142,7 +142,11 @@ public:
     }
 
     /// Construct from a float array.
+<<<<<<< HEAD
     Matrix4(const float* data)
+=======
+    explicit Matrix4(const float* data)
+>>>>>>> upstream/master
 #ifndef URHO3D_SSE
        :m00_(data[0]),
         m01_(data[1]),

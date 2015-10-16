@@ -33,7 +33,11 @@ class SoundStream;
 /// %Sound resource.
 class URHO3D_API Sound : public Resource
 {
+<<<<<<< HEAD
     URHO_OBJECT(Sound, Resource);
+=======
+    OBJECT(Sound, Resource);
+>>>>>>> upstream/master
 
 public:
     /// Construct.

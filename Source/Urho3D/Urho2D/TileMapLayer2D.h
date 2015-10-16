@@ -39,7 +39,11 @@ class TmxTileLayer2D;
 /// Tile map component.
 class URHO3D_API TileMapLayer2D : public Component
 {
+<<<<<<< HEAD
     URHO_OBJECT(TileMapLayer2D, Component);
+=======
+    OBJECT(TileMapLayer2D, Component);
+>>>>>>> upstream/master
 
 public:
     /// Construct.
