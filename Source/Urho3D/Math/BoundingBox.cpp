@@ -107,14 +107,10 @@ void BoundingBox::Clip(const BoundingBox& box)
         max_.z_ = box.max_.z_;
 
     if (min_.x_ > max_.x_ || min_.y_ > max_.y_ || min_.z_ > max_.z_)
-<<<<<<< HEAD
-        defined_ = false;
-=======
     {
         min_ = Vector3(M_INFINITY, M_INFINITY, M_INFINITY);
         max_ = Vector3(-M_INFINITY, -M_INFINITY, -M_INFINITY);
     }
->>>>>>> upstream/master
 }
 
 void BoundingBox::Transform(const Matrix3& transform)

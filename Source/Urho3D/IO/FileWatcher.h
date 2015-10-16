@@ -36,11 +36,7 @@ class FileSystem;
 /// Watches a directory and its subdirectories for files being modified.
 class URHO3D_API FileWatcher : public Object, public Thread
 {
-<<<<<<< HEAD
     URHO_OBJECT(FileWatcher, Object);
-=======
-    OBJECT(FileWatcher, Object);
->>>>>>> upstream/master
 
 public:
     /// Construct.

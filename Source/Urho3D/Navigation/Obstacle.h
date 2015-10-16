@@ -33,11 +33,7 @@ class DynamicNavigationMesh;
 /// Obstacle for dynamic navigation mesh.
 class URHO3D_API Obstacle : public Component
 {
-<<<<<<< HEAD
     URHO_OBJECT(Obstacle, Component)
-=======
-    OBJECT(Obstacle, Component)
->>>>>>> upstream/master
 
     friend class DynamicNavigationMesh;
 

@@ -34,11 +34,7 @@ class Texture2D;
 /// %Image %UI element with optional border.
 class URHO3D_API BorderImage : public UIElement
 {
-<<<<<<< HEAD
     URHO_OBJECT(BorderImage, UIElement);
-=======
-    OBJECT(BorderImage, UIElement);
->>>>>>> upstream/master
 
 public:
     /// Construct.

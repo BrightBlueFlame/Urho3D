@@ -30,11 +30,7 @@ namespace Urho3D
 /// 2D friction constraint component.
 class URHO3D_API ConstraintFriction2D : public Constraint2D
 {
-<<<<<<< HEAD
     URHO_OBJECT(ConstraintFriction2D, Constraint2D);
-=======
-    OBJECT(ConstraintFriction2D, Constraint2D);
->>>>>>> upstream/master
 
 public:
     /// Construct.

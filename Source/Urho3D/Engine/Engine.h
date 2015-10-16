@@ -34,11 +34,7 @@ class DebugHud;
 /// Urho3D engine. Creates the other subsystems.
 class URHO3D_API Engine : public Object
 {
-<<<<<<< HEAD
     URHO_OBJECT(Engine, Object);
-=======
-    OBJECT(Engine, Object);
->>>>>>> upstream/master
 
 public:
     /// Construct.

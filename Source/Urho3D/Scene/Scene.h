@@ -76,11 +76,7 @@ struct AsyncProgress
 /// Root scene node, represents the whole scene.
 class URHO3D_API Scene : public Node
 {
-<<<<<<< HEAD
     URHO_OBJECT(Scene, Node);
-=======
-    OBJECT(Scene, Node);
->>>>>>> upstream/master
 
     using Node::GetComponent;
     using Node::SaveXML;

@@ -39,10 +39,7 @@ class URHO3D_API TypeInfo
 public:
     /// Construct.
     TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo);
-<<<<<<< HEAD
-=======
     /// Destruct.
->>>>>>> upstream/master
     ~TypeInfo();
 
     /// Check current type is type of specified type.
@@ -51,12 +48,9 @@ public:
     bool IsTypeOf(const TypeInfo* typeInfo) const;
     /// Check current type is type of specified class type.
     template<typename T> bool IsTypeOf() const { return IsTypeOf(T::GetTypeInfoStatic()); }
-<<<<<<< HEAD
 
 	const AttributeProperty* FindProperty(const TypeInfo* propType) const;
 	Vector<AttributeInfo*> FindAttributesWithProperty(const TypeInfo* propType) const;
-=======
->>>>>>> upstream/master
     
     /// Return type.
     StringHash GetType() const { return type_; }
@@ -64,7 +58,6 @@ public:
     const String& GetTypeName() const { return typeName_;}
     /// Return base type info.
     const TypeInfo* GetBaseTypeInfo() const { return baseTypeInfo_; }
-<<<<<<< HEAD
 
 	template<typename T> 
 	const T* FindProperty() const { return static_cast<const T*>(FindProperty(T::GetTypeInfoStatic())); }
@@ -75,10 +68,7 @@ public:
     void AddInterface(const TypeInfo* interfaceInfo);
 	void AddProperty(AttributeProperty* propertyType);
     void AddProperty(AttributeInfo* attrib, AttributeProperty* propertyType);
-
-=======
-
->>>>>>> upstream/master
+    
 private:
     /// Type.
     StringHash type_;
@@ -86,7 +76,6 @@ private:
     String typeName_;
     /// Base class type info.
     const TypeInfo* baseTypeInfo_;
-<<<<<<< HEAD
 
 	/// Properties for the whole class.
 	typedef Vector<AttributeProperty*> PropertyList;
@@ -123,20 +112,6 @@ public: \
         static const Urho3D::TypeInfo typeInfoStatic(#typeName, 0); \
         return &typeInfoStatic; \
     } \
-=======
-};
-
-#define OBJECT(typeName, baseTypeName) \
-    public: \
-        typedef typeName ClassName; \
-        typedef baseTypeName BaseClassName; \
-        virtual Urho3D::StringHash GetType() const { return GetTypeInfoStatic()->GetType(); } \
-        virtual const Urho3D::String& GetTypeName() const { return GetTypeInfoStatic()->GetTypeName(); } \
-        virtual const Urho3D::TypeInfo* GetTypeInfo() const { return GetTypeInfoStatic(); } \
-        static Urho3D::StringHash GetTypeStatic() { return GetTypeInfoStatic()->GetType(); } \
-        static const Urho3D::String& GetTypeNameStatic() { return GetTypeInfoStatic()->GetTypeName(); } \
-        static const Urho3D::TypeInfo* GetTypeInfoStatic() { static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); return &typeInfoStatic; } \
->>>>>>> upstream/master
 
 /// Base class for objects with type identification, subsystem access and event sending/receiving capability.
 class URHO3D_API Object : public RefCounted

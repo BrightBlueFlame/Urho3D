@@ -40,7 +40,6 @@ TypeInfo::TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo) :
     baseTypeInfo_(baseTypeInfo)
 {
 }
-<<<<<<< HEAD
     
 TypeInfo::~TypeInfo()
 {
@@ -56,16 +55,10 @@ TypeInfo::~TypeInfo()
             delete (*i);
         }
     }
-=======
-
-TypeInfo::~TypeInfo()
-{
->>>>>>> upstream/master
 }
 
 bool TypeInfo::IsTypeOf(StringHash type) const
 {
-<<<<<<< HEAD
     if(!interfaces_.Empty())
     {
         for(TypeInfoList::ConstIterator i=interfaces_.Begin(); i!=interfaces_.End(); ++i)
@@ -86,15 +79,6 @@ bool TypeInfo::IsTypeOf(StringHash type) const
 
             current = current->GetBaseTypeInfo();
         }
-=======
-    const TypeInfo* current = this;
-    while (current)
-    {
-        if (current->GetType() == type)
-            return true;
-
-        current = current->GetBaseTypeInfo();
->>>>>>> upstream/master
     }
 
     return false;
@@ -102,7 +86,6 @@ bool TypeInfo::IsTypeOf(StringHash type) const
 
 bool TypeInfo::IsTypeOf(const TypeInfo* typeInfo) const
 {
-<<<<<<< HEAD
     if(!interfaces_.Empty())
     {
         if(interfaces_.Find(typeInfo) != interfaces_.End())
@@ -120,21 +103,11 @@ bool TypeInfo::IsTypeOf(const TypeInfo* typeInfo) const
 
             current = current->GetBaseTypeInfo();
         }
-=======
-    const TypeInfo* current = this;
-    while (current)
-    {
-        if (current == typeInfo)
-            return true;
-
-        current = current->GetBaseTypeInfo();
->>>>>>> upstream/master
     }
 
     return false;
 }
 
-<<<<<<< HEAD
 const AttributeProperty* TypeInfo::FindProperty(const TypeInfo* propType) const
 {
 	for(PropertyList::ConstIterator propertyIter=classProperties_.Begin(); propertyIter!=classProperties_.End(); ++propertyIter)
@@ -200,8 +173,6 @@ void TypeInfo::AddProperty(AttributeInfo* attrib, AttributeProperty* prop)
 	}
 }
 
-=======
->>>>>>> upstream/master
 Object::Object(Context* context) :
     context_(context)
 {

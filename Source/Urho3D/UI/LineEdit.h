@@ -33,11 +33,7 @@ class Text;
 /// Single-line text editor %UI element.
 class URHO3D_API LineEdit : public BorderImage
 {
-<<<<<<< HEAD
     URHO_OBJECT(LineEdit, BorderImage);
-=======
-    OBJECT(LineEdit, BorderImage);
->>>>>>> upstream/master
 
 public:
     /// Construct.

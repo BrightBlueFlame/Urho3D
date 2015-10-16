@@ -44,11 +44,7 @@ enum BodyType2D
 /// 2D rigid body component.
 class URHO3D_API RigidBody2D : public Component
 {
-<<<<<<< HEAD
     URHO_OBJECT(RigidBody2D, Component);
-=======
-    OBJECT(RigidBody2D, Component);
->>>>>>> upstream/master
 
 public:
     /// Construct.

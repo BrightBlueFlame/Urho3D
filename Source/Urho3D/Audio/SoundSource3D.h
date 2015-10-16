@@ -32,11 +32,7 @@ class Audio;
 /// %Sound source component with three-dimensional position.
 class URHO3D_API SoundSource3D : public SoundSource
 {
-<<<<<<< HEAD
     URHO_OBJECT(SoundSource3D, SoundSource);
-=======
-    OBJECT(SoundSource3D, SoundSource);
->>>>>>> upstream/master
 
 public:
     /// Construct.

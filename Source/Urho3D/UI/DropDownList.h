@@ -32,11 +32,7 @@ class ListView;
 /// %Menu %UI element that displays a popup list view.
 class URHO3D_API DropDownList : public Menu
 {
-<<<<<<< HEAD
     URHO_OBJECT(DropDownList, Menu)
-=======
-    OBJECT(DropDownList, Menu)
->>>>>>> upstream/master
 
 public:
     /// Construct.

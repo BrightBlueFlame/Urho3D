@@ -33,11 +33,7 @@ namespace Urho3D
 /// Hardware index buffer.
 class URHO3D_API IndexBuffer : public Object, public GPUObject
 {
-<<<<<<< HEAD
     URHO_OBJECT(IndexBuffer, Object);
-=======
-    OBJECT(IndexBuffer, Object);
->>>>>>> upstream/master
 
 public:
     /// Construct.

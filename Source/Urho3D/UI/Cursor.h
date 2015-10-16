@@ -91,11 +91,7 @@ struct URHO3D_API CursorShapeInfo
 /// Mouse cursor %UI element.
 class URHO3D_API Cursor : public BorderImage
 {
-<<<<<<< HEAD
     URHO_OBJECT(Cursor, BorderImage);
-=======
-    OBJECT(Cursor, BorderImage);
->>>>>>> upstream/master
 
 public:
     /// Construct.

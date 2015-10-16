@@ -53,11 +53,7 @@ struct Particle
 /// %Particle emitter component.
 class URHO3D_API ParticleEmitter : public BillboardSet
 {
-<<<<<<< HEAD
     URHO_OBJECT(ParticleEmitter, BillboardSet);
-=======
-    OBJECT(ParticleEmitter, BillboardSet);
->>>>>>> upstream/master
 
 public:
     /// Construct.

@@ -104,11 +104,7 @@ enum ObserverPositionSendMode
 /// %Connection to a remote network host.
 class URHO3D_API Connection : public Object
 {
-<<<<<<< HEAD
     URHO_OBJECT(Connection, Object);
-=======
-    OBJECT(Connection, Object);
->>>>>>> upstream/master
 
 public:
     /// Construct with context and kNet message connection pointers.

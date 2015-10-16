@@ -30,11 +30,7 @@ namespace Urho3D
 /// %UI element that can be toggled between unchecked and checked state.
 class URHO3D_API CheckBox : public BorderImage
 {
-<<<<<<< HEAD
     URHO_OBJECT(CheckBox, BorderImage);
-=======
-    OBJECT(CheckBox, BorderImage);
->>>>>>> upstream/master
 
 public:
     /// Construct.

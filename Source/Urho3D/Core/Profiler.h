@@ -171,11 +171,7 @@ public:
 /// Hierarchical performance profiler subsystem.
 class URHO3D_API Profiler : public Object
 {
-<<<<<<< HEAD
     URHO_OBJECT(Profiler, Object);
-=======
-    OBJECT(Profiler, Object);
->>>>>>> upstream/master
     
 public:
     /// Construct.

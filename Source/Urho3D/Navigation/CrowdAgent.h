@@ -70,11 +70,7 @@ enum NavigationPushiness
 /// Crowd agent component, requires a CrowdManager component in the scene. When not set explicitly, agent's radius and height are defaulted to navigation mesh's agent radius and height, respectively.
 class URHO3D_API CrowdAgent : public Component
 {
-<<<<<<< HEAD
     URHO_OBJECT(CrowdAgent, Component);
-=======
-    OBJECT(CrowdAgent, Component);
->>>>>>> upstream/master
 
     friend class CrowdManager;
     friend void CrowdAgentUpdateCallback(dtCrowdAgent* ag, float dt);

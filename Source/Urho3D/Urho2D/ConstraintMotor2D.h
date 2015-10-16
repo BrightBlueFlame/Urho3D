@@ -30,11 +30,7 @@ namespace Urho3D
 /// 2D motor constraint component.
 class URHO3D_API ConstraintMotor2D : public Constraint2D
 {
-<<<<<<< HEAD
     URHO_OBJECT(ConstraintMotor2D, Constraint2D);
-=======
-    OBJECT(ConstraintMotor2D, Constraint2D);
->>>>>>> upstream/master
 
 public:
     /// Construct.

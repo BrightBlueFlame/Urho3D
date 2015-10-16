@@ -45,11 +45,7 @@ enum FONT_TYPE
 /// %Font resource.
 class URHO3D_API Font : public Resource
 {
-<<<<<<< HEAD
     URHO_OBJECT(Font, Resource);
-=======
-    OBJECT(Font, Resource);
->>>>>>> upstream/master
 
 public:
     /// Construct.

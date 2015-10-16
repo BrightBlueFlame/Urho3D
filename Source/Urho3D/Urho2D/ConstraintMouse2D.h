@@ -30,11 +30,7 @@ namespace Urho3D
 /// 2D mouse constraint component.
 class URHO3D_API ConstraintMouse2D : public Constraint2D
 {
-<<<<<<< HEAD
     URHO_OBJECT(ConstraintMouse2D, Constraint2D);
-=======
-    OBJECT(ConstraintMouse2D, Constraint2D);
->>>>>>> upstream/master
 
 public:
     /// Construct.

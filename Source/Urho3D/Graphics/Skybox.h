@@ -30,11 +30,7 @@ namespace Urho3D
 /// Static model component with fixed position in relation to the camera.
 class URHO3D_API Skybox : public StaticModel
 {
-<<<<<<< HEAD
     URHO_OBJECT(Skybox, StaticModel);
-=======
-    OBJECT(Skybox, StaticModel);
->>>>>>> upstream/master
 
 public:
     /// Construct.

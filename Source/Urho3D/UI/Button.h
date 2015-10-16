@@ -30,11 +30,7 @@ namespace Urho3D
 /// Push button %UI element.
 class URHO3D_API Button : public BorderImage
 {
-<<<<<<< HEAD
     URHO_OBJECT(Button, BorderImage);
-=======
-    OBJECT(Button, BorderImage);
->>>>>>> upstream/master
 
 public:
     /// Construct.

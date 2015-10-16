@@ -35,11 +35,7 @@ class AnimationState;
 /// Animated model component.
 class URHO3D_API AnimatedModel : public StaticModel
 {
-<<<<<<< HEAD
     URHO_OBJECT(AnimatedModel, StaticModel);
-=======
-    OBJECT(AnimatedModel, StaticModel);
->>>>>>> upstream/master
 
     friend class AnimationState;
 

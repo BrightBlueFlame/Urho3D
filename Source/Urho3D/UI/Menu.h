@@ -30,11 +30,7 @@ namespace Urho3D
 /// %Menu %UI element that optionally shows a popup.
 class URHO3D_API Menu : public Button
 {
-<<<<<<< HEAD
     URHO_OBJECT(Menu, Button);
-=======
-    OBJECT(Menu, Button);
->>>>>>> upstream/master
 
     using UIElement::LoadXML;
 

@@ -34,11 +34,7 @@ class RigidBody2D;
 /// 2D collision shape component.
 class URHO3D_API CollisionShape2D : public Component
 {
-<<<<<<< HEAD
     URHO_OBJECT(CollisionShape2D, Component);
-=======
-    OBJECT(CollisionShape2D, Component);
->>>>>>> upstream/master
 
 public:
     /// Construct.

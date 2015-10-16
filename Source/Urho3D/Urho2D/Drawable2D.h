@@ -63,11 +63,7 @@ extern URHO3D_API const float PIXEL_SIZE;
 /// Base class for 2D visible components.
 class URHO3D_API Drawable2D : public Drawable
 {
-<<<<<<< HEAD
     URHO_OBJECT(Drawable2D, Drawable);
-=======
-    OBJECT(Drawable2D, Drawable);
->>>>>>> upstream/master
 
 public:
     /// Construct.

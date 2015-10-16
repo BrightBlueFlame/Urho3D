@@ -30,11 +30,7 @@ namespace Urho3D
 /// %Sound listener component
 class URHO3D_API SoundListener : public Component
 {
-<<<<<<< HEAD
     URHO_OBJECT(SoundListener, Component);
-=======
-    OBJECT(SoundListener, Component);
->>>>>>> upstream/master
 
 public:
     /// Construct.

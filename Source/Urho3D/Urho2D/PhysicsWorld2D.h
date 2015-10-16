@@ -60,11 +60,7 @@ struct URHO3D_API PhysicsRaycastResult2D
 /// 2D physics simulation world component. Should be added only to the root scene node.
 class URHO3D_API PhysicsWorld2D : public Component, public b2ContactListener, public b2Draw
 {
-<<<<<<< HEAD
     URHO_OBJECT(PhysicsWorld2D, Component);
-=======
-    OBJECT(PhysicsWorld2D, Component);
->>>>>>> upstream/master
 
 public:
     /// Construct.

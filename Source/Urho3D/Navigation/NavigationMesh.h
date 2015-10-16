@@ -68,11 +68,7 @@ struct NavigationGeometryInfo
 /// Navigation mesh component. Collects the navigation geometry from child nodes with the Navigable component and responds to path queries.
 class URHO3D_API NavigationMesh : public Component
 {
-<<<<<<< HEAD
     URHO_OBJECT(NavigationMesh, Component);
-=======
-    OBJECT(NavigationMesh, Component);
->>>>>>> upstream/master
 
     friend class CrowdManager;
 

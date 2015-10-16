@@ -112,11 +112,7 @@ class URHO3D_API View : public Object
     friend void CheckVisibilityWork(const WorkItem* item, unsigned threadIndex);
     friend void ProcessLightWork(const WorkItem* item, unsigned threadIndex);
 
-<<<<<<< HEAD
     URHO_OBJECT(View, Object);
-=======
-    OBJECT(View, Object);
->>>>>>> upstream/master
 
 public:
     /// Construct.

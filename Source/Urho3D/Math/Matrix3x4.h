@@ -25,11 +25,9 @@
 #include "../Math/Matrix4.h"
 
 #ifdef URHO3D_SSE
-<<<<<<< HEAD
-#include <xmmintrin.h>
-=======
+
 #include <emmintrin.h>
->>>>>>> upstream/master
+
 #endif
 
 namespace Urho3D
@@ -148,11 +146,7 @@ public:
     }
 
     /// Construct from a float array.
-<<<<<<< HEAD
-    Matrix3x4(const float* data)
-=======
     explicit Matrix3x4(const float* data)
->>>>>>> upstream/master
 #ifndef URHO3D_SSE
        :m00_(data[0]),
         m01_(data[1]),
