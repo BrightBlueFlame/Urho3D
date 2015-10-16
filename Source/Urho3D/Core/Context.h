@@ -42,6 +42,10 @@ public:
 
     /// Create an object by type hash. Return pointer to it or null if no factory found.
     SharedPtr<Object> CreateObject(StringHash objectType);
+
+	template <class T>
+	SharedPtr<T> CreateObject() { return TypeInfoCast<T>(CreateObject(T::GetTypeStatic())); }
+
     /// Register a factory for an object type.
     void RegisterFactory(ObjectFactory* factory);
     /// Register a factory for an object type and specify the object category.

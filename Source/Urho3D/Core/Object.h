@@ -360,23 +360,33 @@ private:
 };
 
 template <class T>
-T TypeInfoCast(Object* obj)
+T* TypeInfoCast(Object* obj)
 {
-    if(obj->IsTypeOf<T>())
+    if(obj->IsInstanceOf<T>())
     {
-        return static_cast<T>(obj);
+        return static_cast<T*>(obj);
     }
     return 0;
 }
     
 template <class T>
-T TypeInfoCast(const Object* obj)
+const T* TypeInfoCast(const Object* obj)
 {
-    if(obj->IsTypeOf<T>())
+    if(obj->IsInstanceOf<T>())
     {
-        return static_cast<T>(obj);
+        return static_cast<const T*>(obj);
     }
     return 0;
+}
+
+template <class T>
+SharedPtr<T> TypeInfoCast(const SharedPtr<Object>& obj)
+{
+    if(obj->IsInstanceOf<T>())
+    {
+        return StaticCast<T, Object>(obj);
+    }
+    return SharedPtr<T>(0);
 }
     
 /// Describe an event's hash ID and begin a namespace in which to define its parameters.
@@ -385,6 +395,7 @@ T TypeInfoCast(const Object* obj)
 #define PARAM(paramID, paramName) static const Urho3D::StringHash paramID(#paramName)
 /// Convenience macro to construct an EventHandler that points to a receiver object and its member function.
 #define HANDLER(className, function) (new Urho3D::EventHandlerImpl<className>(this, &className::function))
+#define URHO_HANDLER(function) (new Urho3D::EventHandlerImpl<className>(this, function))
 /// Convenience macro to construct an EventHandler that points to a receiver object and its member function, and also defines a userdata pointer.
 #define HANDLER_USERDATA(className, function, userData) (new Urho3D::EventHandlerImpl<className>(this, &className::function, userData))
 
