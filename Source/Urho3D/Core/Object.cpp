@@ -40,20 +40,45 @@ TypeInfo::TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo) :
     baseTypeInfo_(baseTypeInfo)
 {
 }
-
+    
 TypeInfo::~TypeInfo()
 {
+    for(PropertyList::Iterator i=classProperties_.Begin(); i!=classProperties_.End(); ++i)
+    {
+        delete (*i);
+    }
+    
+    for(PropertyMap::Iterator attribItr=properties_.Begin(); attribItr!=properties_.End(); ++attribItr)
+    {
+        for(PropertyList::Iterator i=(*attribItr).second_.Begin(); i!=(*attribItr).second_.End(); ++i)
+        {
+            delete (*i);
+        }
+    }
 }
 
 bool TypeInfo::IsTypeOf(StringHash type) const
 {
-    const TypeInfo* current = this;
-    while (current)
+    if(!interfaces_.Empty())
     {
-        if (current->GetType() == type)
-            return true;
+        for(TypeInfoList::ConstIterator i=interfaces_.Begin(); i!=interfaces_.End(); ++i)
+        {
+            if((*i)->GetType() == type)
+            {
+                return true;
+            }
+        }
+    }
+    if(baseTypeInfo_ != 0)
+    {
+        const TypeInfo* current = this;
+        while (current)
+        {
+            if (current->GetType() == type)
+                return true;
 
-        current = current->GetBaseTypeInfo();
+            current = current->GetBaseTypeInfo();
+        }
     }
 
     return false;
@@ -61,13 +86,23 @@ bool TypeInfo::IsTypeOf(StringHash type) const
 
 bool TypeInfo::IsTypeOf(const TypeInfo* typeInfo) const
 {
-    const TypeInfo* current = this;
-    while (current)
+    if(!interfaces_.Empty())
     {
-        if (current == typeInfo)
+        if(interfaces_.Find(typeInfo) != interfaces_.End())
+        {
             return true;
+        }
+    }
+    if(baseTypeInfo_ != 0)
+    {
+        const TypeInfo* current = this;
+        while (current)
+        {
+            if (current == typeInfo)
+                return true;
 
-        current = current->GetBaseTypeInfo();
+            current = current->GetBaseTypeInfo();
+        }
     }
 
     return false;
@@ -79,7 +114,7 @@ const AttributeProperty* TypeInfo::FindProperty(const TypeInfo* propType) const
 	{
 		if((*propertyIter)->GetTypeInfo()->IsTypeOf(propType))
 		{
-			return (*propertyIter).Get();
+			return (*propertyIter);
 		}
 	}
 	return 0;
@@ -108,7 +143,7 @@ void TypeInfo::AddInterface(const TypeInfo* interfaceInfo)
     interfaces_.Push(interfaceInfo);
 }
 
-void TypeInfo::AddProperty(SharedPtr<AttributeProperty> prop)
+void TypeInfo::AddProperty(AttributeProperty* prop)
 {
 	if(prop->IsInstanceOf<AttributeProperty>())
 	{
@@ -123,7 +158,7 @@ void TypeInfo::AddProperty(SharedPtr<AttributeProperty> prop)
 	}
 }
 
-void TypeInfo::AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> prop)
+void TypeInfo::AddProperty(AttributeInfo* attrib, AttributeProperty* prop)
 {
 	if(prop->IsInstanceOf<AttributeProperty>())
 	{

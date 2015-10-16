@@ -39,17 +39,19 @@
 
 #include <cstdio>
 
+#define URHO_REGISTER_DECLARE \
+    public: \
+        static void RegisterObject(Urho3D::Context* context); \
+        static void DefineMyAttributes(Urho3D::ClassConstructor<ClassName>& Definition); \
+
 #define URHO_REGISTER_OBJECT(typeName) \
-	namespace typeName##_NAMESPACE { \
-		void typeName##_DefineAttributes(Urho3D::ClassConstructor<typeName>& cc); \
-	}\
 	void typeName::RegisterObject(Urho3D::Context* context) \
 	{ \
 		const Urho3D::TypeInfo* typeInfo = typeName::GetTypeInfoStatic(); \
 		Urho3D::ClassConstructor<typeName> cc(context, const_cast<Urho3D::TypeInfo*>(typeInfo)); \
-		typeName##_NAMESPACE::typeName##_DefineAttributes(cc); \
+        typeName::DefineMyAttributes(cc); \
 	} \
-	void typeName##_NAMESPACE::typeName##_DefineAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
+    void typeName::DefineMyAttributes(Urho3D::ClassConstructor<typeName>& Definition) \
 
 namespace Urho3D
 {
@@ -64,6 +66,9 @@ public:
 
 	template <class U>
 	ClassConstructor<T>& Implements();
+    
+    template <class U>
+    ClassConstructor<T>& CopyBase();
 
 	ClassConstructor<T>& Factory();
 	ClassConstructor<T>& Factory(const char* category);
@@ -113,6 +118,14 @@ ClassConstructor<T>& ClassConstructor<T>::Implements()
 {
 	typeInfo_->AddInterface(U::GetInterfaceTypeInfoStatic());
 	return *this;
+}
+    
+template <class T>
+template <class U>
+ClassConstructor<T>& ClassConstructor<T>::CopyBase()
+{
+    context_->CopyBaseAttributes<T,U>();
+    return *this;
 }
 
 template <class T>

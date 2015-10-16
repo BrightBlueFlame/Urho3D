@@ -39,7 +39,6 @@ class URHO3D_API TypeInfo
 public:
     /// Construct.
     TypeInfo(const char* typeName, const TypeInfo* baseTypeInfo);
-    /// Destruct.
     ~TypeInfo();
 
     /// Check current type is type of specified type.
@@ -66,8 +65,8 @@ public:
 	Vector<AttributeInfo*> FindAttributesWithProperty() const { return FindAttributesWithProperty(T::GetTypeInfoStatic()); }
 
     void AddInterface(const TypeInfo* interfaceInfo);
-	void AddProperty(SharedPtr<AttributeProperty> propertyType);
-    void AddProperty(AttributeInfo* attrib, SharedPtr<AttributeProperty> propertyType);
+	void AddProperty(AttributeProperty* propertyType);
+    void AddProperty(AttributeInfo* attrib, AttributeProperty* propertyType);
 
 private:
     /// Type.
@@ -78,7 +77,7 @@ private:
     const TypeInfo* baseTypeInfo_;
 
 	/// Properties for the whole class.
-	typedef Vector<SharedPtr<AttributeProperty> > PropertyList;
+	typedef Vector<AttributeProperty*> PropertyList;
     PropertyList classProperties_;
     
     /// The properties for each attribute.
@@ -86,7 +85,8 @@ private:
     PropertyMap properties_;
     
     /// Interfaces that this class implements.
-    Vector<const TypeInfo*> interfaces_;
+    typedef Vector<const TypeInfo*> TypeInfoList;
+    TypeInfoList interfaces_;
 };
 
 #define URHO_OBJECT(typeName, baseTypeName) \
@@ -105,10 +105,10 @@ private:
     
 #define URHO_INTERFACE(typeName) \
 public: \
-    static Urho3D::StringHash GetInterfaceTypeStatic() { return typeName::GetTypeInfoStatic()->GetType(); } \
-    static const Urho3D::String& GetInterfaceTypeNameStatic() { return typeName::GetTypeInfoStatic()->GetTypeName(); } \
+    static Urho3D::StringHash GetInterfaceTypeStatic() { return typeName::GetInterfaceTypeInfoStatic()->GetType(); } \
+    static const Urho3D::String& GetInterfaceTypeNameStatic() { return typeName::GetInterfaceTypeInfoStatic()->GetTypeName(); } \
     static const Urho3D::TypeInfo* GetInterfaceTypeInfoStatic() { \
-        static const Urho3D::TypeInfo typeInfoStatic(#typeName, BaseClassName::GetTypeInfoStatic()); \
+        static const Urho3D::TypeInfo typeInfoStatic(#typeName, 0); \
         return &typeInfoStatic; \
     } \
 
