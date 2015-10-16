@@ -27,7 +27,6 @@
 #include "../Core/Context.h"
 #include "../Core/Object.h"
 #include "../Core/Attribute.h"
-#include "../Core/ClassDef.h"
 
 #include "../Scene/Serializable.h"
 
@@ -89,7 +88,7 @@ public:
 
     ClassConstructor<T>& UpdateDefault(const char* name, const Variant& newValue);
 
-	ClassConstructor<T>& operator[](SharedPtr<AttributeProperty> property);
+	ClassConstructor<T>& operator[](AttributeProperty* property);
 
     Context* GetContext() const { return context_; }
 
@@ -193,7 +192,7 @@ ClassConstructor<T>& ClassConstructor<T>::UpdateDefault(const char* name, const 
 }
 
 template <class T>
-ClassConstructor<T>& ClassConstructor<T>::operator[](SharedPtr<AttributeProperty> property)
+ClassConstructor<T>& ClassConstructor<T>::operator[](AttributeProperty* property)
 {
 	if(!lastAttribute_)
 		typeInfo_->AddProperty(property);
