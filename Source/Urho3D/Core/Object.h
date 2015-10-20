@@ -364,7 +364,7 @@ T* TypeInfoCast(Object* obj)
 {
     if(obj->IsInstanceOf<T>())
     {
-        return static_cast<T*>(obj);
+        return dynamic_cast<T*>(obj);
     }
     return 0;
 }
@@ -374,7 +374,7 @@ const T* TypeInfoCast(const Object* obj)
 {
     if(obj->IsInstanceOf<T>())
     {
-        return static_cast<const T*>(obj);
+        return dynamic_cast<const T*>(obj);
     }
     return 0;
 }
@@ -384,7 +384,7 @@ SharedPtr<T> TypeInfoCast(const SharedPtr<Object>& obj)
 {
     if(obj->IsInstanceOf<T>())
     {
-        return StaticCast<T, Object>(obj);
+        return DynamicCast<T, Object>(obj);
     }
     return SharedPtr<T>(0);
 }
