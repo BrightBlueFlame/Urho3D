@@ -52,11 +52,7 @@ namespace Urho3D
 ///     - Setting the background color for the scene
 class Urho2DConstraints : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Urho2DConstraints, Sample);
-=======
-    OBJECT(Urho2DConstraints, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(Urho2DConstraints, Sample);
 
 public:
     /// Construct.

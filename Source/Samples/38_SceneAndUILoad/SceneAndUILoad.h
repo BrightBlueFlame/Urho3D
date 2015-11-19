@@ -40,11 +40,7 @@ class Scene;
 ///      - Subscribing to the UI layout's events
 class SceneAndUILoad : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(SceneAndUILoad, Sample);
-=======
-    OBJECT(SceneAndUILoad, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(SceneAndUILoad, Sample);
 
 public:
     /// Construct.

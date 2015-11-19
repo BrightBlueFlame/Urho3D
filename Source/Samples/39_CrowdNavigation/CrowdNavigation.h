@@ -45,11 +45,7 @@ class Scene;
 ///     - Using agents to simulate moving obstacles
 class CrowdNavigation : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(CrowdNavigation, Sample);
-=======
-    OBJECT(CrowdNavigation, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(CrowdNavigation, Sample);
 
 public:
     /// Construct.
@@ -78,7 +74,7 @@ protected:
         "                <attribute name=\"Horiz Alignment\" value=\"Center\" />"
         "                <attribute name=\"Vert Alignment\" value=\"Center\" />"
         "                <attribute name=\"Color\" value=\"0 0 0 1\" />"
-        "                <attribute name=\"Text\" value=\"Teleport\" />"
+        "                <attribute name=\"Text\" value=\"Spawn\" />"
         "            </element>"
         "            <element type=\"Text\">"
         "                <attribute name=\"Name\" value=\"KeyBinding\" />"

@@ -49,11 +49,7 @@ const float MAX_WHEEL_ANGLE = 22.5f;
 /// Vehicle component, responsible for physical movement according to controls.
 class Vehicle : public LogicComponent
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Vehicle, LogicComponent)
-=======
-    OBJECT(Vehicle, LogicComponent)
->>>>>>> upstream/master
+    URHO3D_OBJECT(Vehicle, LogicComponent)
 
 public:
     /// Construct.

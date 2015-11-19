@@ -39,11 +39,7 @@ class Scene;
 ///     - Handling keyboard and mouse input to move a freelook camera
 class StaticScene : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(StaticScene, Sample);
-=======
-    OBJECT(StaticScene, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(StaticScene, Sample);
 
 public:
     /// Construct.

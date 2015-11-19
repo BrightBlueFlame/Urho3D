@@ -35,7 +35,7 @@ class XMLFile;
 /// 2D texture resource.
 class URHO3D_API Texture2D : public Texture
 {
-    URHO_OBJECT(Texture2D, Texture);
+    URHO3D_OBJECT(Texture2D, Texture);
 
 public:
     /// Construct.

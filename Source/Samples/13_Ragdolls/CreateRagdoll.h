@@ -30,11 +30,7 @@ using namespace Urho3D;
 /// Custom component that creates a ragdoll upon collision.
 class CreateRagdoll : public Component
 {
-<<<<<<< HEAD
-    URHO_OBJECT(CreateRagdoll, Component);
-=======
-    OBJECT(CreateRagdoll, Component);
->>>>>>> upstream/master
+    URHO3D_OBJECT(CreateRagdoll, Component);
     
 public:
     /// Construct.

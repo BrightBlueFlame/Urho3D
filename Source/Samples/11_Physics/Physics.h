@@ -40,11 +40,7 @@ class Scene;
 ///     - Saving a scene to a file and loading it to restore a previous state
 class Physics : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Physics, Sample);
-=======
-    OBJECT(Physics, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(Physics, Sample);
 
 public:
     /// Construct.

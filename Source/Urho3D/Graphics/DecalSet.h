@@ -104,7 +104,7 @@ struct Decal
 /// %Decal renderer component.
 class URHO3D_API DecalSet : public Drawable
 {
-    URHO_OBJECT(DecalSet, Drawable);
+    URHO3D_OBJECT(DecalSet, Drawable);
 
 public:
     /// Construct.

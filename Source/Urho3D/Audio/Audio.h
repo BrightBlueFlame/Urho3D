@@ -38,7 +38,7 @@ class SoundSource;
 /// %Audio subsystem.
 class URHO3D_API Audio : public Object
 {
-    URHO_OBJECT(Audio, Object);
+    URHO3D_OBJECT(Audio, Object);
 
 public:
     /// Construct.

@@ -38,11 +38,7 @@ class Scene;
 ///     - Adding post processing effects to a viewport's render path and toggling them
 class MultipleViewports : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(MultipleViewports, Sample);
-=======
-    OBJECT(MultipleViewports, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(MultipleViewports, Sample);
 
 public:
     /// Construct.

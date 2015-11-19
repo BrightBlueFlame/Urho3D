@@ -41,11 +41,7 @@ class Scene;
 ///     - Displaying renderer debug geometry to see the effect of occlusion
 class Decals : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Decals, Sample);
-=======
-    OBJECT(Decals, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(Decals, Sample);
 
 public:
     /// Construct.

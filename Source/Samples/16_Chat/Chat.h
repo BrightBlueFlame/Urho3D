@@ -40,11 +40,7 @@ class UIElement;
 ///     - Implementing simple chat functionality with network messages
 class Chat : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Chat, Sample);
-=======
-    OBJECT(Chat, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(Chat, Sample);
 
 public:
     /// Construct.

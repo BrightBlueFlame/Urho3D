@@ -29,12 +29,8 @@ using namespace Urho3D;
 /// Custom logic component for moving the animated model and rotating at area edges.
 class Mover : public LogicComponent
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Mover, LogicComponent);
-=======
-    OBJECT(Mover, LogicComponent);
->>>>>>> upstream/master
-    
+    URHO3D_OBJECT(Mover, LogicComponent);
+
 public:
     /// Construct.
     Mover(Context* context);

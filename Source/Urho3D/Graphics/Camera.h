@@ -43,7 +43,7 @@ static const unsigned VO_DISABLE_OCCLUSION = 0x4;
 /// %Camera component.
 class URHO3D_API Camera : public Component
 {
-    URHO_OBJECT(Camera, Component);
+    URHO3D_OBJECT(Camera, Component);
 
 public:
     /// Construct.

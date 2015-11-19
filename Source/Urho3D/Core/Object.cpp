@@ -154,7 +154,7 @@ void TypeInfo::AddProperty(AttributeProperty* prop)
 	}
 	else
 	{
-		LOGERRORF("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
+		URHO3D_LOGERRORF("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
 	}
 }
 
@@ -169,7 +169,7 @@ void TypeInfo::AddProperty(AttributeInfo* attrib, AttributeProperty* prop)
 	}
 	else
 	{
-		LOGERRORF("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
+		URHO3D_LOGERRORF("Can not add non-property instance to property list of type %s to typeinfo of %s", prop->GetTypeName().CString(), typeName_.CString());
 	}
 }
 
@@ -389,7 +389,7 @@ void Object::SendEvent(StringHash eventType, VariantMap& eventData)
 {
     if (!Thread::IsMainThread())
     {
-        LOGERROR("Sending events is only supported from the main thread");
+        URHO3D_LOGERROR("Sending events is only supported from the main thread");
         return;
     }
 

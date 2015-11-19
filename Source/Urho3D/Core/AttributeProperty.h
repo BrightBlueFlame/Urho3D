@@ -30,7 +30,7 @@ namespace Urho3D
 
 class AttributeProperty : public Object
 {
-	URHO_OBJECT(AttributeProperty, Object);
+	URHO3D_OBJECT(AttributeProperty, Object);
 
 public:
 	AttributeProperty(Context* context);
@@ -41,7 +41,7 @@ private:
 
 class EasyStringProperty : public AttributeProperty
 {
-	URHO_OBJECT(EasyStringProperty, AttributeProperty);
+	URHO3D_OBJECT(EasyStringProperty, AttributeProperty);
 
 public:
 	EasyStringProperty(Context* context,const String& value);

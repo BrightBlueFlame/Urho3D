@@ -43,11 +43,7 @@ class UIElement;
 ///     - Controlling a physics object's movement by applying forces
 class SceneReplication : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(SceneReplication, Sample);
-=======
-    OBJECT(SceneReplication, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(SceneReplication, Sample);
 
 public:
     /// Construct.

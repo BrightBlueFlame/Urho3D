@@ -40,11 +40,7 @@ class Scene;
 ///     - Setting up a second camera to render reflections on the water surface
 class Water : public Sample
 {
-<<<<<<< HEAD
-    URHO_OBJECT(Water, Sample);
-=======
-    OBJECT(Water, Sample);
->>>>>>> upstream/master
+    URHO3D_OBJECT(Water, Sample);
 
 public:
     /// Construct.
